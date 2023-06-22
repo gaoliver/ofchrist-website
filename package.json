@@ -7,7 +7,7 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "predeploy": "ng build --prod --base-href 'https://gaoliver.github.io/ofchrist-website/'",
+    "predeploy": "ng build --base-href 'https://gaoliver.github.io/ofchrist-website/'",
     "deploy": "npx angular-cli-ghpages --dir=dist/ofchrist-website"
   },
   "private": true,

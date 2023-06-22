@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { pageRoutes } from 'src/app/app-routing.module';
+import { env } from 'src/environments/environment';
 
 @Component({
   selector: '[app-header]',
@@ -7,7 +8,7 @@ import { pageRoutes } from 'src/app/app-routing.module';
   styleUrls: ['./header.component.scss'],
 })
 export class HeaderComponent implements OnInit {
-  logoImage = '../../../../assets/images/ofchrist-logo.png';
+  logoImage = `${env.baseUrl}/assets/images/ofchrist-logo.png`;
   pageList = pageRoutes;
 
   ngOnInit() {
