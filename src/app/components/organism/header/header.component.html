@@ -1,0 +1,17 @@
+<div class="header-logo">
+  <img
+    src="{{ logoImage }}"
+    alt="Of Christ logo"
+    srcset="Of Christ logo"
+    width="190px"
+    (click)="navigateHome()"
+  />
+</div>
+
+<nav class="main-navigation">
+  <ul>
+    <li *ngFor="let page of pageList">
+      <a href="{{page.path}}">{{page.data?.['label']}}</a>
+    </li>
+  </ul>
+</nav>
