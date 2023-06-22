@@ -23,6 +23,6 @@ export class HeaderComponent implements OnInit {
   }
 
   navigateHome() {
-    window.location.pathname = '/';
+    window.location.href = env.baseUrl;
   }
 }
