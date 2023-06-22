@@ -5,12 +5,13 @@ import { ContactComponent } from './pages/contact/contact.component';
 import { HomeComponent } from './pages/home/home.component';
 import { MusicComponent } from './pages/music/music.component';
 import { NewsComponent } from './pages/news/news.component';
+import { ShowsComponent } from './pages/shows/shows.component';
 
 export const pageRoutes: Routes = [
   {
     path: 'shows',
     title: 'Of Christ | Shows',
-    component: NewsComponent,
+    component: ShowsComponent,
     data: {
       label: 'Shows'
     }

@@ -1,13 +1,19 @@
 :host {
+  display: flex;
+  justify-content: center;
   position: sticky;
   top: 0;
   z-index: 100;
+}
+
+.header-content {
   display: flex;
   height: 70px;
   width: 100%;
   box-sizing: border-box;
-  padding: var(--spacing) var(--spacing-content);
+  padding: var(--spacing);
   transition: ease-in-out 1s;
+  max-width: var(--width-content);
 
   color: var(--color-white);
 }

@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'app-music',
+  selector: 'main[app-music].page-container',
   templateUrl: './music.component.html',
   styleUrls: ['./music.component.scss']
 })

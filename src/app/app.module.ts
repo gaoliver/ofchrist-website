@@ -11,6 +11,7 @@ import { NewsComponent } from './pages/news/news.component';
 import { ContactComponent } from './pages/contact/contact.component';
 import { MusicComponent } from './pages/music/music.component';
 import { ShowsComponent } from './pages/shows/shows.component';
+import { PageContentComponent } from './components/atoms/page-content/page-content.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { ShowsComponent } from './pages/shows/shows.component';
     ContactComponent,
     MusicComponent,
     ShowsComponent,
+    PageContentComponent,
   ],
   imports: [
     BrowserModule,
