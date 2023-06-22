@@ -5,10 +5,9 @@
 
 @keyframes backgroundAnimation {
   from {
-    object-position: 0 0;
+    opacity: 0;
   }
   to {
-    object-position: 0 60%;
     opacity: 0.8;
   }
 }
@@ -23,7 +22,6 @@
   object-position: 0 0;
   filter: contrast(1.2) grayscale(0.8);
   opacity: 0;
-  animation: backgroundAnimation 2s;
-  animation-delay: 500ms;
+  animation: backgroundAnimation 5s;
   animation-fill-mode: forwards;
 }
