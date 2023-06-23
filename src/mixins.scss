@@ -1,0 +1,25 @@
+@mixin inline-list-with-separator-bar {
+  &::after {
+    content: '|';
+    margin: 0 var(--spacing);
+  }
+
+  &:last-child {
+    &::after {
+      display: none;
+    }
+  }
+}
+
+@mixin inline-list-with-separator-dot {
+  &::after {
+    content: '•';
+    margin: 0 var(--spacing);
+  }
+
+  &:last-child {
+    &::after {
+      display: none;
+    }
+  }
+}

@@ -2,7 +2,11 @@ export enum Icons {
   'instagram',
   'youtube',
   'facebook',
-  'tiktok'
+  'tiktok',
+  'spotify',
+  'deezer',
+  'apple-music',
+  'youtube-music'
 }
 
 export type IconOptions = keyof typeof Icons

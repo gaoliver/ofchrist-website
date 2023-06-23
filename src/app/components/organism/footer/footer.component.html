@@ -1,15 +1,24 @@
 <div class="footer-content">
-  <div class="footer-centered-list social-networks">
-    <ul>
+  <div class="footer-centered-list">
+    <ul class="footer-social-networks">
       <li *ngFor="let social of socialNetworks">
         <a href="{{ social.href }}" target="_blank">
           <mat-icon svgIcon="{{ social.icon }}"></mat-icon>
         </a>
       </li>
     </ul>
+    <span>•</span>
+    <ul class="footer-streaming-platforms">
+      <li *ngFor="let platform of streamingPlatforms">
+        <a href="{{ platform.href }}" target="_blank">
+          <mat-icon svgIcon="{{ platform.icon }}"></mat-icon>
+        </a>
+      </li>
+    </ul>
   </div>
-  <div class="footer-centered-list first-line">
-    <ul>
+  <div class="footer-centered-list">
+    <ul class="footer-list-row">
+      <li><a href="http://">Ouça agora no Spotify</a></li>
       <li>Todos os direitos reservados</li>
       <li>&copy; {{ currYear }} Of Christ</li>
     </ul>
