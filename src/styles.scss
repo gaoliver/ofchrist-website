@@ -89,6 +89,7 @@ h1 {
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding-bottom: var(--spacing-xx-large);
 }
 
 html, body { height: 100%; }
