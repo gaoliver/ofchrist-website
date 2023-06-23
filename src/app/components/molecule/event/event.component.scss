@@ -1,0 +1,60 @@
+:host {
+  display: flex;
+  width: fit-content;
+}
+
+.event-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  height: 270px;
+  width: 230px;
+  padding: var(--spacing-medium);
+  box-sizing: border-box;
+  opacity: 0.8;
+  transition: ease-in-out 200ms;
+
+  &:hover {
+    opacity: 1;
+  }
+
+  footer {
+    display: flex;
+    width: 100%;
+    margin-top: auto;
+  }
+}
+
+.event-date {
+  margin: 0;
+}
+
+.event-location {
+  margin: 0;
+}
+
+.event-info {
+  margin: 0;
+
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+}
+
+.event-cta {
+  width: 100%;
+  padding: var(--spacing) 0;
+  border: solid 2px var(--color-white);
+
+  text-align: center;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-weight: bold;
+
+  &:hover {
+    border-color: var(--color-primary);
+  }
+}

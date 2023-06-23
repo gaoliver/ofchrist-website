@@ -16,6 +16,7 @@ import { FooterComponent } from './components/organism/footer/footer.component';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { MatIconModule } from '@angular/material/icon';
 import { HttpClientModule } from '@angular/common/http';
+import { EventComponent } from './components/molecule/event/event.component';
 
 @NgModule({
   declarations: [
@@ -30,6 +31,7 @@ import { HttpClientModule } from '@angular/common/http';
     ShowsComponent,
     PageContentComponent,
     FooterComponent,
+    EventComponent,
   ],
   imports: [
     BrowserModule,

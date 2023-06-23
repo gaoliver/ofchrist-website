@@ -1,0 +1,10 @@
+.events-container {
+  display: grid;
+  grid-template-columns: auto auto auto auto;
+  row-gap: var(--spacing-large);
+  width: 100%;
+
+  app-event {
+    margin: auto;
+  }
+}
