@@ -20,7 +20,8 @@
             class="submenu-background-img"
           />
           <li *ngFor="let subpage of page.data.submenu?.subpages">
-            <a href="/{{ subpage.slug }}">{{ subpage.label }}</a>
+            <!-- <a href="/{{ subpage.slug }}">{{ subpage.label }}</a> -->
+            <a href="{{baseUrl}}/a-banda">{{ subpage.label }}</a>
           </li>
         </ul>
       </li>

@@ -11,6 +11,9 @@ export class HeaderComponent implements OnInit {
   logoImage = `${env.baseUrl}/assets/images/ofchrist-logo.png`;
   pageList = pageRoutes;
 
+  // Temporary variable - must delete later
+  baseUrl = env.baseUrl
+
   ngOnInit() {
     const header = document.getElementById('app-header');
 
