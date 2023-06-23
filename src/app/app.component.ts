@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { MatIconRegistry } from '@angular/material/icon';
 import { DomSanitizer } from '@angular/platform-browser';
+import { env } from '@src/environments/environment';
 import { Icons } from './components/@types/types';
 @Component({
   selector: 'app-root',
@@ -18,7 +19,7 @@ export class AppComponent {
       this.matIconRegistry.addSvgIcon(
         icon,
         this.domSanitizer.bypassSecurityTrustResourceUrl(
-          `../assets/icons/svg/${icon}.svg`
+          `${env.baseUrl}/assets/icons/svg/${icon}.svg`
         )
       );
     }
