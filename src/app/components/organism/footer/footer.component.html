@@ -3,7 +3,7 @@
     <ul>
       <li *ngFor="let social of socialNetworks">
         <a href="{{ social.href }}">
-          <mat-icon svgIcon="{{social.icon}}"></mat-icon>
+          <mat-icon svgIcon="{{ social.icon }}"></mat-icon>
         </a>
       </li>
     </ul>
@@ -12,22 +12,6 @@
     <ul>
       <li>Todos os direitos reservados</li>
       <li>&copy; {{ currYear }} Of Christ</li>
-    </ul>
-  </div>
-  <div class="footer-sitemap">
-    <ul>
-      <li>Page</li>
-      <li>Page 2</li>
-      <li>Page 3</li>
-      <li>Page 4</li>
-      <li>Page 5</li>
-      <li>Page 6</li>
-      <li>Page 7</li>
-      <li>Page 8</li>
-      <li>Page 9</li>
-      <li>Page 10</li>
-      <li>Page 11</li>
-      <li>Page 12</li>
     </ul>
   </div>
 </div>

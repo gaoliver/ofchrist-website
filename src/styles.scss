@@ -35,6 +35,8 @@ $ofchrist-website-theme: mat.define-light-theme((
 
 /* You can add global styles to this file, and also import other style files */
 
+$color-primary: var(--color-primary);
+
 :root {
   // spacing
   --spacing: 10px;
