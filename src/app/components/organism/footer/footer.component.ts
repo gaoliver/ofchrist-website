@@ -35,22 +35,22 @@ export class FooterComponent {
   streamingPlatforms: Array<SocialNetwork> = [
     {
       label: 'Spotify',
-      href: '',
+      href: 'https://open.spotify.com/artist/1LYah3vtwsLKZbU6fca4ks',
       icon: 'spotify',
     },
     {
       label: 'Deezer',
-      href: '',
+      href: 'https://www.deezer.com/en/artist/52807832',
       icon: 'deezer',
     },
     {
       label: 'Apple Music',
-      href: '',
+      href: 'https://music.apple.com/nl/artist/of-christ/1505133392?l=en',
       icon: 'apple-music',
     },
     {
       label: 'YouTube Music',
-      href: '',
+      href: 'https://music.youtube.com/channel/UC4lsLSYY4kW5Jvg5WJYCtEg',
       icon: 'youtube-music',
     },
   ];
