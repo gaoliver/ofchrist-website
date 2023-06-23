@@ -119,6 +119,10 @@
   }
 }
 
+.subnav li:hover {
+  text-decoration: double underline;
+}
+
 .submenu-background-img {
   position: absolute;
   z-index: -1;

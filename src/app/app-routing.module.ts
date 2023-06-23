@@ -51,7 +51,7 @@ export const pageRoutes: Array<RoutesWithSubmenu> = [
           },
           {
             label: 'Integrantes',
-            slug: 'integranted'
+            slug: 'integrantes'
           }
         ],
       },
