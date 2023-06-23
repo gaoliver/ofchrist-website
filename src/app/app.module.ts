@@ -17,6 +17,7 @@ import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { MatIconModule } from '@angular/material/icon';
 import { HttpClientModule } from '@angular/common/http';
 import { EventComponent } from './components/molecule/event/event.component';
+import { ButtonComponent } from './components/atoms/button/button.component';
 
 @NgModule({
   declarations: [
@@ -32,6 +33,7 @@ import { EventComponent } from './components/molecule/event/event.component';
     PageContentComponent,
     FooterComponent,
     EventComponent,
+    ButtonComponent,
   ],
   imports: [
     BrowserModule,

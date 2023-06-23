@@ -43,18 +43,3 @@
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
 }
-
-.event-cta {
-  width: 100%;
-  padding: var(--spacing) 0;
-  border: solid 2px var(--color-white);
-
-  text-align: center;
-  text-decoration: none;
-  text-transform: uppercase;
-  font-weight: bold;
-
-  &:hover {
-    border-color: var(--color-primary);
-  }
-}
