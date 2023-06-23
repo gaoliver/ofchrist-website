@@ -76,8 +76,22 @@ body {
   background-position: 0 50%;
 }
 
+h1, h2, h3, h4, h5, h6 {
+  line-height: 1;
+  text-transform: uppercase;
+}
+
 h1 {
   font-size: 3rem;
+}
+
+a {
+  color: var(--color-text);
+  transition: ease-in-out 110ms;
+
+  &:hover {
+    color: var(--color-primary);
+  }
 }
 
 .page-container {
