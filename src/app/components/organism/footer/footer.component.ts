@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { env } from 'src/environments/environment';
 import { SocialNetwork } from '../../@types/types';
 
 @Component({
@@ -13,7 +12,7 @@ export class FooterComponent {
   socialNetworks: Array<SocialNetwork> = [
     {
       label: 'YouTube',
-      href: 'https://www.instagram.com/ofchristrock/',
+      href: 'https://www.youtube.com/@BandaOfChrist',
       icon: 'youtube'
     },
     {
@@ -23,12 +22,12 @@ export class FooterComponent {
     },
     {
       label: 'Facebook',
-      href: 'https://www.instagram.com/ofchristrock/',
+      href: 'https://www.facebook.com/bandaofchrist/',
       icon: 'facebook'
     },
     {
       label: 'TikTok',
-      href: 'https://www.instagram.com/ofchristrock/',
+      href: 'https://www.tiktok.com/@ofchristofficial',
       icon: 'tiktok'
     },
   ];
