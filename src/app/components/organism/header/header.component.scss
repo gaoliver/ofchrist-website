@@ -56,7 +56,7 @@
 
   &:hover {
     cursor: pointer;
-    filter: sepia(1);
+    filter: sepia(1.2);
     transition: cubic-bezier(0.785, 0.135, 0.15, 0.86) 300ms;
   }
 }
@@ -120,15 +120,14 @@
 }
 
 .submenu-background-img {
-  opacity: 0;
   position: absolute;
   z-index: -1;
-  top: 0;
+  top: -50%;
   left: 0;
   width: 100%;
-  filter: brightness(0.8);
+  filter: brightness(0.5);
+  opacity: 0;
   animation: submenuAnimation 300ms;
-  animation-delay: 200ms;
   animation-fill-mode: forwards;
 }
 

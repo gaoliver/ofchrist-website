@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
+import { Route, RouterModule, Routes } from '@angular/router';
+import { Subpage } from './@types/types';
 import { AboutComponent } from './pages/about/about.component';
 import { ContactComponent } from './pages/contact/contact.component';
 import { HomeComponent } from './pages/home/home.component';
@@ -7,46 +8,70 @@ import { MusicComponent } from './pages/music/music.component';
 import { NewsComponent } from './pages/news/news.component';
 import { ShowsComponent } from './pages/shows/shows.component';
 
-export const pageRoutes: Routes = [
+type RoutesWithSubmenu = Route & {
+  data: {
+    label?: string;
+    submenu?: {
+      backgroundImage: string;
+      subpages: Array<Subpage>;
+    };
+  };
+};
+
+export const pageRoutes: Array<RoutesWithSubmenu> = [
   {
     path: 'shows',
     title: 'Of Christ | Shows',
     component: ShowsComponent,
     data: {
-      label: 'Shows'
-    }
+      label: 'Shows',
+    },
   },
   {
     path: 'news',
     title: 'Of Christ | News',
     component: NewsComponent,
     data: {
-      label: 'News'
-    }
+      label: 'News',
+    },
   },
   {
     path: 'a-banda',
     title: 'Of Christ | A banda',
     component: AboutComponent,
     data: {
-      label: 'A banda'
-    }
+      label: 'A banda',
+      submenu: {
+        backgroundImage:
+          'https://i.scdn.co/image/160cc9b5106d51d061663f314846428e3d9e16f5',
+        subpages: [
+          {
+            label: 'Nossa história',
+            slug: 'nossa-historia',
+          },
+          {
+            label: 'Integrantes',
+            slug: 'integranted'
+          }
+        ],
+      },
+    },
   },
   {
     path: 'musicas',
     title: 'Of Christ | Músicas',
     component: MusicComponent,
     data: {
-      label: 'Músicas'
-    }
+      label: 'Músicas',
+    },
   },
   {
     path: 'contato',
     title: 'Of Christ | Sobre nós',
     component: ContactComponent,
     data: {
-      label: 'Contato'
-    }
+      label: 'Contato',
+    },
   },
 ];
 

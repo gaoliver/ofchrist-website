@@ -12,15 +12,16 @@
   <nav class="main-navigation">
     <ul class="navigation">
       <li class="navigation-item" *ngFor="let page of pageList">
-        <a href="{{ page.path }}">{{page.data?.['label']}}</a>
-        <ul class="subnav">
+        <a href="{{ page.path }}">{{ page.data.label }}</a>
+        <ul class="subnav" *ngIf="page.data?.['submenu']">
           <img
-            src="https://scontent-ams4-1.xx.fbcdn.net/v/t39.30808-6/305980758_399945905677463_1394097502078801592_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=TVxPqd8ReV0AX_zSlFe&_nc_ht=scontent-ams4-1.xx&oh=00_AfAgzyxV9aKmLkT_mfIo6JULyVGH7anrkw_hOfnMnbHMwg&oe=649A1581"
+            src="{{ page.data.submenu?.backgroundImage }}"
             alt="background submenu"
             class="submenu-background-img"
           />
-          <li>{{ page.title }}</li>
-          <li>{{ page.data?.['label'] }}</li>
+          <li *ngFor="let subpage of page.data.submenu?.subpages">
+            {{ subpage.label }}
+          </li>
         </ul>
       </li>
     </ul>
