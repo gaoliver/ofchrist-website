@@ -12,7 +12,7 @@ export class ShowsComponent {
     {
       date: '2023/11/01',
       location: 'São Paulo, SP',
-      info: 'Igreja Batista Aliança - Bairro Nobre',
+      info: 'Local do evento - nome do evento / informação / endereço do local',
       cta: {
         label: 'ingressos',
         href: '#',
@@ -21,7 +21,7 @@ export class ShowsComponent {
     {
       date: '2023/05/04',
       location: 'Santa Cruz, RJ',
-      info: 'Clube dos Aliados - com Oficina G3 e Alva',
+      info: 'Local do evento - nome do evento / informação / endereço do local',
       cta: {
         label: 'Ingressos',
         href: '#',
@@ -30,7 +30,7 @@ export class ShowsComponent {
     {
       date: '2023/07/10',
       location: 'Rio de Janeiro, RJ',
-      info: 'Igreja Batista Oásis - Santa Cruz.',
+      info: 'Local do evento - nome do evento / informação / endereço do local',
       cta: {
         label: 'Saiba mais',
         href: '#',
@@ -39,7 +39,7 @@ export class ShowsComponent {
     {
       date: '2023/04/02',
       location: 'Campo Grande, RJ',
-      info: 'ParkShopping - Show de Inverno',
+      info: 'Local do evento - nome do evento / informação / endereço do local',
       cta: {
         label: 'Saiba Mais',
         href: '#',
@@ -48,7 +48,7 @@ export class ShowsComponent {
     {
       date: '2023/05/20',
       location: 'Santa Cruz, RJ',
-      info: 'Igreja Presbiteriana de Santa Cruz - Culto dos jovens',
+      info: 'Local do evento - nome do evento / informação / endereço do local',
       cta: {
         label: 'saiba mais',
         href: '#',
@@ -57,7 +57,7 @@ export class ShowsComponent {
     {
       date: '2023/08/15',
       location: 'Rio de Janeiro, RJ',
-      info: 'Igreja Batista do Recreio - Recreio dos Bandeirantes, RJ',
+      info: 'Local do evento - nome do evento / informação / endereço do local',
       cta: {
         label: 'Saiba mais',
         href: '#',
