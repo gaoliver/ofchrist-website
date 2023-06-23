@@ -13,6 +13,9 @@ import { MusicComponent } from './pages/music/music.component';
 import { ShowsComponent } from './pages/shows/shows.component';
 import { PageContentComponent } from './components/atoms/page-content/page-content.component';
 import { FooterComponent } from './components/organism/footer/footer.component';
+import { NoopAnimationsModule } from '@angular/platform-browser/animations';
+import { MatIconModule } from '@angular/material/icon';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -30,7 +33,10 @@ import { FooterComponent } from './components/organism/footer/footer.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    NoopAnimationsModule,
+    MatIconModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

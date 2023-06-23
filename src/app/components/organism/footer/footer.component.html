@@ -1,8 +1,17 @@
 <div class="footer-content">
-  <div class="footer-first-line">
+  <div class="footer-centered-list social-networks">
     <ul>
-      <li>Some information</li>
-      <li>&copy; Of Christ</li>
+      <li *ngFor="let social of socialNetworks">
+        <a href="{{ social.href }}">
+          <mat-icon svgIcon="{{social.icon}}"></mat-icon>
+        </a>
+      </li>
+    </ul>
+  </div>
+  <div class="footer-centered-list first-line">
+    <ul>
+      <li>Todos os direitos reservados</li>
+      <li>&copy; {{ currYear }} Of Christ</li>
     </ul>
   </div>
   <div class="footer-sitemap">

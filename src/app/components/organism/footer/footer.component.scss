@@ -15,18 +15,28 @@
   width: 100%;
 }
 
-.footer-first-line {
-  text-align: center;
-}
-
-.footer-first-line ul {
-  display: block;
+.footer-centered-list ul {
+  display: flex;
+  justify-content: center;
   padding: 0;
 }
 
-.footer-first-line ul li {
-  display: inline-block;
+.footer-centered-list ul li {
+  display: inline-flex;
+  align-items: center;
 
+  a {
+    height: 24px;
+    aspect-ratio: 1;
+    color: var(--color-grey);
+  }
+}
+
+.social-networks ul {
+  gap: var(--spacing-medium);
+}
+
+.first-line ul li {
   &::after {
     content: '|';
     margin: 0 var(--spacing);
@@ -45,8 +55,9 @@
 }
 .footer-sitemap ul {
   display: block;
-  width: 100%;
+  width: 70%;
   columns: 4;
+  margin: auto;
 }
 .footer-sitemap ul li {
   display: block;
