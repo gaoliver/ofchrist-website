@@ -1,0 +1,53 @@
+:host {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+
+  background-color: var(--color-background);
+  color: var(--color-grey);
+  box-shadow: 0px 20px 50px 50px var(--color-black);
+}
+
+.footer-content {
+  flex: 1;
+  max-width: var(--width-content);
+  width: 100%;
+}
+
+.footer-first-line {
+  text-align: center;
+}
+
+.footer-first-line ul {
+  display: block;
+  padding: 0;
+}
+
+.footer-first-line ul li {
+  display: inline-block;
+
+  &::after {
+    content: '|';
+    margin: 0 var(--spacing);
+  }
+
+  &:last-child {
+    &::after {
+      display: none;
+    }
+  }
+}
+
+.footer-sitemap {
+  text-align: center;
+  margin: var(--spacing-large) 0;
+}
+.footer-sitemap ul {
+  display: block;
+  width: 100%;
+  columns: 4;
+}
+.footer-sitemap ul li {
+  display: block;
+}

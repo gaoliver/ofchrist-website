@@ -12,6 +12,7 @@ import { ContactComponent } from './pages/contact/contact.component';
 import { MusicComponent } from './pages/music/music.component';
 import { ShowsComponent } from './pages/shows/shows.component';
 import { PageContentComponent } from './components/atoms/page-content/page-content.component';
+import { FooterComponent } from './components/organism/footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import { PageContentComponent } from './components/atoms/page-content/page-conte
     MusicComponent,
     ShowsComponent,
     PageContentComponent,
+    FooterComponent,
   ],
   imports: [
     BrowserModule,
