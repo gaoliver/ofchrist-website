@@ -12,3 +12,13 @@ export interface Event {
     href: string;
   };
 }
+
+export interface HomePromo {
+  image: string;
+  name: string;
+  videoUrl?: string;
+  cta?: {
+    label: string;
+    href: string;
+  };
+}

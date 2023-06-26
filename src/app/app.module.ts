@@ -21,6 +21,7 @@ import { ButtonComponent } from './components/atoms/button/button.component';
 import { HighlightBannerComponent } from './components/molecules/highlight-banner/highlight-banner.component';
 import { HighlightTilesComponent } from './components/organism/highlight-tiles/highlight-tiles.component';
 import { NewsHeadlineComponent } from './components/molecules/news-headline/news-headline.component';
+import { YouTubePlayerModule } from '@angular/youtube-player';
 
 @NgModule({
   declarations: [
@@ -46,9 +47,10 @@ import { NewsHeadlineComponent } from './components/molecules/news-headline/news
     AppRoutingModule,
     NoopAnimationsModule,
     MatIconModule,
-    HttpClientModule
+    HttpClientModule,
+    YouTubePlayerModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { MatIconRegistry } from '@angular/material/icon';
 import { DomSanitizer } from '@angular/platform-browser';
 import { env } from '@src/environments/environment';
@@ -8,7 +8,7 @@ import { Icons } from './components/@types/types';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   title = 'Of Christ';
 
   constructor(
@@ -22,6 +22,17 @@ export class AppComponent {
           `${env.baseUrl}/assets/icons/svg/${icon}.svg`
         )
       );
+    }
+  }
+
+  apiLoaded = false;
+
+  ngOnInit() {
+    if (!this.apiLoaded) {
+      const tag = document.createElement('script');
+      tag.src = 'https://www.youtube.com/iframe_api';
+      document.body.appendChild(tag);
+      this.apiLoaded = true;
     }
   }
 }
