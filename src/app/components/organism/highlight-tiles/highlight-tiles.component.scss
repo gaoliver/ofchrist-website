@@ -1,9 +1,12 @@
 
+@import "../../../../mixins.scss";
+
 $transition-time: 200ms;
 
 :host {
   position: relative;
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
   height: 500px;
   gap: var(--spacing-small);
   transition: ease-in-out $transition-time;
@@ -13,10 +16,14 @@ $transition-time: 200ms;
       opacity: 0.6;
     }
   }
+
+  @include screen-tablet-and-smaller {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
 .highlight-item {
-  transition: ease-in-out $transition-time;
+  transition: ease-in-out $transition-time;;
 }
 
 :host:hover .highlight-item:hover {

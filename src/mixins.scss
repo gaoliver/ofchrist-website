@@ -39,13 +39,19 @@
 }
 
 @mixin screen-mobile-and-smaller {
-  @media only screen and (max-width: em(600px)) {
+  @media only screen and (max-width: 600px) {
     @content;
   }
 }
 
-@mixin screen-tablet-and-larger {
-  @media only screen and (max-width: em(816px)) {
+@mixin screen-tablet-and-smaller {
+  @media only screen and (max-width: 768px) {
+    @content;
+  }
+}
+
+@mixin screen-desktop-and-smaller {
+  @media only screen and (max-width: 1023px) {
     @content;
   }
 }

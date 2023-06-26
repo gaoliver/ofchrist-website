@@ -1,3 +1,5 @@
+@import "../../../../mixins.scss";
+
 :host {
   display: flex;
   justify-content: center;
@@ -9,9 +11,13 @@
   box-shadow: 0px -10px 100px 100px var(--color-black);
   color: var(--color-text);
   padding-bottom: var(--spacing-xx-large);
+
+  @include screen-tablet-and-smaller {
+    padding: 0 var(--spacing-xx-large);
+  }
 }
 
 .inner-content {
   flex: 1;
-  max-width: var(--width-content);
+  max-width: clamp(760px, calc(100% - 80px), var(--width-content));
 }

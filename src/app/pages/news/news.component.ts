@@ -23,7 +23,7 @@ export class NewsComponent implements OnInit {
       href: '#',
     },
     {
-      title: 'Título da segunda notícia',
+      title: 'Título segunda notícia',
       description:
         'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean in sapien at leo efficitur rutrum. Pellentesque arcu ligula, lobortis nec ex at, cursus luctus arcu. Etiam sapien ex, ullamcorper in ex non, dapibus posuere augue.',
       imageUrl:
