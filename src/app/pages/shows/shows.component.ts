@@ -8,6 +8,8 @@ import { dateSort } from '@src/app/utils/dateSort';
   styleUrls: ['./shows.component.scss'],
 })
 export class ShowsComponent {
+  // TO CHANGE: Use data from Contentful
+
   eventList: Array<Event> = [
     {
       date: '2023/11/01',

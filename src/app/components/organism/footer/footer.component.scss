@@ -53,6 +53,10 @@
   margin: 0;
 }
 
+.footer-separator {
+  @include disable-selection;
+}
+
 .footer-centered-list ul li {
   display: inline-flex;
   align-items: center;
