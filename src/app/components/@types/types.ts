@@ -6,13 +6,19 @@ export enum Icons {
   'spotify',
   'deezer',
   'apple-music',
-  'youtube-music'
+  'youtube-music',
 }
 
-export type IconOptions = keyof typeof Icons
+export type IconOptions = keyof typeof Icons;
 
 export interface SocialNetwork {
-  icon: IconOptions
-  label: string
-  href: string
+  icon: IconOptions;
+  label: string;
+  href: string;
+}
+
+export interface HighlightBanner {
+  title: string;
+  description: string;
+  imageUrl: string;
 }

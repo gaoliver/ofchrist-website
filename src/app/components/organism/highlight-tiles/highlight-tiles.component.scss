@@ -1,0 +1,26 @@
+
+$transition-time: 200ms;
+
+:host {
+  display: flex;
+  height: 400px;
+  gap: var(--spacing-small);
+  transition: ease-in-out $transition-time;
+
+  &:hover {
+    .highlight-item {
+      opacity: 0.6;
+    }
+  }
+}
+
+.highlight-item {
+  transition: ease-in-out $transition-time;
+}
+
+:host:hover .highlight-item:hover {
+  transform: scale(1.02);
+  z-index: 100;
+  color: inherit;
+  opacity: 1 !important;
+}

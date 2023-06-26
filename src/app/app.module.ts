@@ -18,7 +18,8 @@ import { MatIconModule } from '@angular/material/icon';
 import { HttpClientModule } from '@angular/common/http';
 import { EventComponent } from './components/molecule/event/event.component';
 import { ButtonComponent } from './components/atoms/button/button.component';
-import { HighlightBannerComponent } from './components/organism/highlight-banner/highlight-banner.component';
+import { HighlightBannerComponent } from './components/molecule/highlight-banner/highlight-banner.component';
+import { HighlightTilesComponent } from './components/organism/highlight-tiles/highlight-tiles.component';
 
 @NgModule({
   declarations: [
@@ -36,6 +37,7 @@ import { HighlightBannerComponent } from './components/organism/highlight-banner
     EventComponent,
     ButtonComponent,
     HighlightBannerComponent,
+    HighlightTilesComponent,
   ],
   imports: [
     BrowserModule,

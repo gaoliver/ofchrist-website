@@ -24,8 +24,6 @@
     }
 
     &:hover {
-      transform: scale(1.02);
-      z-index: 100;
       color: inherit;
     }
   }
@@ -51,9 +49,5 @@
   h2, p {
     @include text-overflow(3);
     margin: 0;
-  }
-
-  h2 {
-
   }
 }
