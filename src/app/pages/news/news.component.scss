@@ -5,3 +5,20 @@
   row-gap: var(--spacing-large);
   margin-top: var(--spacing-x-large);
 }
+
+.news-others-load-more {
+  display: block;
+  margin: auto auto;
+  margin-top: var(--spacing-x-large);
+  width: fit-content;
+  padding: var(--spacing) var(--spacing-medium);
+  color: var(--color-grey);
+  border-color: var(--color-grey);
+  transition: ease-in-out 200ms;
+
+  &:hover {
+    color: var(--color-grey);
+    border-color: var(--color-grey);
+    filter: brightness(1.4);
+  }
+}

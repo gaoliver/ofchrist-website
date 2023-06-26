@@ -4,14 +4,24 @@
   <section class="news-highlight">
     <ul app-highlight-tiles [talesList]="highlightList" [nOfTales]="4"></ul>
   </section>
-  <section class="news-others">
-    <app-news-headline
-      *ngFor="let news of newsList"
-      [imageUrl]="news.imageUrl"
-      [date]="news.date"
-      [title]="news.title"
-      [description]="news.description"
-      [href]="news.href"
-    ></app-news-headline>
+  <section class="news-others-section">
+    <div class="news-others">
+      <app-news-headline
+        *ngFor="let news of newsList"
+        [imageUrl]="news.imageUrl"
+        [date]="news.date"
+        [title]="news.title"
+        [description]="news.description"
+        [href]="news.href"
+      ></app-news-headline>
+    </div>
+    <button
+      app-button
+      class="news-others-load-more"
+      id="news-others-load-btn"
+      *ngIf="showLoadMoreBtn"
+    >
+      Mais notícias
+    </button>
   </section>
 </div>
