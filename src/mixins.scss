@@ -29,3 +29,11 @@
   -moz-user-select: none;
   -webkit-user-select: none;
 }
+
+@mixin text-overflow($number-of-lines) {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: $number-of-lines;
+  -webkit-box-orient: vertical;
+}

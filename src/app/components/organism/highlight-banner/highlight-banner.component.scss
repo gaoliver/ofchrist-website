@@ -1,0 +1,55 @@
+@import "../../../../mixins.scss";
+
+:host {
+  flex: 1;
+
+  a {
+    display: flex;
+    height: 100%;
+    width: 100%;
+    position: relative;
+    flex-direction: column;
+    justify-content: flex-end;
+    overflow: hidden;
+    text-decoration: none;
+
+    &::before {
+      content: '';
+      height: 100%;
+      width: 100%;
+      background: linear-gradient(180deg, rgba(0, 0, 0, 0) 45.48%, rgba(0, 0, 0, 0.6) 77.85%);
+
+      position: absolute;
+      z-index: 1;
+    }
+
+    &:hover {
+      transform: scale(1.02);
+      z-index: 100;
+      color: inherit;
+    }
+  }
+}
+
+.highlight_banner-image {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  position: absolute;
+}
+
+.highlight_banner-info-container {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  z-index: 2;
+  box-sizing: border-box;
+  padding: 0 var(--spacing);
+  padding-bottom: var(--spacing-medium);
+  gap: var(--spacing);
+
+  h3, p {
+    @include text-overflow(2);
+    margin: 0;
+  }
+}
