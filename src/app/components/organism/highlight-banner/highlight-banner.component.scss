@@ -48,8 +48,12 @@
   padding-bottom: var(--spacing-medium);
   gap: var(--spacing);
 
-  h3, p {
-    @include text-overflow(2);
+  h2, p {
+    @include text-overflow(3);
     margin: 0;
+  }
+
+  h2 {
+
   }
 }

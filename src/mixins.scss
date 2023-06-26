@@ -37,3 +37,15 @@
   -webkit-line-clamp: $number-of-lines;
   -webkit-box-orient: vertical;
 }
+
+@mixin screen-mobile-and-smaller {
+  @media only screen and (max-width: em(600px)) {
+    @content;
+  }
+}
+
+@mixin screen-tablet-and-larger {
+  @media only screen and (max-width: em(816px)) {
+    @content;
+  }
+}
