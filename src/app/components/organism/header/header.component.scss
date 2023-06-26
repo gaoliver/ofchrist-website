@@ -3,7 +3,7 @@
   justify-content: center;
   position: sticky;
   top: 0;
-  z-index: 100;
+  z-index: 999;
   transition: ease-in-out 1s;
 }
 
@@ -99,7 +99,6 @@
   padding-bottom: var(--spacing-medium);
   left: 0;
   top: 0;
-  padding-inline-start: 0;
   text-align: center;
   color: var(--color-text);
   overflow: hidden;

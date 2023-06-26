@@ -1,0 +1,7 @@
+.news-others {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  column-gap: var(--spacing-large);
+  row-gap: var(--spacing-large);
+  margin-top: var(--spacing-x-large);
+}

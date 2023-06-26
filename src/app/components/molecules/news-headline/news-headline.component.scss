@@ -1,0 +1,45 @@
+@import '../../../../mixins.scss';
+
+:host {
+  a {
+    display: flex;
+    flex-direction: column;
+    height: auto;
+    width: 100%;
+    // aspect-ratio: 1;
+
+    text-decoration: none;
+    break-inside: avoid;
+
+    &:hover {
+      color: inherit;
+      filter: brightness(1.2);
+    }
+  }
+}
+
+.news_headline-image {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1.8;
+  object-fit: cover;
+}
+
+.news_headline-date {
+  font-size: x-small;
+  margin-top: var(--spacing-small);
+  color: var(--color-primary-lighter);
+}
+
+.news_headline-title {
+  margin: var(--spacing-small) 0 0;
+
+  @include text-overflow(2)
+}
+
+.news_headline-description {
+  opacity: 0.7;
+  font-size: small;
+  margin: var(--spacing-small) 0 0;
+  @include text-overflow(3)
+}

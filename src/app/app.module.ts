@@ -16,10 +16,11 @@ import { FooterComponent } from './components/organism/footer/footer.component';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { MatIconModule } from '@angular/material/icon';
 import { HttpClientModule } from '@angular/common/http';
-import { EventComponent } from './components/molecule/event/event.component';
+import { EventComponent } from './components/molecules/event/event.component';
 import { ButtonComponent } from './components/atoms/button/button.component';
-import { HighlightBannerComponent } from './components/molecule/highlight-banner/highlight-banner.component';
+import { HighlightBannerComponent } from './components/molecules/highlight-banner/highlight-banner.component';
 import { HighlightTilesComponent } from './components/organism/highlight-tiles/highlight-tiles.component';
+import { NewsHeadlineComponent } from './components/molecules/news-headline/news-headline.component';
 
 @NgModule({
   declarations: [
@@ -38,6 +39,7 @@ import { HighlightTilesComponent } from './components/organism/highlight-tiles/h
     ButtonComponent,
     HighlightBannerComponent,
     HighlightTilesComponent,
+    NewsHeadlineComponent,
   ],
   imports: [
     BrowserModule,

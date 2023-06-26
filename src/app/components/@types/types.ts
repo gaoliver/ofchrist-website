@@ -22,4 +22,13 @@ export interface HighlightBanner {
   description: string;
   imageUrl: string;
   date: string;
+  href: string;
+}
+
+export interface NewsHeadline {
+  title: string;
+  description: string;
+  imageUrl: string;
+  date: string;
+  href: string;
 }

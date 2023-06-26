@@ -1,5 +1,17 @@
 <h1 app-page-title>News</h1>
 
 <div app-page-content>
-  <ul app-highlight-tiles [talesList]="highlightList" [nOfTales]="3"></ul>
+  <section class="news-highlight">
+    <ul app-highlight-tiles [talesList]="highlightList" [nOfTales]="4"></ul>
+  </section>
+  <section class="news-others">
+    <app-news-headline
+      *ngFor="let news of newsList"
+      [imageUrl]="news.imageUrl"
+      [date]="news.date"
+      [title]="news.title"
+      [description]="news.description"
+      [href]="news.href"
+    ></app-news-headline>
+  </section>
 </div>

@@ -2,11 +2,11 @@
 $transition-time: 200ms;
 
 :host {
+  position: relative;
   display: flex;
-  height: 400px;
+  height: 500px;
   gap: var(--spacing-small);
   transition: ease-in-out $transition-time;
-  padding-inline-start: 0;
 
   &:hover {
     .highlight-item {
@@ -21,7 +21,7 @@ $transition-time: 200ms;
 
 :host:hover .highlight-item:hover {
   transform: scale(1.02);
-  z-index: 100;
+  z-index: 1;
   color: inherit;
   opacity: 1 !important;
 }
