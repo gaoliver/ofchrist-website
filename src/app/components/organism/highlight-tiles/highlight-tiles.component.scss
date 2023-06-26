@@ -6,6 +6,7 @@ $transition-time: 200ms;
   height: 400px;
   gap: var(--spacing-small);
   transition: ease-in-out $transition-time;
+  padding-inline-start: 0;
 
   &:hover {
     .highlight-item {
