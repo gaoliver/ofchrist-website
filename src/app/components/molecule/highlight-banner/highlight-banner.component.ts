@@ -9,4 +9,5 @@ export class HighlightBannerComponent {
   @Input() title: string = '';
   @Input() description: string = '';
   @Input() imageUrl: string = '';
+  @Input() date: string = '';
 }

@@ -21,4 +21,5 @@ export interface HighlightBanner {
   title: string;
   description: string;
   imageUrl: string;
+  date: string;
 }
