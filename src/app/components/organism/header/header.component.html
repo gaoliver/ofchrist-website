@@ -11,8 +11,8 @@
 
   <nav class="main-navigation">
     <ul class="navigation">
-      <li class="navigation-item" *ngFor="let page of pageList">
-        <a href="{{ page.path }}">{{ page.data.label }}</a>
+      <li class="navigation-item" *ngFor="let page of pageList" >
+        <a class="navigation-item-label" href="{{ page.path }}">{{ page.data.label }}</a>
         <ul class="subnav" *ngIf="page.data?.['submenu']">
           <img
             src="{{ page.data.submenu?.backgroundImage }}"
@@ -20,11 +20,7 @@
             class="submenu-background-img"
           />
           <li *ngFor="let subpage of page.data.submenu?.subpages">
-            <!--
-              TO CHANGE: Change for the commented code
-              <a href="/{{ subpage.slug }}">{{ subpage.label }}</a>
-            -->
-            <a href="{{baseUrl}}/a-banda">{{ subpage.label }}</a>
+            <a href="/{{ subpage.slug }}">{{ subpage.label }}</a>
           </li>
         </ul>
       </li>
