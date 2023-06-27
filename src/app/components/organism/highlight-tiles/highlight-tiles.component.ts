@@ -10,11 +10,12 @@ import { HighlightBanner } from '../../@types/types';
 export class HighlightTilesComponent implements OnInit {
   @Input() nOfTales: number = 2;
   @Input() talesList: Array<HighlightBanner> = [];
+  @Input() showReadMore?: boolean;
 
   ngOnInit() {
     this.talesList = this.talesList.slice(0, this.nOfTales).map((item) => ({
       ...item,
-      date: fullDateFormat(item.date).toLowerCase(),
+      date: item.date && fullDateFormat(item.date).toLowerCase(),
     }));
   }
 }

@@ -1,8 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {
-  HighlightBanner,
-  NewsHeadline,
-} from '@src/app/components/@types/types';
+import { NewsHeadline } from '@src/app/components/@types/types';
 import { fullDateFormat } from '@src/app/utils/dateFormat';
 
 @Component({
@@ -12,7 +9,7 @@ import { fullDateFormat } from '@src/app/utils/dateFormat';
 })
 export class NewsComponent implements OnInit {
   // TO CHANGE: This list will be replaced by Contentful
-  highlightList: Array<HighlightBanner> = [
+  highlightList: Array<NewsHeadline> = [
     {
       title: 'Título da primeira notícia em destaque',
       description:
@@ -49,15 +46,6 @@ export class NewsComponent implements OnInit {
       date: '2023-05-12',
       href: '#',
     },
-    {
-      title: 'Título da quarta notícia em destaque',
-      description:
-        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean in sapien at leo efficitur rutrum. Pellentesque arcu ligula, lobortis nec ex at, cursus luctus arcu. Etiam sapien ex, ullamcorper in ex non, dapibus posuere augue.',
-      imageUrl:
-        'https://escolaproarte.com.br//wp-content/uploads/2017/07/dia-mundial-do-rock.jpg',
-      date: '2023-05-12',
-      href: '#',
-    },
   ];
 
   mockHeadline = {
@@ -70,7 +58,7 @@ export class NewsComponent implements OnInit {
       'https://www.mlive.com/resizer/PR7ftqxOH_8z7M1eQ4we53REFKA=/1280x0/smart/advancelocal-adapter-image-uploads.s3.amazonaws.com/image.mlive.com/home/mlive-media/width2048/img/entertainment_impact/photo/22511491-standard.jpg',
   };
 
-  newsList: Array<NewsHeadline> = Array(10).fill(this.mockHeadline);
+  newsList: Array<NewsHeadline> = Array(11).fill(this.mockHeadline);
 
   //
   //

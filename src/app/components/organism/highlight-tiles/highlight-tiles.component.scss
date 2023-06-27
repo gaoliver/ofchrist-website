@@ -5,11 +5,12 @@ $transition-time: 200ms;
 
 :host {
   position: relative;
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  height: 500px;
+  display: flex;
+  height: 100%;
+  width: 100%;
   gap: var(--spacing-small);
   transition: ease-in-out $transition-time;
+  flex-wrap: wrap;
 
   &:hover {
     .highlight-item {

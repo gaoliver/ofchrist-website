@@ -2,7 +2,12 @@
 
 <div app-page-content>
   <section class="news-highlight">
-    <ul app-highlight-tiles [talesList]="highlightList" [nOfTales]="4"></ul>
+    <ul
+      app-highlight-tiles
+      [talesList]="highlightList"
+      [nOfTales]="4"
+      [showReadMore]="true"
+    ></ul>
   </section>
   <section class="news-others-section">
     <div class="news-others">

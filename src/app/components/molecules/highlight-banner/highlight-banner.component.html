@@ -1,4 +1,4 @@
-<a href="{{ href }}">
+<a class="highlight-banner-clickable-container" href="{{ href }}">
   <img
     src="{{ imageUrl }}"
     alt="{{ title }}"
@@ -7,11 +7,13 @@
   />
 
   <div class="highlight_banner-info-container">
-    <span class="highlight_banner-date">{{ date }}</span>
+    <span class="highlight_banner-date" *ngIf="date">{{ date }}</span>
     <h2>{{ title }}</h2>
-    <p>
+    <p *ngIf="description">
       {{ description }}
     </p>
-    <span class="highlight_banner-read_more">ler mais</span>
+    <span class="highlight_banner-read_more" *ngIf="showReadMore"
+      >ler mais</span
+    >
   </div>
 </a>

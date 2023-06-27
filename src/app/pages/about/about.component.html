@@ -1,8 +1,13 @@
 <h1 app-page-title>A Banda</h1>
 
 <div app-page-content>
-  <p>
-    Essa página terá todas as informações a respeito da banda. Desde a história,
-    formações etc; até seções dedicadas sobre cada integrante.
+  <p class="about-summary">
+    Informação curta sobre a banda, exemplo: "somos uma banda de metalcore
+    formada em Santa Cruz, no Rio de Janeiro. Levando a palavra de Deus através
+    da música, exaltando o Pai e salvando vidas."
   </p>
+
+  <section id="about-subpages" class="about-subpages">
+    <ul app-highlight-tiles [talesList]="subpages" [nOfTales]="2"></ul>
+  </section>
 </div>

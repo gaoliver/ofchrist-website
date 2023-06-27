@@ -7,8 +7,9 @@ import { Component, Input } from '@angular/core';
 })
 export class HighlightBannerComponent {
   @Input() title: string = '';
-  @Input() description: string = '';
+  @Input() description?: string;
   @Input() imageUrl: string = '';
-  @Input() date: string = '';
-  @Input() href: string = '';
+  @Input() date?: string;
+  @Input() href?: string;
+  @Input() showReadMore?: boolean;
 }

@@ -19,10 +19,11 @@ export interface SocialNetwork {
 
 export interface HighlightBanner {
   title: string;
-  description: string;
+  description?: string;
   imageUrl: string;
-  date: string;
+  date?: string;
   href: string;
+  showReadMore?: boolean
 }
 
 export interface NewsHeadline {
