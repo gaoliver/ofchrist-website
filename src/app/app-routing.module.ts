@@ -6,6 +6,7 @@ import { ContactComponent } from './pages/contact/contact.component';
 import { HomeComponent } from './pages/home/home.component';
 import { MusicComponent } from './pages/music/music.component';
 import { NewsComponent } from './pages/news/news.component';
+import { OurStoryComponent } from './pages/our-story/our-story.component';
 import { ShowsComponent } from './pages/shows/shows.component';
 
 type RoutesWithSubmenu = Route & {
@@ -47,12 +48,12 @@ export const pageRoutes: Array<RoutesWithSubmenu> = [
         subpages: [
           {
             label: 'Nossa história',
-            slug: 'nossa-historia',
+            slug: 'a-banda/nossa-historia',
           },
           {
             label: 'Integrantes',
-            slug: 'integrantes'
-          }
+            slug: '#',
+          },
         ],
       },
     },
@@ -63,6 +64,20 @@ export const pageRoutes: Array<RoutesWithSubmenu> = [
     component: MusicComponent,
     data: {
       label: 'Músicas',
+      submenu: {
+        backgroundImage:
+          'https://media.istockphoto.com/id/502088147/photo/nothing-beats-live-music.jpg?s=612x612&w=0&k=20&c=N0RrfR0z1P1Q0DUCJIcEBFV8yxT6xF-wQilMv00O7kA=',
+        subpages: [
+          {
+            label: 'Letras',
+            slug: '#',
+          },
+          {
+            label: 'Discografia',
+            slug: '#',
+          },
+        ],
+      },
     },
   },
   {
@@ -79,6 +94,11 @@ const routes: Routes = [
   {
     path: '',
     component: HomeComponent,
+  },
+  {
+    path: 'a-banda/nossa-historia',
+    title: 'Of Christ | Nossa história',
+    component: OurStoryComponent,
   },
   ...pageRoutes,
 ];

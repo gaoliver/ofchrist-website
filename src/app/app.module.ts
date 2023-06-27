@@ -22,6 +22,7 @@ import { HighlightBannerComponent } from './components/molecules/highlight-banne
 import { HighlightTilesComponent } from './components/organism/highlight-tiles/highlight-tiles.component';
 import { NewsHeadlineComponent } from './components/molecules/news-headline/news-headline.component';
 import { YouTubePlayerModule } from '@angular/youtube-player';
+import { OurStoryComponent } from './pages/our-story/our-story.component';
 
 @NgModule({
   declarations: [
@@ -41,6 +42,7 @@ import { YouTubePlayerModule } from '@angular/youtube-player';
     HighlightBannerComponent,
     HighlightTilesComponent,
     NewsHeadlineComponent,
+    OurStoryComponent,
   ],
   imports: [
     BrowserModule,
