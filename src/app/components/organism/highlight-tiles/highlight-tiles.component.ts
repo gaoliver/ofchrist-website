@@ -8,11 +8,15 @@ import { HighlightBanner } from '../../@types/types';
   styleUrls: ['./highlight-tiles.component.scss'],
 })
 export class HighlightTilesComponent implements OnInit {
-  @Input() nOfTales: number = 2;
+  @Input() nOfTales: number = 0;
   @Input() talesList: Array<HighlightBanner> = [];
   @Input() showReadMore?: boolean;
 
   ngOnInit() {
+    if (this.nOfTales === 0) {
+      this.nOfTales = this.talesList.length;
+    }
+
     this.talesList = this.talesList.slice(0, this.nOfTales).map((item) => ({
       ...item,
       date: item.date && fullDateFormat(item.date).toLowerCase(),

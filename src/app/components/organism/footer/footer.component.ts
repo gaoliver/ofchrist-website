@@ -10,8 +10,8 @@ export class FooterComponent {
   currYear = new Date().getFullYear();
 
   footerLink: Link | undefined = {
-    label: 'Ouça agora no Spotify',
-    href: '#',
+    label: 'Desenvolvido por Gabriel Ramos',
+    href: 'https://gaoliver.github.io/',
     target: '_blank',
   };
 

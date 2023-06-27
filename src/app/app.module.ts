@@ -23,6 +23,7 @@ import { HighlightTilesComponent } from './components/organism/highlight-tiles/h
 import { NewsHeadlineComponent } from './components/molecules/news-headline/news-headline.component';
 import { YouTubePlayerModule } from '@angular/youtube-player';
 import { OurStoryComponent } from './pages/our-story/our-story.component';
+import { DiscographyComponent } from './pages/discography/discography.component';
 
 @NgModule({
   declarations: [
@@ -43,6 +44,7 @@ import { OurStoryComponent } from './pages/our-story/our-story.component';
     HighlightTilesComponent,
     NewsHeadlineComponent,
     OurStoryComponent,
+    DiscographyComponent,
   ],
   imports: [
     BrowserModule,

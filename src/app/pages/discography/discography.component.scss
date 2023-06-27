@@ -1,0 +1,12 @@
+.discography-list-section {
+  ul {
+    justify-content: center;
+  }
+}
+
+::ng-deep {
+  .highlight-banner-clickable-container {
+    aspect-ratio: 1;
+    margin: auto;
+  }
+}
