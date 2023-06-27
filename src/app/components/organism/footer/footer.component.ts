@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { SocialNetwork } from '@components/@types/types';
+import { Link, SocialNetwork } from '@components/@types/types';
 
 @Component({
   selector: '[app-footer]',
@@ -8,6 +8,12 @@ import { SocialNetwork } from '@components/@types/types';
 })
 export class FooterComponent {
   currYear = new Date().getFullYear();
+
+  footerLink: Link | undefined = {
+    label: 'Ouça agora no Spotify',
+    href: '#',
+    target: '_blank',
+  };
 
   socialNetworks: Array<SocialNetwork> = [
     {

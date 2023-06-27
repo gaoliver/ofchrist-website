@@ -18,7 +18,11 @@
   </div>
   <div class="footer-centered-list">
     <ul class="footer-list-row">
-      <li><a href="#">Ouça agora no Spotify</a></li>
+      <li *ngIf="footerLink">
+        <a [href]="footerLink.href" [target]="footerLink.target || '_self'">{{
+          footerLink.label
+        }}</a>
+      </li>
       <li>Todos os direitos reservados</li>
       <li>&copy; {{ currYear }} Of Christ</li>
     </ul>

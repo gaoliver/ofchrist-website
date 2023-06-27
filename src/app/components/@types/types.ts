@@ -32,3 +32,9 @@ export interface NewsHeadline {
   date: string;
   href: string;
 }
+
+export interface Link {
+  label: string;
+  href: string;
+  target?: '_blank' | '_self';
+}
