@@ -55,7 +55,10 @@
 
   p {
     opacity: 0.7;
-    margin-bottom: auto;
+
+    @include screen-tablet-and-smaller {
+      display: none;
+    }
   }
 }
 
@@ -73,5 +76,9 @@
   &::after {
     content: "»";
     margin-left: var(--spacing-x-small);
+  }
+
+  @include screen-tablet-and-smaller {
+    display: none;
   }
 }

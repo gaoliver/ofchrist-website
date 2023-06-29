@@ -24,6 +24,7 @@ import { NewsHeadlineComponent } from './components/molecules/news-headline/news
 import { YouTubePlayerModule } from '@angular/youtube-player';
 import { OurStoryComponent } from './pages/our-story/our-story.component';
 import { DiscographyComponent } from './pages/discography/discography.component';
+import { YoutubePlayerComponent } from './components/atoms/youtube-player/youtube-player.component';
 
 @NgModule({
   declarations: [
@@ -45,6 +46,7 @@ import { DiscographyComponent } from './pages/discography/discography.component'
     NewsHeadlineComponent,
     OurStoryComponent,
     DiscographyComponent,
+    YoutubePlayerComponent,
   ],
   imports: [
     BrowserModule,

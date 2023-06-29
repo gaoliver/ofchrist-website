@@ -10,7 +10,29 @@
   <section id="about-subpages" class="about-subpages">
     <ul app-highlight-tiles [talesList]="subpages" [nOfTales]="2"></ul>
   </section>
+
   <section id="about-news" class="about-news">
-    <ul app-highlight-tiles [talesList]="subpages" [nOfTales]="4"></ul>
+    <header>
+      <h2>Destaques:</h2>
+      <a href="{{ baseUrl }}/news">todas as notícias</a>
+    </header>
+    <ul app-highlight-tiles [talesList]="highlightNews" [nOfTales]="4"></ul>
+  </section>
+
+  <section id="about-videos" class="about-videos">
+    <header>
+      <h2>Vídeos:</h2>
+    </header>
+    <ul class="about-videos-list">
+      <app-youtube-player
+        *ngFor="let video of videoList"
+        id="youtube-player"
+        [videoUrl]="video.videoUrl"
+
+        frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        allowfullscreen
+      ></app-youtube-player>
+    </ul>
   </section>
 </div>

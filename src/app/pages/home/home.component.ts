@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HomePromo } from '@src/app/@types/types';
+import { videoIdExtractor } from '@src/app/utils/videoIdExtractor';
 import { env } from 'src/environments/environment';
 
 @Component({
@@ -34,7 +35,7 @@ export class HomeComponent implements OnInit {
     // };
 
     // if (this.promo.videoUrl) {
-    //   this.promo.videoUrl = this.promo.videoUrl.slice(-11);
+    //   this.promo.videoUrl = videoIdExtractor(this.promo.videoUrl);
     // }
 
     this.getPlayerSize();
