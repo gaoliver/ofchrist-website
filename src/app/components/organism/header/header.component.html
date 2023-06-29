@@ -22,10 +22,8 @@
             class="submenu-background-img"
           />
           <li *ngFor="let subpage of page.data.submenu?.subpages">
-            <!-- TO CHANGE: The [ofchrist-website] in the href below must to deleted -->
-            <a href="/ofchrist-website/{{ subpage.slug }}">{{
-              subpage.label
-            }}</a>
+            <!-- TO CHANGE: check the href -->
+            <a href="{{ baseUrl }}/{{ subpage.slug }}">{{ subpage.label }}</a>
           </li>
         </ul>
       </li>

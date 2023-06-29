@@ -1,0 +1,16 @@
+::ng-deep {
+  .inner-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+.contact-content {
+  justify-content: center;
+
+  p {
+    background-color: aqua;
+    width: fit-content;
+  }
+}

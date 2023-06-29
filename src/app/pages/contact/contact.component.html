@@ -1,5 +1,13 @@
 <h1 app-page-title>Contato</h1>
 
 <div app-page-content>
-  <p>Página de contato. Vamos ter telefone, redes sociais e e-mail da banda.</p>
+  <h3>Mensagens e agendamentos:</h3>
+  <h2>
+    <a href="mailto:{{ email }}">
+      {{ email }}
+    </a>
+  </h2>
+  <h2>
+    WhatsApp: <a [href]="whatsappUrl" target="_blank">{{ whatsappNumber }}</a>
+  </h2>
 </div>
