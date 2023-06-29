@@ -1,5 +1,5 @@
 <video
-  *ngIf="!promo"
+  *ngIf="(!promo && !videoRelease) || (promo && videoRelease)"
   src="{{ showVideo }}"
   autoplay
   [muted]="'muted'"
@@ -7,34 +7,33 @@
   class="main-background-image"
 ></video>
 
-<div class="home-promo">
+<div class="home-promo" *ngIf="promo && !videoRelease">
   <img
-    *ngIf="promo"
     src="{{ promo.image }}"
     alt="{{ promo.name }}"
     srcset="{{promo.image}}"
-    [class]="'home-promo-image' + (promo.videoUrl ? ' has-video' : '')"
+    class="home-promo-image"
   />
 
-  <youtube-player
-    id="youtube-player"
-    class="home-promo-video"
-    *ngIf="promo?.videoUrl"
-    [videoId]="promo?.videoUrl"
-    [height]="videoHeight"
-    [width]="videoWidth"
-    frameborder="0"
-    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-    allowfullscreen
-  ></youtube-player>
-
-  <h1 *ngIf="promo?.cta && !promo?.videoUrl" class="home-promo-name">{{ promo?.name }}</h1>
+  <h1 *ngIf="promo?.cta" class="home-promo-name">
+    {{ promo.name }}
+  </h1>
 
   <a
     app-button
-    *ngIf="promo?.cta && !promo?.videoUrl"
-    [href]="promo?.cta?.href"
+    *ngIf="promo?.cta"
+    [href]="promo.cta?.href"
     class="home-promo-cta"
-    >{{ promo?.cta?.label }}</a
+    >{{ promo.cta?.label }}</a
   >
+</div>
+
+<div class="home-release" *ngIf="videoRelease && !promo">
+  <app-featured-video
+    [videoUrl]="videoRelease.url"
+    [title]="videoRelease.title"
+    [streaming]="videoRelease.streaming"
+    [isMusicVideo]="true"
+    class="home-featured-video"
+  ></app-featured-video>
 </div>

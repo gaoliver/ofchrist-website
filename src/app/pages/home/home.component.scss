@@ -90,3 +90,20 @@
 
   font-size: 1.5rem;
 }
+
+.home-release {
+  display: flex;
+  position: absolute;
+  align-items: center;
+  justify-content: center;
+  height: 100svh;
+  width: 100%;
+  top: 0;
+  overflow: hidden;
+  background-color: var(--color-background);
+
+  .home-featured-video {
+    flex: 1;
+    max-width: 1080px;
+  }
+}
