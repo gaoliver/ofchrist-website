@@ -1,9 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { mockFeaturedNews } from '@src/app/@dummyData';
 import { mockVideos } from '@src/app/@dummyData/media';
-import { pageRoutes } from '@src/app/app-routing.module';
 import { FeaturedBanner } from '@src/app/components/@types/types';
-import { videoIdExtractor } from '@src/app/utils/videoIdExtractor';
 import { env } from '@src/environments/environment';
 
 @Component({
@@ -35,11 +33,6 @@ export class AboutComponent implements OnInit {
   ];
 
   featuredNews: Array<FeaturedBanner> = mockFeaturedNews;
-
-  // videoList = mockVideos.map((v) => ({
-  //   ...v,
-  //   videoUrl: videoIdExtractor(v.videoUrl),
-  // }));
 
   videoList = mockVideos
 

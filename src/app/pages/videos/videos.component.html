@@ -9,4 +9,15 @@
     class="featured-video"
   >
   </app-featured-video>
+
+  <ul class="videos-gallery">
+    <app-youtube-player
+      *ngFor="let video of videoList"
+      id="youtube-player"
+      [videoUrl]="video.videoUrl"
+      frameborder="0"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+      allowfullscreen
+    ></app-youtube-player>
+  </ul>
 </div>

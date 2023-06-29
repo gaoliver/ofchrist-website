@@ -2,5 +2,24 @@
 
 .featured-video {
   margin: 0 auto;
-  max-width: 900px;
+
+  @include screen-tablet-and-smaller {
+    margin: 0;
+    // width: 100%;
+  }
+}
+
+.videos-gallery {
+  margin-top: var(--spacing-x-large);
+
+  display: flex;
+  width: 100%;
+  gap: var(--spacing);
+  flex-wrap: wrap;
+
+  ::ng-deep {
+    app-youtube-player {
+      @include grid-content(3, var(--spacing));
+    }
+  }
 }
