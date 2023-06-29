@@ -1,8 +1,8 @@
 .events-container {
-  display: grid;
-  grid-template-columns: auto auto auto auto;
-  row-gap: var(--spacing-large);
+  display: flex;
   width: 100%;
+  flex-wrap: wrap;
+  gap: var(--spacing-large);
 
   app-event {
     margin: auto;
