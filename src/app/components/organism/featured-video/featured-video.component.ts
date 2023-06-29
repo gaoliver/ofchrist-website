@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { mockVideos } from '@src/app/@dummyData/media';
+import { FeaturedMusicVideo } from '../../@types/types';
 
 @Component({
   selector: 'app-featured-video',
@@ -7,5 +8,8 @@ import { mockVideos } from '@src/app/@dummyData/media';
   styleUrls: ['./featured-video.component.scss'],
 })
 export class FeaturedVideoComponent {
-  video = mockVideos[0];
+  @Input() isMusicVideo?: boolean;
+  @Input() videoUrl: string = '';
+  @Input() title: string = '';
+  @Input() streaming?: FeaturedMusicVideo['streaming'];
 }

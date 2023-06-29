@@ -23,7 +23,7 @@ export interface FeaturedBanner {
   imageUrl: string;
   date?: string;
   href: string;
-  showReadMore?: boolean
+  showReadMore?: boolean;
 }
 
 export interface NewsHeadline {
@@ -38,4 +38,10 @@ export interface Link {
   label: string;
   href: string;
   target?: '_blank' | '_self';
+}
+
+export interface FeaturedMusicVideo {
+  title: string;
+  url: string;
+  streaming: Array<SocialNetwork>;
 }
