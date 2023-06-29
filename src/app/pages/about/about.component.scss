@@ -10,9 +10,7 @@
   }
 
   app-youtube-player {
-    min-width: 300px;
-    width: 32.65%;
-    margin-bottom: var(--spacing);
+    @include grid-content(3, var(--spacing))
   }
 }
 
@@ -58,5 +56,5 @@ section {
   width: 100%;
   flex-wrap: wrap;
   justify-content: flex-start;
-  gap: 1%;
+  gap: var(--spacing);
 }

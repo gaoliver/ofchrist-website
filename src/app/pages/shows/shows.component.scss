@@ -1,10 +1,12 @@
+@import "../../../mixins.scss";
+
 .events-container {
   display: flex;
-  width: 100%;
   flex-wrap: wrap;
+  width: 100%;
+  gap: var(--spacing-medium);
 
   app-event {
-    width: 25%;
-    margin-bottom: var(--spacing-large);
+    @include grid-content(4, var(--spacing-medium))
   }
 }

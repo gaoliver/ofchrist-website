@@ -1,12 +1,20 @@
+@import "../../../mixins.scss";
+
+::ng-deep {
+  app-news-headline {
+    @include grid-content(3, var(--spacing-large))
+  }
+}
+
 .news-highlight {
   height: 500px;
 }
 
 .news-others {
-  display: grid;
-  grid-template-columns: auto auto auto;
-  column-gap: var(--spacing-large);
-  row-gap: var(--spacing-large);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  gap: var(--spacing-large);
   margin-top: var(--spacing-x-large);
 }
 

@@ -13,7 +13,7 @@ export class NewsComponent implements OnInit {
   highlightList: Array<NewsHeadline> = mockHighlightNews;
   mockHeadline: NewsHeadline = mockNews;
 
-  newsList: Array<NewsHeadline> = Array(11).fill(this.mockHeadline);
+  newsList: Array<NewsHeadline> = Array(13).fill(this.mockHeadline);
 
   //
   //
