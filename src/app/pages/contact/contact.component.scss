@@ -4,11 +4,32 @@
   }
 }
 
+h3 {
+  opacity: 0.6;
+}
+
 .contact-content {
   justify-content: center;
+}
 
-  p {
-    background-color: aqua;
-    width: fit-content;
+.contact-row {
+  margin: var(--spacing-medium) auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-medium);
+
+  a {
+    font-size: 2rem;
+    line-height: 1;
+    text-decoration: underline 2px;
+  }
+
+  mat-icon {
+    width: 30px;
+    height: 30px;
+    color: var(--color-whatsapp);
   }
 }
+
+.svg-whatsapp {}

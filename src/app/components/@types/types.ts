@@ -7,6 +7,7 @@ export enum Icons {
   'deezer',
   'apple-music',
   'youtube-music',
+  'whatsapp'
 }
 
 export type IconOptions = keyof typeof Icons;

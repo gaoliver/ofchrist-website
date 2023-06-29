@@ -2,12 +2,15 @@
 
 <div app-page-content>
   <h3>Mensagens e agendamentos:</h3>
-  <h2>
+
+  <span class="contact-row">
     <a href="mailto:{{ email }}">
       {{ email }}
     </a>
-  </h2>
-  <h2>
-    WhatsApp: <a [href]="whatsappUrl" target="_blank">{{ whatsappNumber }}</a>
-  </h2>
+  </span>
+
+  <span class="contact-row">
+    <mat-icon svgIcon="whatsapp" class="svg-whatsapp"></mat-icon>
+    <a [href]="whatsappUrl" target="_blank">{{ whatsappNumber }}</a>
+  </span>
 </div>
