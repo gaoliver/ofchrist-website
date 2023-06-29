@@ -1,9 +1,10 @@
 <h1 app-page-title>Músicas</h1>
 
 <div app-page-content>
-  <p>
-    Página para colocar sub-páginas com músicas e letras, lançamentos, clipes,
-    singles, álbums etc. O título ainda não está definido porque vamos ter
-    sub-páginas aqui.
-  </p>
+  <app-youtube-player [videoUrl]="highlightVideo.videoUrl" class="music-highlight-video"></app-youtube-player>
+  <section app-page-section>
+    <header>
+      <h2>Videoclipes:</h2>
+    </header>
+  </section>
 </div>

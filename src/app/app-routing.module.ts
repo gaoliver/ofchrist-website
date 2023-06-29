@@ -9,6 +9,7 @@ import { MusicComponent } from './pages/music/music.component';
 import { NewsComponent } from './pages/news/news.component';
 import { OurStoryComponent } from './pages/our-story/our-story.component';
 import { ShowsComponent } from './pages/shows/shows.component';
+import { VideosComponent } from './pages/videos/videos.component';
 
 type RoutesWithSubmenu = Route & {
   data: {
@@ -74,6 +75,10 @@ export const pageRoutes: Array<RoutesWithSubmenu> = [
             slug: '#',
           },
           {
+            label: 'Videos',
+            slug: 'musicas/videos',
+          },
+          {
             label: 'Discografia',
             slug: 'musicas/discografia',
           },
@@ -105,6 +110,11 @@ const routes: Routes = [
     path: 'musicas/discografia',
     title: 'Of Christ | Discografia',
     component: DiscographyComponent,
+  },
+  {
+    path: 'musicas/videos',
+    title: 'Of Christ | Videos',
+    component: VideosComponent,
   },
   ...pageRoutes,
 ];
