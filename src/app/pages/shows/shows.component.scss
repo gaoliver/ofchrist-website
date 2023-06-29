@@ -2,9 +2,9 @@
   display: flex;
   width: 100%;
   flex-wrap: wrap;
-  gap: var(--spacing-large);
 
   app-event {
-    margin: auto;
+    width: 25%;
+    margin-bottom: var(--spacing-large);
   }
 }
