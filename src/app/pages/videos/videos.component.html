@@ -1,4 +1,28 @@
 <h1 app-page-title>Vídeos</h1>
 
 <div app-page-content>
+  <app-featured-video>
+    <div class="video-info">
+      <h2 class="featured-video-title">Nome da música</h2>
+      <ul class="featured-video-streaming">
+        <li *ngFor="let platform of streaming">
+          <a
+            app-button
+            href="{{ platform.href }}"
+            target="_blank"
+            [style]="
+              'color: var(--color-' +
+              platform.icon +
+              '); border-color: var(--color-' +
+              platform.icon +
+              ');'
+            "
+          >
+            <mat-icon svgIcon="{{ platform.icon }}"></mat-icon>
+            Ouvir em {{ platform.label }}
+          </a>
+        </li>
+      </ul>
+    </div>
+  </app-featured-video>
 </div>

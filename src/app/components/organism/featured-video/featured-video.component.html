@@ -1,1 +1,8 @@
-<p>video-featured works!</p>
+<app-youtube-player
+  [videoUrl]="video.videoUrl"
+  class="music-featured-video"
+></app-youtube-player>
+
+<aside class="featured-video-info">
+  <ng-content></ng-content>
+</aside>

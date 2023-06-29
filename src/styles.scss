@@ -58,6 +58,13 @@ $ofchrist-website-theme: mat.define-light-theme((color: (primary: $ofchrist-webs
 
   --color-background: var(--color-black);
   --color-text: var(--color-white);
+
+  --color-spotify: #1ed760;
+  --color-deezer: #f98511;
+  --color-apple-music: #fb223c;
+  --color-youtube-music: #ff0000;
+
+  ;
 }
 
 html,
