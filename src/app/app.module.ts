@@ -25,6 +25,7 @@ import { YouTubePlayerModule } from '@angular/youtube-player';
 import { OurStoryComponent } from './pages/our-story/our-story.component';
 import { DiscographyComponent } from './pages/discography/discography.component';
 import { YoutubePlayerComponent } from './components/atoms/youtube-player/youtube-player.component';
+import { PageSectionComponent } from './components/atoms/page-section/page-section.component';
 
 @NgModule({
   declarations: [
@@ -47,6 +48,7 @@ import { YoutubePlayerComponent } from './components/atoms/youtube-player/youtub
     OurStoryComponent,
     DiscographyComponent,
     YoutubePlayerComponent,
+    PageSectionComponent,
   ],
   imports: [
     BrowserModule,

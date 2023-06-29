@@ -60,7 +60,7 @@
   width: calc(((100 / $grid-columns) * 1%) - $gap);
 
   @include screen-tablet-and-smaller {
-    width: calc(((100 / round($grid-columns / 2)) * 1%) - $gap);
+    width: calc(((100 / round(calc($grid-columns / 2))) * 1%) - $gap);
   }
 
   @include screen-mobile-and-smaller {

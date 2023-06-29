@@ -1,0 +1,25 @@
+:host {
+  margin-top: var(--spacing-x-large);
+
+  ::ng-deep {
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      a {
+        color: var(--color-grey);
+        text-decoration: none;
+        text-transform: uppercase;
+
+        &::after {
+          content: ' »';
+        }
+
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+}

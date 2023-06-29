@@ -14,30 +14,6 @@
   }
 }
 
-section {
-  margin-top: var(--spacing-x-large);
-
-  header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-
-  a {
-    color: var(--color-grey);
-    text-decoration: none;
-    text-transform: uppercase;
-
-    &::after {
-      content: ' »';
-    }
-
-    &:hover {
-      text-decoration: underline;
-    }
-  }
-}
-
 .about-summary {
   text-align: center;
   max-width: 800px;
