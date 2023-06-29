@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { HighlightBanner } from '@src/app/components/@types/types';
+import { FeaturedBanner } from '@src/app/components/@types/types';
 
 @Component({
   selector: 'main[app-discography].page-container',
@@ -7,7 +7,7 @@ import { HighlightBanner } from '@src/app/components/@types/types';
   styleUrls: ['./discography.component.scss'],
 })
 export class DiscographyComponent implements OnInit {
-  discList: Array<HighlightBanner> = [
+  discList: Array<FeaturedBanner> = [
     {
       title: 'Confiança Pt. 1',
       description: '2018',

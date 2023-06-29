@@ -4,7 +4,7 @@
   flex: 1;
 }
 
-.highlight-banner-clickable-container {
+.featured-banner-clickable-container {
   display: flex;
   height: 100%;
   max-width: 100%;
@@ -29,14 +29,14 @@
   }
 }
 
-.highlight_banner-image {
+.featured_banner-image {
   height: 100%;
   width: 100%;
   object-fit: cover;
   position: absolute;
 }
 
-.highlight_banner-info-container {
+.featured_banner-info-container {
   display: flex;
   flex-direction: column;
   position: relative;
@@ -62,7 +62,7 @@
   }
 }
 
-.highlight_banner-date {
+.featured_banner-date {
   font-size: x-small;
   line-height: 1;
   font-weight: bold;
@@ -70,7 +70,7 @@
   opacity: 0.7;
 }
 
-.highlight_banner-read_more {
+.featured_banner-read_more {
   text-transform: uppercase;
 
   &::after {

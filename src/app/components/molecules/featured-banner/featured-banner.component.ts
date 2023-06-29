@@ -1,11 +1,11 @@
 import { Component, Input } from '@angular/core';
 
 @Component({
-  selector: 'app-highlight-banner',
-  templateUrl: './highlight-banner.component.html',
-  styleUrls: ['./highlight-banner.component.scss'],
+  selector: 'app-featured-banner',
+  templateUrl: './featured-banner.component.html',
+  styleUrls: ['./featured-banner.component.scss'],
 })
-export class HighlightBannerComponent {
+export class FeaturedBannerComponent {
   @Input() title: string = '';
   @Input() description?: string;
   @Input() imageUrl: string = '';

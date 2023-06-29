@@ -1,6 +1,6 @@
 import { NewsHeadline } from '../components/@types/types';
 
-export const mockHighlightNews: Array<NewsHeadline> = [
+export const mockFeaturedNews: Array<NewsHeadline> = [
   {
     title: 'Título da primeira notícia em destaque',
     description:

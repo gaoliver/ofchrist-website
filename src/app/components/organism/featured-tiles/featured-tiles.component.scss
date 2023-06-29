@@ -13,17 +13,17 @@ $transition-time: 200ms;
   flex-wrap: wrap;
 
   &:hover {
-    .highlight-item {
+    .featured-item {
       opacity: 0.6;
     }
   }
 }
 
-.highlight-item {
+.featured-item {
   transition: ease-in-out $transition-time;;
 }
 
-:host:hover .highlight-item:hover {
+:host:hover .featured-item:hover {
   transform: scale(1.02);
   z-index: 1;
   color: inherit;

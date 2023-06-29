@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { mockHighlightNews } from '@src/app/@dummyData';
+import { mockFeaturedNews } from '@src/app/@dummyData';
 import { mockVideos } from '@src/app/@dummyData/media';
 import { pageRoutes } from '@src/app/app-routing.module';
-import { HighlightBanner } from '@src/app/components/@types/types';
+import { FeaturedBanner } from '@src/app/components/@types/types';
 import { videoIdExtractor } from '@src/app/utils/videoIdExtractor';
 import { env } from '@src/environments/environment';
 
@@ -20,7 +20,7 @@ export class AboutComponent implements OnInit {
   //   (p) => p.data.label?.toLocaleLowerCase() === 'a banda'
   // )?.data.submenu;
 
-  subpages: Array<HighlightBanner> = [
+  subpages: Array<FeaturedBanner> = [
     {
       title: 'Nossa história',
       href: 'a-banda/nossa-historia',
@@ -34,7 +34,7 @@ export class AboutComponent implements OnInit {
     },
   ];
 
-  highlightNews: Array<HighlightBanner> = mockHighlightNews;
+  featuredNews: Array<FeaturedBanner> = mockFeaturedNews;
 
   // videoList = mockVideos.map((v) => ({
   //   ...v,

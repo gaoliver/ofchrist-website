@@ -8,5 +8,5 @@ import { mockVideos } from '@src/app/@dummyData/media';
 })
 export class MusicComponent {
   videos = mockVideos.shift();
-  highlightVideo = mockVideos[0];
+  featuredVideo = mockVideos[0];
 }

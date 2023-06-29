@@ -1,15 +1,15 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { fullDateFormat } from '@src/app/utils/dateFormat';
-import { HighlightBanner } from '../../@types/types';
+import { FeaturedBanner } from '../../@types/types';
 
 @Component({
-  selector: 'ul[app-highlight-tiles]',
-  templateUrl: './highlight-tiles.component.html',
-  styleUrls: ['./highlight-tiles.component.scss'],
+  selector: 'ul[app-featured-tiles]',
+  templateUrl: './featured-tiles.component.html',
+  styleUrls: ['./featured-tiles.component.scss'],
 })
-export class HighlightTilesComponent implements OnInit {
+export class FeaturedTilesComponent implements OnInit {
   @Input() nOfTales: number = 0;
-  @Input() talesList: Array<HighlightBanner> = [];
+  @Input() talesList: Array<FeaturedBanner> = [];
   @Input() showReadMore?: boolean;
 
   ngOnInit() {

@@ -1,0 +1,19 @@
+<a class="featured-banner-clickable-container" href="{{ href }}">
+  <img
+    src="{{ imageUrl }}"
+    alt="{{ title }}"
+    srcset="{{imageUrl}}"
+    class="featured_banner-image"
+  />
+
+  <div class="featured_banner-info-container">
+    <span class="featured_banner-date" *ngIf="date">{{ date }}</span>
+    <h2>{{ title }}</h2>
+    <p *ngIf="description">
+      {{ description }}
+    </p>
+    <span class="featured_banner-read_more" *ngIf="showReadMore"
+      >ler mais</span
+    >
+  </div>
+</a>

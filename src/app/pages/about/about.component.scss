@@ -1,7 +1,7 @@
 @import "../../../mixins.scss";
 
 ::ng-deep {
-  .about-news app-highlight-banner {
+  .about-news app-featured-banner {
     height: 300px;
 
     @include screen-tablet-and-smaller {

@@ -18,8 +18,8 @@ import { MatIconModule } from '@angular/material/icon';
 import { HttpClientModule } from '@angular/common/http';
 import { EventComponent } from './components/molecules/event/event.component';
 import { ButtonComponent } from './components/atoms/button/button.component';
-import { HighlightBannerComponent } from './components/molecules/highlight-banner/highlight-banner.component';
-import { HighlightTilesComponent } from './components/organism/highlight-tiles/highlight-tiles.component';
+import { FeaturedBannerComponent } from './components/molecules/featured-banner/featured-banner.component';
+import { FeaturedTilesComponent } from './components/organism/featured-tiles/featured-tiles.component';
 import { NewsHeadlineComponent } from './components/molecules/news-headline/news-headline.component';
 import { YouTubePlayerModule } from '@angular/youtube-player';
 import { OurStoryComponent } from './pages/our-story/our-story.component';
@@ -27,7 +27,7 @@ import { DiscographyComponent } from './pages/discography/discography.component'
 import { YoutubePlayerComponent } from './components/atoms/youtube-player/youtube-player.component';
 import { PageSectionComponent } from './components/atoms/page-section/page-section.component';
 import { VideosComponent } from './pages/videos/videos.component';
-import { VideoHighlightComponent } from './components/organism/video-highlight/video-highlight.component';
+import { FeaturedVideoComponent } from './components/organism/featured-video/featured-video.component';
 
 @NgModule({
   declarations: [
@@ -44,15 +44,15 @@ import { VideoHighlightComponent } from './components/organism/video-highlight/v
     FooterComponent,
     EventComponent,
     ButtonComponent,
-    HighlightBannerComponent,
-    HighlightTilesComponent,
+    FeaturedBannerComponent,
+    FeaturedTilesComponent,
     NewsHeadlineComponent,
     OurStoryComponent,
     DiscographyComponent,
     YoutubePlayerComponent,
     PageSectionComponent,
     VideosComponent,
-    VideoHighlightComponent,
+    FeaturedVideoComponent,
   ],
   imports: [
     BrowserModule,

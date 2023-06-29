@@ -17,7 +17,7 @@ export interface SocialNetwork {
   href: string;
 }
 
-export interface HighlightBanner {
+export interface FeaturedBanner {
   title: string;
   description?: string;
   imageUrl: string;
