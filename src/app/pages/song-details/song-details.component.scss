@@ -1,5 +1,6 @@
 .song-page-cover-image {
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
   position: fixed;
   top: 0;
@@ -31,6 +32,7 @@
 
 .song-page-section {
   display: flex;
+  flex-wrap: wrap;
 }
 
 .song-page-article {
@@ -55,10 +57,13 @@
 
 .song-page-lyrics {
   margin-top: var(--spacing-large);
+  font-size: x-large;
+  line-height: 1;
 }
 
 .song-page-sidebar {
   display: flex;
+  flex-wrap: wrap;
   align-items: flex-start;
   flex: 0.5;
   padding-left: var(--spacing-xx-large);
