@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 import { ActivatedRoute } from '@angular/router';
-import { mockLyrics } from '@src/app/@dummyData';
-import { SongLyrics } from '@src/app/@types/types';
+import { mockAlbums, mockLyrics } from '@src/app/@dummyData';
+import { Album, SongLyrics } from '@src/app/@types/types';
+import { fullDateFormat } from '@src/app/utils/dateFormat';
 
 @Component({
   selector: 'main[app-song-details].page-container',
@@ -11,13 +12,16 @@ import { SongLyrics } from '@src/app/@types/types';
 })
 export class SongDetailsComponent implements OnInit {
   songList = mockLyrics;
+  albumList = mockAlbums;
+
+  album: Album | undefined;
   song: SongLyrics | undefined;
   constructor(
     private activeRoute: ActivatedRoute,
     private titleService: Title
   ) {}
 
-  ngOnInit() {
+  findSong() {
     const songSlug = this.activeRoute.snapshot.paramMap.get('slug');
     const foundSong = this.songList.find((s) => s.slug === songSlug);
 
@@ -26,6 +30,26 @@ export class SongDetailsComponent implements OnInit {
       this.titleService.setTitle(`${currTitle} ${foundSong.title}`);
     }
 
-    this.song = foundSong;
+    return foundSong;
+  }
+
+  findAlbum() {
+    const album = this.albumList.find((a) => a.id === this.song?.albumId);
+
+    return album;
+  }
+
+  ngOnInit() {
+    this.song = this.findSong();
+    this.album = this.findAlbum();
+
+    if (this.album) {
+      this.album = {
+        ...this.album,
+        releaseDate: fullDateFormat(this.album.releaseDate),
+      };
+    }
+
+    console.log(this.song, this.album);
   }
 }

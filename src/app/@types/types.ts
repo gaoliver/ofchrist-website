@@ -1,3 +1,5 @@
+import { SocialNetwork } from '../components/@types/types';
+
 export interface Subpage {
   label: string;
   slug: string;
@@ -25,11 +27,19 @@ export interface HomePromo {
 
 export interface SongLyrics {
   title: string;
-  album: string;
+  albumId: string;
   composers: string;
-  releaseDate: string;
-  producer: string;
-  recorded: string;
   lyrics: string;
   slug: string;
+  youtubeVideo: string;
+}
+
+export interface Album {
+  id: string;
+  title: string;
+  releaseDate: string;
+  cover: string;
+  producer: string;
+  recorded: string;
+  streaming: SocialNetwork[];
 }

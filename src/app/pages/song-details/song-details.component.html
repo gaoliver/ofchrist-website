@@ -2,13 +2,7 @@
 
 <div app-page-content>
   <div class="song-page-cover-image">
-    <img
-      src="https://www.udiscovermusic.com/wp-content/uploads/2019/08/Metallica-Death-Magnetic-album-cover-820.jpg"
-      alt="Cover album"
-      srcset="
-        https://www.udiscovermusic.com/wp-content/uploads/2019/08/Metallica-Death-Magnetic-album-cover-820.jpg
-      "
-    />
+    <img [src]="album?.cover" alt="Cover album" [srcset]="album?.cover" />
   </div>
 
   <section class="song-page-section">
@@ -16,22 +10,22 @@
       <header class="song-page-info">
         <div class="song-info-block">
           <h5 class="song-page-label">Lançamento:</h5>
-          <h2>{{ song?.releaseDate }}</h2>
+          <h3>{{ album?.releaseDate }}</h3>
         </div>
 
         <div class="song-info-block">
           <h5 class="song-page-label">Estúdio:</h5>
-          <h2>{{ song?.recorded }}</h2>
+          <h3>{{ album?.recorded }}</h3>
         </div>
 
         <div class="song-info-block">
           <h5 class="song-page-label">Produção:</h5>
-          <h2>{{ song?.producer }}</h2>
+          <h3>{{ album?.producer }}</h3>
         </div>
 
         <div class="song-info-block">
           <h5 class="song-page-label">Compositores:</h5>
-          <h2>{{ song?.composers }}</h2>
+          <h3>{{ song?.composers }}</h3>
         </div>
       </header>
 
@@ -42,10 +36,32 @@
     </article>
 
     <aside class="song-page-sidebar">
-      <app-youtube-player
-        [videoUrl]="'https://www.youtube.com/watch?v=nycN6OZ-szY'"
-        class="song-sidebar-player"
-      ></app-youtube-player>
+      <div class="sidebar-sticky">
+        <app-youtube-player
+          [videoUrl]="song?.youtubeVideo || ''"
+          class="song-sidebar-player"
+        ></app-youtube-player>
+
+        <ul class="featured-video-streaming">
+          <li *ngFor="let platform of album?.streaming">
+            <a
+              app-button
+              href="{{ platform.href }}"
+              target="_blank"
+              [style]="
+                'color: var(--color-' +
+                platform.icon +
+                '); border-color: var(--color-' +
+                platform.icon +
+                ');'
+              "
+            >
+              <mat-icon svgIcon="{{ platform.icon }}"></mat-icon>
+              Ouvir no {{ platform.label }}
+            </a>
+          </li>
+        </ul>
+      </div>
     </aside>
   </section>
 </div>
