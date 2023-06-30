@@ -1,13 +1,20 @@
 <h1 app-page-title>Músicas</h1>
 
 <div app-page-content>
-  <app-youtube-player
-    [videoUrl]="featuredVideo.videoUrl"
+  <app-featured-video
+    [videoUrl]="featuredVideo.url"
+    [title]="featuredVideo.title"
+    [streaming]="featuredVideo.streaming"
+    [isMusicVideo]="true"
     class="music-featured-video"
-  ></app-youtube-player>
-  <!-- <section app-page-section>
+  >
+  </app-featured-video>
+  <section app-page-section>
     <header>
-      <h2>Videoclipes:</h2>
+      <h2>Álbums:</h2>
+      <a [routerLink]="['./discografia']">ver todos</a>
     </header>
-  </section> -->
+
+    <ul app-featured-tiles [talesList]="albums" [nOfTales]="5" class="albums-list"></ul>
+  </section>
 </div>
