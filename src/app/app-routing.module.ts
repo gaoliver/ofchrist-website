@@ -5,6 +5,7 @@ import { AboutComponent } from './pages/about/about.component';
 import { ContactComponent } from './pages/contact/contact.component';
 import { DiscographyComponent } from './pages/discography/discography.component';
 import { HomeComponent } from './pages/home/home.component';
+import { LyricsComponent } from './pages/lyrics/lyrics.component';
 import { MusicComponent } from './pages/music/music.component';
 import { NewsComponent } from './pages/news/news.component';
 import { OurStoryComponent } from './pages/our-story/our-story.component';
@@ -72,7 +73,7 @@ export const pageRoutes: Array<RoutesWithSubmenu> = [
         subpages: [
           {
             label: 'Letras',
-            slug: '#',
+            slug: 'musicas/letras',
           },
           {
             label: 'Videos',
@@ -115,6 +116,11 @@ const routes: Routes = [
     path: 'musicas/videos',
     title: 'Of Christ | Videos',
     component: VideosComponent,
+  },
+  {
+    path: 'musicas/letras',
+    title: 'Of Christ | Letras',
+    component: LyricsComponent,
   },
   ...pageRoutes,
 ];

@@ -22,3 +22,13 @@ export interface HomePromo {
     href: string;
   };
 }
+
+export interface SongLyrics {
+  title: string;
+  album: string;
+  composers: string;
+  releaseDate: string;
+  producer: string;
+  recorded: string;
+  lyrics: string;
+}

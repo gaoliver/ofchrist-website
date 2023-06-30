@@ -28,6 +28,7 @@ import { YoutubePlayerComponent } from './components/atoms/youtube-player/youtub
 import { PageSectionComponent } from './components/atoms/page-section/page-section.component';
 import { VideosComponent } from './pages/videos/videos.component';
 import { FeaturedVideoComponent } from './components/organism/featured-video/featured-video.component';
+import { LyricsComponent } from './pages/lyrics/lyrics.component';
 
 @NgModule({
   declarations: [
@@ -53,6 +54,7 @@ import { FeaturedVideoComponent } from './components/organism/featured-video/fea
     PageSectionComponent,
     VideosComponent,
     FeaturedVideoComponent,
+    LyricsComponent,
   ],
   imports: [
     BrowserModule,
