@@ -1,1 +1,19 @@
 <p>lyrics works!</p>
+<h1 app-page-title>Letras</h1>
+
+<div app-page-content class="lyrics-page-content">
+  <header class="lyrics-header"></header>
+
+  <article class="lyrics-list-container">
+    <div class="lyrics-list">
+      <section class="lyrics-list-group" *ngFor="let list of groupedSongsList">
+        <h1 class="lyrics-list-title">{{ list.key }}</h1>
+        <ul class="lyrics-list-songs">
+          <li *ngFor="let song of list.songs">
+            <a href="#">{{ song.title }}</a>
+          </li>
+        </ul>
+      </section>
+    </div>
+  </article>
+</div>

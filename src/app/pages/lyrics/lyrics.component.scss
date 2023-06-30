@@ -1,0 +1,45 @@
+.lyrics-page-content {
+  ::ng-deep {
+    .inner-content {
+      max-width: 1000px;
+    }
+  }
+}
+
+.lyrics-list-container {
+  display: flex;
+}
+
+.lyrics-list {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.lyrics-list-group {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  margin-bottom: var(--spacing-x-large);
+}
+
+.lyrics-list-title {
+  padding-bottom: var(--spacing-medium);
+  border-bottom: solid 1px var(--color-text);
+  margin: 0 0 var(--spacing-large);
+}
+
+.lyrics-list-songs {
+  flex: 1;
+  margin: 0;
+
+  li {
+    list-style: none;
+    margin-bottom: var(--spacing-large);
+  }
+
+  li a {
+    font-size: x-large;
+    text-decoration: none;
+  }
+}
