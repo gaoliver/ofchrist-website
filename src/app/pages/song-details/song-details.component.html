@@ -2,7 +2,11 @@
 
 <div app-page-content>
   <div class="song-page-cover-image">
-    <img [src]="album?.cover" alt="Cover album" [srcset]="album?.cover" />
+    <img
+      [src]="album?.cover"
+      [alt]="album?.title + ' Cover album'"
+      [srcset]="album?.cover"
+    />
   </div>
 
   <section class="song-page-section">
@@ -14,6 +18,20 @@
         </div>
 
         <div class="song-info-block">
+          <h5 class="song-page-label">Compositores:</h5>
+          <h3>{{ song?.composers }}</h3>
+        </div>
+
+        <div class="song-info-block">
+          <h5 class="song-page-label">Álbum:</h5>
+          <h3>
+            <a [routerLink]="['../../album/', album?.id]">
+              {{ album?.title }}</a
+            >
+          </h3>
+        </div>
+
+        <div class="song-info-block">
           <h5 class="song-page-label">Estúdio:</h5>
           <h3>{{ album?.recorded }}</h3>
         </div>
@@ -21,11 +39,6 @@
         <div class="song-info-block">
           <h5 class="song-page-label">Produção:</h5>
           <h3>{{ album?.producer }}</h3>
-        </div>
-
-        <div class="song-info-block">
-          <h5 class="song-page-label">Compositores:</h5>
-          <h3>{{ song?.composers }}</h3>
         </div>
       </header>
 

@@ -1,1 +1,52 @@
-<p>album-details works!</p>
+<h1 app-page-title>{{ album.title }}</h1>
+
+<div app-page-content>
+  <section class="album-section">
+    <article class="album-content">
+      <div class="content-sticky">
+        <img
+          [src]="album.cover"
+          [alt]="album.title + 'cover'"
+          [srcset]="album.cover"
+          class="album-cover"
+        />
+
+        <app-streaming-button-list
+          [streamingList]="album.streaming"
+          label="Ouvir no"
+          class="album-streaming"
+        ></app-streaming-button-list>
+      </div>
+    </article>
+
+    <aside class="album-page-sidebar">
+      <div class="album-info">
+        <div class="album-info-block">
+          <h5 class="album-info-label">Lançamento:</h5>
+          <h3>{{ album.releaseDate }}</h3>
+        </div>
+
+        <div class="album-info-block">
+          <h5 class="album-info-label">Produção:</h5>
+          <h3>{{ album.producer }}</h3>
+        </div>
+
+        <div class="album-info-block">
+          <h5 class="album-info-label">Estúdio:</h5>
+          <h3>{{ album.recorded }}</h3>
+        </div>
+      </div>
+
+      <div class="album-song-list">
+        <h1>Músicas:</h1>
+        <ol>
+          <li *ngFor="let song of songs">
+            <a [routerLink]="['../../letras/', song.id]">{{
+              song.title
+            }}</a>
+          </li>
+        </ol>
+      </div>
+    </aside>
+  </section>
+</div>

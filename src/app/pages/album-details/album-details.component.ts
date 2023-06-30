@@ -14,8 +14,16 @@ export class AlbumDetailsComponent {
   songList = mockLyrics;
   albumList = mockAlbums;
 
-  album: Album | undefined;
-  songs: SongLyrics | undefined;
+  album: Album = {
+    id: '',
+    title: '',
+    releaseDate: '',
+    cover: '',
+    producer: '',
+    recorded: '',
+    streaming: [],
+  };
+  songs: SongLyrics[] = [];
 
   constructor(
     private activeRoute: ActivatedRoute,
@@ -31,18 +39,22 @@ export class AlbumDetailsComponent {
       this.titleService.setTitle(`${currTitle} ${albumFound.title}`);
     }
 
-    return albumFound;
+    if (albumFound) {
+      this.album = albumFound;
+    }
   }
 
   filterSongs() {
-    const songs = this.songList.find((s) => s.albumId === this.album?.id);
+    const songs = this.songList.filter((s) => s.albumId === this.album?.id);
 
-    return songs;
+    if (songs) {
+      this.songs = songs;
+    }
   }
 
   ngOnInit() {
-    this.album = this.findAlbum();
-    this.songs = this.filterSongs();
+    this.findAlbum();
+    this.filterSongs();
 
     if (this.album) {
       this.album = {

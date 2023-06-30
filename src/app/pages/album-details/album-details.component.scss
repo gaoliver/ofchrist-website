@@ -1,0 +1,77 @@
+.album-section {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.album-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  max-width: 500px;
+}
+
+.content-sticky {
+  position: sticky;
+  top: 20svh;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: fit-content;
+}
+
+.album-cover {
+  margin: 0 0 var(--spacing);
+  aspect-ratio: 1;
+}
+
+.album-page-sidebar {
+  flex: 1;
+  max-width: 600px;
+}
+
+.album-info {
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: var(--spacing-large);
+  background-color: var(--color-primary);
+  padding: var(--spacing-medium);
+  box-sizing: border-box;
+}
+
+.album-info-block {
+  width: 250px;
+}
+
+.album-info-label {
+  color: var(--color-grey-lighter);
+}
+
+.album-song-list {
+  height: fit-content;
+  padding: var(--spacing-medium);
+  box-shadow: 0px 0px 10px 5px var(--color-grey-darker);
+  box-sizing: border-box;
+
+  h1 {
+    margin-top: var(--spacing-medium);
+  }
+
+  ol li {
+    font-size: 1.5rem;
+    margin-bottom: var(--spacing-medium);
+
+    a {
+      text-decoration: none;
+    }
+  }
+}
+
+.album-streaming {
+  ::ng-deep {
+    .streaming-platform-buttons {
+      flex-direction: row;
+      flex-wrap: wrap;
+    }
+  }
+}
