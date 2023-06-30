@@ -104,7 +104,7 @@ export const mockLyrics: Array<SongLyrics> = [
   },
   {
     title: 'Oração do Justo',
-    albumId: 'abismo',
+    albumId: 'confianca-pt2',
     composers: 'G.A. Oliver, Caio, Willer, Vinni',
     lyrics: generalLyrics,
     slug: 'oracao-do-justo',
@@ -112,7 +112,7 @@ export const mockLyrics: Array<SongLyrics> = [
   },
   {
     title: 'Confiança',
-    albumId: 'abismo',
+    albumId: 'confianca-pt2',
     composers: 'G.A. Oliver, Caio, Willer, Vinni',
     lyrics: generalLyrics,
     slug: 'confianca',
@@ -120,7 +120,7 @@ export const mockLyrics: Array<SongLyrics> = [
   },
   {
     title: 'Força Pra Vencer',
-    albumId: 'abismo',
+    albumId: 'confianca-pt1',
     composers: 'G.A. Oliver, Caio, Willer, Vinni',
     lyrics: generalLyrics,
     slug: 'forca-pra-vencer',
@@ -128,7 +128,7 @@ export const mockLyrics: Array<SongLyrics> = [
   },
   {
     title: 'O Mal Que Me Persegue',
-    albumId: 'abismo',
+    albumId: 'confianca-pt2',
     composers: 'G.A. Oliver, Caio, Willer, Vinni',
     lyrics: generalLyrics,
     slug: 'o-mal-que-me-persegue',
@@ -136,7 +136,7 @@ export const mockLyrics: Array<SongLyrics> = [
   },
   {
     title: 'Fé',
-    albumId: 'abismo',
+    albumId: 'confianca-pt1',
     composers: 'G.A. Oliver, Caio, Willer, Vinni',
     lyrics: generalLyrics,
     slug: 'fe',
@@ -144,7 +144,7 @@ export const mockLyrics: Array<SongLyrics> = [
   },
   {
     title: 'Livre',
-    albumId: 'abismo',
+    albumId: 'confianca-pt1',
     composers: 'G.A. Oliver, Caio, Willer, Vinni',
     lyrics: generalLyrics,
     slug: 'livre',
@@ -152,7 +152,7 @@ export const mockLyrics: Array<SongLyrics> = [
   },
   {
     title: 'Não Temas',
-    albumId: 'abismo',
+    albumId: 'confianca-pt2',
     composers: 'G.A. Oliver, Caio, Willer, Vinni',
     lyrics: generalLyrics,
     slug: 'nao-temas',
@@ -160,7 +160,7 @@ export const mockLyrics: Array<SongLyrics> = [
   },
   {
     title: 'Posso Viver',
-    albumId: 'abismo',
+    albumId: 'confianca-pt2',
     composers: 'G.A. Oliver, Caio, Willer, Vinni',
     lyrics: generalLyrics,
     slug: 'posso-viver',
@@ -177,6 +177,66 @@ export const mockAlbums: Array<Album> = [
     releaseDate: '2023-07-10',
     cover:
       'https://daniellevieira.com.br/wp-content/uploads/2018/06/amar-abismo.jpg',
+    streaming: [
+      {
+        label: 'Spotify',
+        icon: 'spotify',
+        href: '',
+      },
+      {
+        label: 'Deezer',
+        icon: 'deezer',
+        href: '',
+      },
+      {
+        label: 'Apple Music',
+        icon: 'apple-music',
+        href: '',
+      },
+      {
+        label: 'YouTube Music',
+        icon: 'youtube-music',
+        href: '',
+      },
+    ],
+  },
+  {
+    title: 'Confiança Pt. 1',
+    id: 'confianca-pt1',
+    producer: 'Fulano de Tal',
+    recorded: 'Fulano de Tal Records',
+    releaseDate: '2020-07-10',
+    cover: 'https://i.scdn.co/image/ab67616d00001e0261a1cf60071eb7877b59c084',
+    streaming: [
+      {
+        label: 'Spotify',
+        icon: 'spotify',
+        href: '',
+      },
+      {
+        label: 'Deezer',
+        icon: 'deezer',
+        href: '',
+      },
+      {
+        label: 'Apple Music',
+        icon: 'apple-music',
+        href: '',
+      },
+      {
+        label: 'YouTube Music',
+        icon: 'youtube-music',
+        href: '',
+      },
+    ],
+  },
+  {
+    title: 'Confiança Pt. 2',
+    id: 'confianca-pt2',
+    producer: 'Fulano de Tal',
+    recorded: 'Fulano de Tal Records',
+    releaseDate: '2022-07-10',
+    cover: 'https://i.scdn.co/image/ab67616d0000b2735229e5fdd5c833e8b8620e70',
     streaming: [
       {
         label: 'Spotify',
