@@ -12,6 +12,14 @@ export class LyricsComponent implements OnInit {
   groupedSongsList: { key: string; songs: SongLyrics[] }[] = [];
   lettersList: string[] = [];
 
+  onSearchSong(query: string) {
+    const filteredList = this.songList.filter((song) =>
+      song.title.toLowerCase().match(query.toLowerCase())
+    );
+
+    this.groupedSongsList = this.sortAndGroupByLetter(filteredList);
+  }
+
   sortAndGroupByLetter(list: SongLyrics[]) {
     const sortedList = list.sort((a, b) => a.title.localeCompare(b.title));
     const groupedByLetter: typeof this.groupedSongsList = [];

@@ -1,11 +1,20 @@
-<p>lyrics works!</p>
 <h1 app-page-title>Letras</h1>
 
 <div app-page-content class="lyrics-page-content">
-  <header class="lyrics-header"></header>
+  <header class="lyrics-header">
+    <input
+      type="search"
+      name="search"
+      #searchbar
+      class="lyrics-search-bar"
+      placeholder="Pesquisar música"
+      (keyup)="onSearchSong(searchbar.value)"
+    />
+  </header>
 
   <section class="lyrics-list-container">
     <article class="lyrics-list">
+      <p *ngIf="!groupedSongsList?.length">Nenhuma música encontrada.</p>
       <div
         class="lyrics-list-group"
         *ngFor="let list of groupedSongsList"
@@ -21,9 +30,9 @@
     </article>
     <aside class="lyrics-aside">
       <ul>
-        <span>filtrar por:</span>
+        <span>filtrar:</span>
         <li *ngFor="let letter of lettersList">
-          <a [href]="'#letra-' + letter">{{ letter }}</a>
+          <a [href]="'#letra-' + letter">{{ letter.toUpperCase() }}</a>
         </li>
       </ul>
     </aside>

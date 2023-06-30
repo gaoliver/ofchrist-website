@@ -104,7 +104,7 @@ export const mockLyrics: Array<SongLyrics> = [
     lyrics: generalLyrics,
   },
   {
-    title: 'BAbismo',
+    title: 'Oração do Justo',
     album: 'Abismo - single',
     composers: 'G.A. Oliver, Caio, Willer, Vinni',
     releaseDate: '2023-07-10',
@@ -113,7 +113,7 @@ export const mockLyrics: Array<SongLyrics> = [
     lyrics: generalLyrics,
   },
   {
-    title: 'BAbismo',
+    title: 'Confiança',
     album: 'Abismo - single',
     composers: 'G.A. Oliver, Caio, Willer, Vinni',
     releaseDate: '2023-07-10',
@@ -122,7 +122,7 @@ export const mockLyrics: Array<SongLyrics> = [
     lyrics: generalLyrics,
   },
   {
-    title: 'CAbismo',
+    title: 'Força Pra Vencer',
     album: 'Abismo - single',
     composers: 'G.A. Oliver, Caio, Willer, Vinni',
     releaseDate: '2023-07-10',
@@ -131,7 +131,7 @@ export const mockLyrics: Array<SongLyrics> = [
     lyrics: generalLyrics,
   },
   {
-    title: 'CbAbismo',
+    title: 'O Mal Que Me Persegue',
     album: 'Abismo - single',
     composers: 'G.A. Oliver, Caio, Willer, Vinni',
     releaseDate: '2023-07-10',
@@ -140,7 +140,7 @@ export const mockLyrics: Array<SongLyrics> = [
     lyrics: generalLyrics,
   },
   {
-    title: 'GAbismo',
+    title: 'Fé',
     album: 'Abismo - single',
     composers: 'G.A. Oliver, Caio, Willer, Vinni',
     releaseDate: '2023-07-10',
@@ -149,7 +149,7 @@ export const mockLyrics: Array<SongLyrics> = [
     lyrics: generalLyrics,
   },
   {
-    title: 'TAbismo',
+    title: 'Livre',
     album: 'Abismo - single',
     composers: 'G.A. Oliver, Caio, Willer, Vinni',
     releaseDate: '2023-07-10',
@@ -158,7 +158,7 @@ export const mockLyrics: Array<SongLyrics> = [
     lyrics: generalLyrics,
   },
   {
-    title: 'ZAbismo',
+    title: 'Não Temas',
     album: 'Abismo - single',
     composers: 'G.A. Oliver, Caio, Willer, Vinni',
     releaseDate: '2023-07-10',
@@ -167,7 +167,7 @@ export const mockLyrics: Array<SongLyrics> = [
     lyrics: generalLyrics,
   },
   {
-    title: 'CdAbismo',
+    title: 'Posso Viver',
     album: 'Abismo - single',
     composers: 'G.A. Oliver, Caio, Willer, Vinni',
     releaseDate: '2023-07-10',

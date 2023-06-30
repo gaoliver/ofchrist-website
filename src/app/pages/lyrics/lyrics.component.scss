@@ -6,6 +6,28 @@
   }
 }
 
+.lyrics-header {
+  width: 100%;
+  margin-bottom: var(--spacing-medium);
+}
+
+.lyrics-search-bar {
+  width: 100%;
+  font-size: large;
+  padding: var(--spacing-medium);
+  background-color: transparent;
+  border: none;
+  box-shadow: 0px 0px 5px 1px var(--color-grey);
+  transition: ease-in-out 200ms;
+
+  color: var(--color-text);
+
+  &:focus {
+    outline: none;
+    box-shadow: 0px 0px 10px 4px var(--color-primary);
+  }
+}
+
 .lyrics-list-container {
   display: flex;
   gap: var(--spacing-medium);
@@ -24,6 +46,11 @@
     gap: var(--spacing);
     width: fit-content;
     margin-left: auto;
+
+    span {
+      text-transform: uppercase;
+      font-weight: bold;
+    }
   }
 
   ul li {
