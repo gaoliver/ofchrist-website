@@ -8,24 +8,10 @@
 
   <div class="video-info" *ngIf="isMusicVideo">
     <h2 class="featured-video-title">{{ title }}</h2>
-    <ul class="featured-video-streaming">
-      <li *ngFor="let platform of streaming">
-        <a
-          app-button
-          href="{{ platform.href }}"
-          target="_blank"
-          [style]="
-            'color: var(--color-' +
-            platform.icon +
-            '); border-color: var(--color-' +
-            platform.icon +
-            ');'
-          "
-        >
-          <mat-icon svgIcon="{{ platform.icon }}"></mat-icon>
-          Ouvir no {{ platform.label }}
-        </a>
-      </li>
-    </ul>
+
+    <app-streaming-button-list
+      [streamingList]="streaming!"
+      label="Ouvir no"
+    ></app-streaming-button-list>
   </div>
 </aside>

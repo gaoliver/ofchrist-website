@@ -30,6 +30,7 @@ import { VideosComponent } from './pages/videos/videos.component';
 import { FeaturedVideoComponent } from './components/organism/featured-video/featured-video.component';
 import { LyricsComponent } from './pages/lyrics/lyrics.component';
 import { SongDetailsComponent } from './pages/song-details/song-details.component';
+import { StreamingButtonListComponent } from './components/moledules/streaming-button-list/streaming-button-list.component';
 
 @NgModule({
   declarations: [
@@ -56,7 +57,8 @@ import { SongDetailsComponent } from './pages/song-details/song-details.componen
     VideosComponent,
     FeaturedVideoComponent,
     LyricsComponent,
-    SongDetailsComponent
+    SongDetailsComponent,
+    StreamingButtonListComponent
   ],
   imports: [
     BrowserModule,

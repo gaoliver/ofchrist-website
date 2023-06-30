@@ -1,0 +1,19 @@
+<ul class="streaming-platform-buttons">
+  <li *ngFor="let platform of streamingList">
+    <a
+      app-button
+      href="{{ platform.href }}"
+      target="_blank"
+      [style]="
+        'color: var(--color-' +
+        platform.icon +
+        '); border-color: var(--color-' +
+        platform.icon +
+        ');'
+      "
+    >
+      <mat-icon svgIcon="{{ platform.icon }}"></mat-icon>
+      {{ label }} {{ platform.label }}
+    </a>
+  </li>
+</ul>
