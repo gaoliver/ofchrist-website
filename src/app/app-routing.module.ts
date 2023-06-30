@@ -10,6 +10,7 @@ import { MusicComponent } from './pages/music/music.component';
 import { NewsComponent } from './pages/news/news.component';
 import { OurStoryComponent } from './pages/our-story/our-story.component';
 import { ShowsComponent } from './pages/shows/shows.component';
+import { SongDetailsComponent } from './pages/song-details/song-details.component';
 import { VideosComponent } from './pages/videos/videos.component';
 
 type RoutesWithSubmenu = Route & {
@@ -122,11 +123,22 @@ const routes: Routes = [
     title: 'Of Christ | Letras',
     component: LyricsComponent,
   },
+  {
+    path: 'musicas/letras/:slug',
+    title: 'Of Christ |',
+    component: SongDetailsComponent,
+  },
   ...pageRoutes,
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [
+    RouterModule.forRoot(routes, {
+      onSameUrlNavigation: 'reload',
+      scrollPositionRestoration: 'top',
+      anchorScrolling: 'enabled',
+    }),
+  ],
   exports: [RouterModule],
 })
 export class AppRoutingModule {}

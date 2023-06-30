@@ -65,6 +65,8 @@ $ofchrist-website-theme: mat.define-light-theme((color: (primary: $ofchrist-webs
   --color-youtube-music: #ff0000;
   --color-whatsapp: #19d03e;
 
+
+  --color-background-rgb: 10, 10, 10;
   ;
 }
 
@@ -72,7 +74,6 @@ html,
 body {
   font-size: 16px !important;
   margin: 0;
-  scroll-behavior: smooth;
 }
 
 body {

@@ -31,4 +31,5 @@ export interface SongLyrics {
   producer: string;
   recorded: string;
   lyrics: string;
+  slug: string;
 }

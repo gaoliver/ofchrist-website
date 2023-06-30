@@ -1,0 +1,51 @@
+<h1 app-page-title>{{ song?.title }}</h1>
+
+<div app-page-content>
+  <div class="song-page-cover-image">
+    <img
+      src="https://www.udiscovermusic.com/wp-content/uploads/2019/08/Metallica-Death-Magnetic-album-cover-820.jpg"
+      alt="Cover album"
+      srcset="
+        https://www.udiscovermusic.com/wp-content/uploads/2019/08/Metallica-Death-Magnetic-album-cover-820.jpg
+      "
+    />
+  </div>
+
+  <section class="song-page-section">
+    <article class="song-page-article">
+      <header class="song-page-info">
+        <div class="song-info-block">
+          <h5 class="song-page-label">Lançamento:</h5>
+          <h2>{{ song?.releaseDate }}</h2>
+        </div>
+
+        <div class="song-info-block">
+          <h5 class="song-page-label">Estúdio:</h5>
+          <h2>{{ song?.recorded }}</h2>
+        </div>
+
+        <div class="song-info-block">
+          <h5 class="song-page-label">Produção:</h5>
+          <h2>{{ song?.producer }}</h2>
+        </div>
+
+        <div class="song-info-block">
+          <h5 class="song-page-label">Compositores:</h5>
+          <h2>{{ song?.composers }}</h2>
+        </div>
+      </header>
+
+      <div class="song-page-lyrics">
+        <h5 class="song-page-label">Letra:</h5>
+        {{ song?.lyrics }}
+      </div>
+    </article>
+
+    <aside class="song-page-sidebar">
+      <app-youtube-player
+        [videoUrl]="'https://www.youtube.com/watch?v=nycN6OZ-szY'"
+        class="song-sidebar-player"
+      ></app-youtube-player>
+    </aside>
+  </section>
+</div>

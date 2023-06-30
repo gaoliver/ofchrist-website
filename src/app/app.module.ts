@@ -29,6 +29,7 @@ import { PageSectionComponent } from './components/atoms/page-section/page-secti
 import { VideosComponent } from './pages/videos/videos.component';
 import { FeaturedVideoComponent } from './components/organism/featured-video/featured-video.component';
 import { LyricsComponent } from './pages/lyrics/lyrics.component';
+import { SongDetailsComponent } from './pages/song-details/song-details.component';
 
 @NgModule({
   declarations: [
@@ -55,6 +56,7 @@ import { LyricsComponent } from './pages/lyrics/lyrics.component';
     VideosComponent,
     FeaturedVideoComponent,
     LyricsComponent,
+    SongDetailsComponent
   ],
   imports: [
     BrowserModule,

@@ -1,3 +1,9 @@
+::ng-deep {
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
 .lyrics-page-content {
   ::ng-deep {
     .inner-content {

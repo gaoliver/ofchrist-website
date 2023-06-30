@@ -1,0 +1,73 @@
+.song-page-cover-image {
+  display: flex;
+  justify-content: center;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  left: 0;
+  z-index: -1;
+
+  &::before {
+    content: '';
+    background-color: var(--color-background);
+    width: 100%;
+    height: 100svh;
+    position: absolute;
+    z-index: -1;
+  }
+
+  &::after {
+    content: '';
+    background: linear-gradient(90deg, rgba(var(--color-background-rgb), 1) 0%, rgba(var(--color-background-rgb), 0.4) 50%, rgba(var(--color-background-rgb), 1) 100%);
+    position: absolute;
+    width: 700px;
+    height: 100svh;
+  }
+
+  img {
+    width: 700px;
+  }
+}
+
+.song-page-section {
+  display: flex;
+}
+
+.song-page-article {
+  flex: 1;
+}
+
+.song-info-block {
+  width: 250px;
+}
+
+.song-page-info {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  gap: var(--spacing);
+  padding-bottom: var(--spacing);
+  border-bottom: 1px solid var(--color-text);
+}
+
+.song-page-label {
+  color: var(--color-grey);
+}
+
+.song-page-lyrics {
+  margin-top: var(--spacing-large);
+}
+
+.song-page-sidebar {
+  display: flex;
+  align-items: flex-start;
+  flex: 0.5;
+  padding-left: var(--spacing-xx-large);
+  box-sizing: border-box;
+}
+
+.song-sidebar-player {
+  width: 100%;
+  height: auto;
+  position: sticky;
+  top: 20svh;
+}
