@@ -26,11 +26,11 @@ export interface HomePromo {
 }
 
 export interface SongLyrics {
+  id: string;
   title: string;
   albumId: string;
   composers: string;
   lyrics: string;
-  slug: string;
   youtubeVideo: string;
 }
 

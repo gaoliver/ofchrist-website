@@ -23,7 +23,7 @@
         <h1 class="lyrics-list-title">{{ list.key.toUpperCase() }}</h1>
         <ul class="lyrics-list-songs">
           <li *ngFor="let song of list.songs">
-            <a [routerLink]="song.slug">{{ song.title }}</a>
+            <a [routerLink]="song.id">{{ song.title }}</a>
           </li>
         </ul>
       </div>

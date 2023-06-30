@@ -20,11 +20,14 @@ export class DiscographyComponent implements OnInit {
         Number(new Date(discA.releaseDate).getFullYear())
     );
 
-    this.bannerList = this.discList.map(album => ({
-      title: album.title,
-      href: album.id,
-      imageUrl: album.cover,
-      description: new Date(album.releaseDate).getFullYear().toString(),
-    }) as FeaturedBanner);
+    this.bannerList = this.discList.map(
+      (album) =>
+        ({
+          title: album.title,
+          href: `musicas/album/${album.id}`,
+          imageUrl: album.cover,
+          description: new Date(album.releaseDate).getFullYear().toString(),
+        } as FeaturedBanner)
+    );
   }
 }

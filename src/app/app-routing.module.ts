@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { Route, RouterModule, Routes } from '@angular/router';
 import { Subpage } from './@types/types';
 import { AboutComponent } from './pages/about/about.component';
+import { AlbumDetailsComponent } from './pages/album-details/album-details.component';
 import { ContactComponent } from './pages/contact/contact.component';
 import { DiscographyComponent } from './pages/discography/discography.component';
 import { HomeComponent } from './pages/home/home.component';
@@ -124,9 +125,14 @@ const routes: Routes = [
     component: LyricsComponent,
   },
   {
-    path: 'musicas/letras/:slug',
+    path: 'musicas/letras/:songId',
     title: 'Of Christ |',
     component: SongDetailsComponent,
+  },
+  {
+    path: 'musicas/album/:albumId',
+    title: 'Of Christ |',
+    component: AlbumDetailsComponent,
   },
   ...pageRoutes,
 ];

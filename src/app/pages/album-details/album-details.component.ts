@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 import { ActivatedRoute } from '@angular/router';
 import { mockAlbums, mockLyrics } from '@src/app/@dummyData';
@@ -6,43 +6,43 @@ import { Album, SongLyrics } from '@src/app/@types/types';
 import { fullDateFormat } from '@src/app/utils/dateFormat';
 
 @Component({
-  selector: 'main[app-song-details].page-container',
-  templateUrl: './song-details.component.html',
-  styleUrls: ['./song-details.component.scss'],
+  selector: 'main[app-album-details].page-container',
+  templateUrl: './album-details.component.html',
+  styleUrls: ['./album-details.component.scss'],
 })
-export class SongDetailsComponent implements OnInit {
+export class AlbumDetailsComponent {
   songList = mockLyrics;
   albumList = mockAlbums;
 
   album: Album | undefined;
-  song: SongLyrics | undefined;
+  songs: SongLyrics | undefined;
 
   constructor(
     private activeRoute: ActivatedRoute,
     private titleService: Title
   ) {}
 
-  findSong() {
-    const songId = this.activeRoute.snapshot.paramMap.get('songId');
-    const songFound = this.songList.find((s) => s.id === songId);
+  findAlbum() {
+    const albumId = this.activeRoute.snapshot.paramMap.get('albumId');
+    const albumFound = this.albumList.find((a) => a.id === albumId);
 
-    if (songFound) {
+    if (albumFound) {
       const currTitle = this.titleService.getTitle();
-      this.titleService.setTitle(`${currTitle} ${songFound.title}`);
+      this.titleService.setTitle(`${currTitle} ${albumFound.title}`);
     }
 
-    return songFound;
+    return albumFound;
   }
 
-  findAlbum() {
-    const album = this.albumList.find((a) => a.id === this.song?.albumId);
+  filterSongs() {
+    const songs = this.songList.find((s) => s.albumId === this.album?.id);
 
-    return album;
+    return songs;
   }
 
   ngOnInit() {
-    this.song = this.findSong();
     this.album = this.findAlbum();
+    this.songs = this.filterSongs();
 
     if (this.album) {
       this.album = {
