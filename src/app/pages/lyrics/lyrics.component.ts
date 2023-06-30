@@ -10,6 +10,7 @@ import { SongLyrics } from '@src/app/@types/types';
 export class LyricsComponent implements OnInit {
   songList = mockLyrics;
   groupedSongsList: { key: string; songs: SongLyrics[] }[] = [];
+  lettersList: string[] = [];
 
   sortAndGroupByLetter(list: SongLyrics[]) {
     const sortedList = list.sort((a, b) => a.title.localeCompare(b.title));
@@ -33,7 +34,14 @@ export class LyricsComponent implements OnInit {
     return groupedByLetter;
   }
 
+  getLettersList() {
+    this.groupedSongsList.forEach((group) => {
+      this.lettersList.push(group.key);
+    });
+  }
+
   ngOnInit() {
     this.groupedSongsList = this.sortAndGroupByLetter(this.songList);
+    this.getLettersList();
   }
 }
