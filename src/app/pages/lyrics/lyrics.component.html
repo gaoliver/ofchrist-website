@@ -32,7 +32,7 @@
       <ul>
         <span>filtrar:</span>
         <li *ngFor="let letter of lettersList">
-          <a [href]="'#letra-' + letter">{{ letter.toUpperCase() }}</a>
+          <a routerLink="." fragment="letra-{{ letter }}">{{ letter.toUpperCase() }}</a>
         </li>
       </ul>
     </aside>
