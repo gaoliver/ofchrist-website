@@ -13,7 +13,7 @@ import { env } from '@src/environments/environment';
   styleUrls: ['./music.component.scss'],
 })
 export class MusicComponent {
-  videos = mockVideos.shift();
+  videos = mockVideos.slice(1, 7);
 
   featuredVideo: FeaturedMusicVideo = {
     url: mockVideos[0].videoUrl,

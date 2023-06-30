@@ -1,3 +1,5 @@
+@import "../../../mixins.scss";
+
 .music-featured-video {
   flex: 1;
   min-width: 600px;
@@ -10,6 +12,19 @@
       aspect-ratio: 1;
       height: auto;
       margin: auto;
+    }
+  }
+}
+
+.videos-gallery {
+  display: flex;
+  width: 100%;
+  gap: var(--spacing);
+  flex-wrap: wrap;
+
+  ::ng-deep {
+    app-youtube-player {
+      @include grid-content(3, var(--spacing));
     }
   }
 }

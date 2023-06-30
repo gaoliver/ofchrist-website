@@ -15,6 +15,29 @@
       <a [routerLink]="['./discografia']">ver todos</a>
     </header>
 
-    <ul app-featured-tiles [talesList]="albums" [nOfTales]="5" class="albums-list"></ul>
+    <ul
+      app-featured-tiles
+      [talesList]="albums"
+      [nOfTales]="5"
+      class="albums-list"
+    ></ul>
+  </section>
+
+  <section app-page-section>
+    <header>
+      <h2>Videos:</h2>
+      <a [routerLink]="['./videos']">ver todos</a>
+    </header>
+
+    <ul class="videos-gallery">
+      <app-youtube-player
+        *ngFor="let video of videos"
+        id="youtube-player"
+        [videoUrl]="video.videoUrl"
+        frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        allowfullscreen
+      ></app-youtube-player>
+    </ul>
   </section>
 </div>
