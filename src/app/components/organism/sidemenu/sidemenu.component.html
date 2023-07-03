@@ -2,4 +2,8 @@
   <div id="close-menu"></div>
 </button>
 
-<p>sidemenu works!</p>
+<ul class="mobile-menu-pages">
+  <li *ngFor="let page of pageList">
+    <a [href]="page.path">{{ page.data.label }}</a>
+  </li>
+</ul>

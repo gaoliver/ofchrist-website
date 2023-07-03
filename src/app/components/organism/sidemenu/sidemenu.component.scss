@@ -43,3 +43,22 @@
     transform: rotateZ(90deg);
   }
 }
+
+.mobile-menu-pages {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  gap: var(--spacing-large);
+}
+
+.mobile-menu-pages li {
+  list-style: none;
+  margin: 0 auto;
+  font-size: xx-large;
+  line-height: 1;
+  font-weight: bold;
+
+  a {
+    text-decoration: none;
+  }
+}
