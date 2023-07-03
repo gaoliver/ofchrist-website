@@ -32,9 +32,12 @@ export class AboutComponent implements OnInit {
     },
   ];
 
-  featuredNews: Array<FeaturedBanner> = mockFeaturedNews;
+  featuredNews: Array<FeaturedBanner> = mockFeaturedNews.map((news) => ({
+    ...news,
+    href: `${this.baseUrl}/news/${news.slug}`,
+  }));
 
-  videoList = mockVideos
+  videoList = mockVideos;
 
   videoWidth = 360;
   videoHeight = 203;

@@ -13,6 +13,7 @@ import { OurStoryComponent } from './pages/our-story/our-story.component';
 import { ShowsComponent } from './pages/shows/shows.component';
 import { SongDetailsComponent } from './pages/song-details/song-details.component';
 import { VideosComponent } from './pages/videos/videos.component';
+import { NewsContentComponent } from './pages/news-content/news-content.component';
 
 type RoutesWithSubmenu = Route & {
   data: {
@@ -133,6 +134,11 @@ const routes: Routes = [
     path: 'musicas/album/:albumId',
     title: 'Of Christ |',
     component: AlbumDetailsComponent,
+  },
+  {
+    path: 'news/:slug',
+    title: 'Of Christ |',
+    component: NewsContentComponent,
   },
   ...pageRoutes,
 ];

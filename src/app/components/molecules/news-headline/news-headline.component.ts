@@ -10,5 +10,5 @@ export class NewsHeadlineComponent {
   @Input() description: string = '';
   @Input() imageUrl: string = '';
   @Input() date: string = '';
-  @Input() href: string = '';
+  @Input() slug: string = '';
 }

@@ -28,11 +28,11 @@ export interface FeaturedBanner {
 }
 
 export interface NewsHeadline {
+  slug: string;
   title: string;
   description: string;
   imageUrl: string;
   date: string;
-  href: string;
 }
 
 export interface Link {

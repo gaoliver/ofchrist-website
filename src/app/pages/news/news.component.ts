@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { mockFeaturedNews, mockNews } from '@src/app/@dummyData';
-import { NewsHeadline } from '@src/app/components/@types/types';
+import { FeaturedBanner, NewsHeadline } from '@src/app/components/@types/types';
 import { fullDateFormat } from '@src/app/utils/dateFormat';
+import { env } from '@src/environments/environment';
 
 @Component({
   selector: 'main[app-news].page-container',
@@ -10,7 +11,10 @@ import { fullDateFormat } from '@src/app/utils/dateFormat';
 })
 export class NewsComponent implements OnInit {
   // TO CHANGE: This list will be replaced by Contentful
-  featuredList: Array<NewsHeadline> = mockFeaturedNews;
+  featuredList: Array<FeaturedBanner> = mockFeaturedNews.map((news) => ({
+    ...news,
+    href: `${env.baseUrl}/news/${news.slug}`,
+  }));
   mockHeadline: NewsHeadline = mockNews;
 
   newsList: Array<NewsHeadline> = Array(13).fill(this.mockHeadline);
@@ -21,7 +25,16 @@ export class NewsComponent implements OnInit {
   showLoadMoreBtn = false;
 
   ngOnInit() {
-    this.newsList = [...this.featuredList, ...this.newsList];
+    const newsFeaturedList: Array<NewsHeadline> = this.featuredList.map(
+      (news) => ({
+        date: news.date!,
+        description: news.description!,
+        imageUrl: news.imageUrl,
+        title: news.title,
+        slug: news.href.replace(`${env.baseUrl}/news/`, ''),
+      })
+    );
+    this.newsList = [...newsFeaturedList, ...this.newsList];
     this.newsList = this.newsList.map((item) => ({
       ...item,
       date: fullDateFormat(item.date),

@@ -32,6 +32,7 @@ import { LyricsComponent } from './pages/lyrics/lyrics.component';
 import { SongDetailsComponent } from './pages/song-details/song-details.component';
 import { StreamingButtonListComponent } from './components/moledules/streaming-button-list/streaming-button-list.component';
 import { AlbumDetailsComponent } from './pages/album-details/album-details.component';
+import { NewsContentComponent } from './pages/news-content/news-content.component';
 
 @NgModule({
   declarations: [
@@ -60,7 +61,8 @@ import { AlbumDetailsComponent } from './pages/album-details/album-details.compo
     LyricsComponent,
     SongDetailsComponent,
     StreamingButtonListComponent,
-    AlbumDetailsComponent
+    AlbumDetailsComponent,
+    NewsContentComponent
   ],
   imports: [
     BrowserModule,
