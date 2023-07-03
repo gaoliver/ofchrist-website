@@ -34,7 +34,7 @@ export interface News {
   imageUrl: string;
   date: string;
   content: string;
-  videoUrl?: string
+  videoUrl?: string;
 }
 
 export interface Link {
@@ -47,4 +47,11 @@ export interface FeaturedMusicVideo {
   title: string;
   url: string;
   streaming: Array<SocialNetwork>;
+}
+
+export interface SidebarAd {
+  imageUrl: string;
+  title: string;
+  href: string;
+  target: 'interno' | 'externo';
 }

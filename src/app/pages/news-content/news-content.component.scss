@@ -38,20 +38,6 @@
 
 .page-content {
   margin-top: 400px;
-
-  ::ng-deep {
-    .inner-content {
-      flex-direction: row;
-      gap: var(--spacing);
-    }
-  }
-}
-
-.news-content {
-  display: flex;
-  flex-direction: column;
-  flex: 1;
-  margin: 0 auto;
 }
 
 .news-content-header {
@@ -65,10 +51,31 @@
   }
 }
 
-.news-richtext {
-  margin-top: var(--spacing-medium);
+.news-content-wrapper {
+  display: flex;
+  justify-content: space-between;
+  margin-top: var(--spacing-large);
+}
+
+.news-content {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  margin: 0;
+  max-width: 800px;
+}
+
+.news-video {
+  margin-bottom: var(--spacing-medium);
 }
 
 .news-sidebar {
-  flex: 0.5;
+  flex: 1;
+  max-width: 300px;
+  float: right;
+
+  app-sidebar-ad {
+    position: sticky;
+    top: 20svh
+  }
 }

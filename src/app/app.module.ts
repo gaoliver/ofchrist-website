@@ -30,9 +30,10 @@ import { VideosComponent } from './pages/videos/videos.component';
 import { FeaturedVideoComponent } from './components/organism/featured-video/featured-video.component';
 import { LyricsComponent } from './pages/lyrics/lyrics.component';
 import { SongDetailsComponent } from './pages/song-details/song-details.component';
-import { StreamingButtonListComponent } from './components/moledules/streaming-button-list/streaming-button-list.component';
+import { StreamingButtonListComponent } from './components/molecules/streaming-button-list/streaming-button-list.component';
 import { AlbumDetailsComponent } from './pages/album-details/album-details.component';
 import { NewsContentComponent } from './pages/news-content/news-content.component';
+import { SidebarAdComponent } from './components/organism/sidebar-ad/sidebar-ad.component';
 
 @NgModule({
   declarations: [
@@ -62,7 +63,8 @@ import { NewsContentComponent } from './pages/news-content/news-content.componen
     SongDetailsComponent,
     StreamingButtonListComponent,
     AlbumDetailsComponent,
-    NewsContentComponent
+    NewsContentComponent,
+    SidebarAdComponent
   ],
   imports: [
     BrowserModule,

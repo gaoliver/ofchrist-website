@@ -1,0 +1,8 @@
+<a
+  class="sidebar-ad-image"
+  *ngFor="let ad of ads"
+  [href]="ad.href"
+  [target]="ad.target === 'externo' ? '_blank' : '_self'"
+  [rel]="ad.target === 'externo' ? 'noreferrer' : ''"
+  ><img [src]="ad.imageUrl" [alt]="ad.title" [srcset]="ad.imageUrl"
+/></a>

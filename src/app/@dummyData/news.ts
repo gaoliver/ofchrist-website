@@ -1,7 +1,6 @@
 import { News } from '../components/@types/types';
 
-const loremText = `
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc a ex orci. Sed eget maximus metus. Nam id tortor quis tortor dictum aliquam. Proin pharetra elementum justo nec malesuada. Nunc dignissim odio felis, in sollicitudin nisl euismod vel. Cras ante sem, scelerisque et velit id, porttitor rhoncus velit. Quisque sit amet cursus magna. Integer elit massa, luctus eget ipsum eu, pulvinar convallis metus. Ut tincidunt placerat velit vitae feugiat. Etiam a cursus lectus. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Duis condimentum euismod justo, sit amet mollis libero. Ut tempus ipsum sit amet blandit porta. In molestie mi et urna lobortis porta. Sed porta sapien bibendum eleifend gravida.
+const loremText = `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc a ex orci. Sed eget maximus metus. Nam id tortor quis tortor dictum aliquam. Proin pharetra elementum justo nec malesuada. Nunc dignissim odio felis, in sollicitudin nisl euismod vel. Cras ante sem, scelerisque et velit id, porttitor rhoncus velit. Quisque sit amet cursus magna. Integer elit massa, luctus eget ipsum eu, pulvinar convallis metus. Ut tincidunt placerat velit vitae feugiat. Etiam a cursus lectus. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Duis condimentum euismod justo, sit amet mollis libero. Ut tempus ipsum sit amet blandit porta. In molestie mi et urna lobortis porta. Sed porta sapien bibendum eleifend gravida.
 
 Vestibulum auctor eu risus ut sodales. Ut porttitor eu est quis semper. Vestibulum bibendum, nisi eu malesuada laoreet, eros eros aliquam arcu, sit amet efficitur sapien nisi eget ligula. Phasellus eget ligula dapibus nisi porta rutrum. Nullam aliquet at libero vitae elementum. Vestibulum tempus placerat pellentesque. Nam a enim augue. Maecenas euismod ultricies ligula, eu sollicitudin ipsum suscipit eu. Nulla facilisi. Curabitur vulputate pulvinar dapibus. Quisque at condimentum orci, non fringilla ante.
 
@@ -21,6 +20,7 @@ export const mockFeaturedNews: Array<News> = [
     date: '2023-05-07',
     slug: 'teste-primeira-noticia',
     content: loremText,
+    videoUrl: 'https://www.youtube.com/watch?v=GPB0PObwjKY'
   },
   {
     title: 'Título segunda notícia',

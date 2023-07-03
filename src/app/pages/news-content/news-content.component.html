@@ -3,21 +3,26 @@
 </div>
 
 <div app-page-content class="page-content" *ngIf="news">
-  <article class="news-content">
-    <header class="news-content-header">
-      <span>{{ news.date }}</span>
-      <h1>{{ news.title }}</h1>
-    </header>
+  <header class="news-content-header">
+    <span>{{ news.date }}</span>
+    <h1>{{ news.title }}</h1>
+  </header>
 
-    <app-youtube-player
-      *ngIf="news?.videoUrl"
-      [videoUrl]="news.videoUrl!"
-    ></app-youtube-player>
+  <div class="news-content-wrapper">
+    <div class="news-content">
+      <app-youtube-player
+        *ngIf="news?.videoUrl"
+        [videoUrl]="news.videoUrl!"
+        class="news-video"
+      ></app-youtube-player>
 
-    <div class="news-richtext">
-      {{ news.content }}
+      <div class="news-richtext">
+        {{ news.content }}
+      </div>
     </div>
-  </article>
 
-  <aside class="news-sidebar"></aside>
+    <aside class="news-sidebar">
+      <app-sidebar-ad></app-sidebar-ad>
+    </aside>
+  </div>
 </div>
