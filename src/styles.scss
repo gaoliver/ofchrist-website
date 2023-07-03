@@ -31,6 +31,8 @@ $ofchrist-website-theme: mat.define-light-theme((color: (primary: $ofchrist-webs
 
 /* You can add global styles to this file, and also import other style files */
 
+@import "./mixins.scss";
+
 :root {
   // spacing
   --spacing: 10px;
@@ -70,6 +72,20 @@ $ofchrist-website-theme: mat.define-light-theme((color: (primary: $ofchrist-webs
   ;
 }
 
+@keyframes backgroundAnimation {
+  from {
+    background-position: 0 0;
+  }
+
+  50% {
+    background-position: 100% 0;
+  }
+
+  to {
+    background-position: 0 0;
+  }
+}
+
 html,
 body {
   font-size: 16px !important;
@@ -85,6 +101,10 @@ body {
   background-color: var(--color-black);
   background-attachment: fixed;
   background-position: 0 50%;
+
+  @include screen-mobile-and-smaller {
+    animation: backgroundAnimation infinite 5s;
+  }
 }
 
 h1,
