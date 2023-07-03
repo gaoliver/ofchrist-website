@@ -1,1 +1,23 @@
-<p>news-content works!</p>
+<div class="news-image">
+  <img [src]="news?.imageUrl" [alt]="news?.title" [srcset]="news?.imageUrl" />
+</div>
+
+<div app-page-content class="page-content" *ngIf="news">
+  <article class="news-content">
+    <header class="news-content-header">
+      <span>{{ news.date }}</span>
+      <h1>{{ news.title }}</h1>
+    </header>
+
+    <app-youtube-player
+      *ngIf="news?.videoUrl"
+      [videoUrl]="news.videoUrl!"
+    ></app-youtube-player>
+
+    <div class="news-richtext">
+      {{ news.content }}
+    </div>
+  </article>
+
+  <aside class="news-sidebar"></aside>
+</div>

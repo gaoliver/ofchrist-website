@@ -20,7 +20,7 @@ export class HeaderComponent implements OnInit {
     document.onscroll = function () {
       if (header) {
         header.style.backgroundColor =
-          header.offsetTop > 0 ? 'var(--color-black)' : 'transparent';
+          header.offsetTop > 50 ? 'var(--color-black)' : 'transparent';
       }
     };
   }

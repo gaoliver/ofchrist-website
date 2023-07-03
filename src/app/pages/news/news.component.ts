@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { mockFeaturedNews, mockNews } from '@src/app/@dummyData';
-import { FeaturedBanner, NewsHeadline } from '@src/app/components/@types/types';
+import { FeaturedBanner, News } from '@src/app/components/@types/types';
 import { fullDateFormat } from '@src/app/utils/dateFormat';
 import { env } from '@src/environments/environment';
 
@@ -15,9 +15,9 @@ export class NewsComponent implements OnInit {
     ...news,
     href: `${env.baseUrl}/news/${news.slug}`,
   }));
-  mockHeadline: NewsHeadline = mockNews;
+  mockHeadline: Omit<News, 'content'> = mockNews;
 
-  newsList: Array<NewsHeadline> = Array(13).fill(this.mockHeadline);
+  newsList: Array<Omit<News, 'content'>> = Array(13).fill(this.mockHeadline);
 
   //
   //
@@ -25,16 +25,29 @@ export class NewsComponent implements OnInit {
   showLoadMoreBtn = false;
 
   ngOnInit() {
-    const newsFeaturedList: Array<NewsHeadline> = this.featuredList.map(
-      (news) => ({
+    const newsFeaturedList: Array<typeof this.mockHeadline> =
+      this.featuredList.map((news) => ({
         date: news.date!,
         description: news.description!,
         imageUrl: news.imageUrl,
         title: news.title,
         slug: news.href.replace(`${env.baseUrl}/news/`, ''),
-      })
+      }));
+
+    const mappedNewsList: Array<Omit<News, 'content'>> = this.newsList.map(
+      (news) =>
+        ({
+          date: news.date,
+          description: news.description,
+          imageUrl: news.imageUrl,
+          slug: news.slug,
+          title: news.title,
+          videoUrl: news.videoUrl,
+        } as Omit<News, 'content'>)
     );
-    this.newsList = [...newsFeaturedList, ...this.newsList];
+
+    this.newsList = [...newsFeaturedList, ...mappedNewsList];
+
     this.newsList = this.newsList.map((item) => ({
       ...item,
       date: fullDateFormat(item.date),

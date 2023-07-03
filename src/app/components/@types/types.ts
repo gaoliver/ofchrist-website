@@ -7,7 +7,7 @@ export enum Icons {
   'deezer',
   'apple-music',
   'youtube-music',
-  'whatsapp'
+  'whatsapp',
 }
 
 export type IconOptions = keyof typeof Icons;
@@ -27,12 +27,14 @@ export interface FeaturedBanner {
   showReadMore?: boolean;
 }
 
-export interface NewsHeadline {
+export interface News {
   slug: string;
   title: string;
   description: string;
   imageUrl: string;
   date: string;
+  content: string;
+  videoUrl?: string
 }
 
 export interface Link {
