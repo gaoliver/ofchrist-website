@@ -9,7 +9,7 @@
     />
   </div>
 
-  <nav class="main-navigation">
+  <nav class="main-navigation" role="navigation" *ngIf="!isMobile">
     <ul class="navigation">
       <li class="navigation-item" *ngFor="let page of pageList">
         <a class="navigation-item-label" href="{{ page.path }}">{{
@@ -29,4 +29,10 @@
       </li>
     </ul>
   </nav>
+
+  <button class="main-navigation-mobile" role="button" *ngIf="isMobile" (click)="openMobileMenu()">
+    <div class="mobile-drawer"></div>
+  </button>
+
+  <app-sidemenu id="mobile-menu"></app-sidemenu>
 </div>

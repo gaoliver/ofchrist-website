@@ -34,6 +34,7 @@ import { StreamingButtonListComponent } from './components/molecules/streaming-b
 import { AlbumDetailsComponent } from './pages/album-details/album-details.component';
 import { NewsContentComponent } from './pages/news-content/news-content.component';
 import { SidebarAdComponent } from './components/organism/sidebar-ad/sidebar-ad.component';
+import { SidemenuComponent } from './components/organism/sidemenu/sidemenu.component';
 
 @NgModule({
   declarations: [
@@ -64,7 +65,8 @@ import { SidebarAdComponent } from './components/organism/sidebar-ad/sidebar-ad.
     StreamingButtonListComponent,
     AlbumDetailsComponent,
     NewsContentComponent,
-    SidebarAdComponent
+    SidebarAdComponent,
+    SidemenuComponent,
   ],
   imports: [
     BrowserModule,

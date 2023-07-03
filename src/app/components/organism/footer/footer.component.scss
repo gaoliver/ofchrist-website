@@ -50,10 +50,20 @@
   justify-content: center;
   padding: 0;
   margin: 0;
+  flex-wrap: wrap;
+}
+
+.footer-social-networks {
+  @include screen-mobile-and-smaller {
+    display: none
+  }
 }
 
 .footer-separator {
   @include disable-selection;
+  @include screen-mobile-and-smaller {
+    display: none;
+  }
 }
 
 .footer-centered-list ul li {
@@ -81,5 +91,12 @@
 }
 
 .footer-list-row li {
-  @include inline-list-with-separator-bar
+  @include inline-list-with-separator-bar;
+
+  @include screen-mobile-and-smaller {
+    margin: 0 var(--spacing);
+    &::after {
+      display: none;
+    }
+  }
 }

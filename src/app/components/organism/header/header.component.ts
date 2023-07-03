@@ -10,9 +10,26 @@ import { env } from 'src/environments/environment';
 export class HeaderComponent implements OnInit {
   logoImage = `${env.baseUrl}/assets/images/ofchrist-logo.png`;
   pageList = pageRoutes;
+  isMobile: boolean | undefined;
 
   // Temporary variable - must delete later
-  baseUrl = env.baseUrl
+  baseUrl = env.baseUrl;
+
+  navigateHome() {
+    window.location.href = env.baseUrl;
+  }
+
+  checkIfMobile() {
+    const screen = window.screen.width;
+    return screen <= 600;
+  }
+
+  openMobileMenu() {
+    const menu = document.getElementById('mobile-menu');
+    console.log("test", menu)
+    // menu?.classList.remove('close-menu');
+    menu?.classList.add('active-menu');
+  }
 
   ngOnInit() {
     const header = document.getElementById('app-header');
@@ -23,9 +40,11 @@ export class HeaderComponent implements OnInit {
           header.offsetTop > 50 ? 'var(--color-black)' : 'transparent';
       }
     };
-  }
 
-  navigateHome() {
-    window.location.href = env.baseUrl;
+    onresize = () => {
+      this.isMobile = this.checkIfMobile();
+    };
+
+    this.isMobile = this.checkIfMobile();
   }
 }
