@@ -1,3 +1,5 @@
+@import "../../../mixins.scss";
+
 .news-image {
   display: flex;
   position: absolute;
@@ -52,12 +54,18 @@
 }
 
 .news-content-wrapper {
-  display: flex;
-  justify-content: space-between;
   margin-top: var(--spacing-large);
+  display: grid;
+  grid-template-areas: 'content content sidebar';
+
+  @include screen-tablet-and-smaller {
+    grid-template-areas: 'content' 'sidebar';
+    grid-template-rows: 1fr 1fr;
+  }
 }
 
 .news-content {
+  grid-area: content;
   display: flex;
   flex-direction: column;
   flex: 1;
@@ -70,9 +78,9 @@
 }
 
 .news-sidebar {
+  grid-area: sidebar;
   flex: 1;
   max-width: 300px;
-  float: right;
 
   app-sidebar-ad {
     position: sticky;
