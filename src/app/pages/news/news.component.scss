@@ -1,13 +1,22 @@
 @import "../../../mixins.scss";
 
 ::ng-deep {
+  app-featured-banner {
+    height: 500px;
+
+    @include screen-tablet-and-smaller {
+      aspect-ratio: 1.8;
+      height: auto
+    }
+  }
+
   app-news-headline {
-    @include grid-content(3, var(--spacing-large))
+    @include grid-content(3, var(--spacing-large));
   }
 }
 
 .news-featured {
-  height: 500px;
+  height: fit-content;
 }
 
 .news-others {

@@ -41,5 +41,9 @@
   opacity: 0.7;
   font-size: small;
   margin: var(--spacing-small) 0 0;
-  @include text-overflow(3)
+  @include text-overflow(3);
+
+  @include screen-mobile-and-smaller {
+    display: none
+  }
 }
