@@ -1,3 +1,5 @@
+@import "../../../mixins.scss";
+
 .song-page-cover-image {
   display: flex;
   flex-wrap: wrap;
@@ -33,6 +35,10 @@
 .song-page-section {
   display: flex;
   flex-wrap: wrap;
+
+  @include screen-mobile-and-smaller {
+    flex-direction: column;
+  }
 }
 
 .song-page-article {
@@ -42,8 +48,9 @@
 .song-info-block {
   width: 250px;
 
-  h3 a {
-    // text-decoration: none;
+  @include screen-tablet-and-smaller {
+    width: 100%;
+    font-size: small;
   }
 }
 
@@ -72,11 +79,24 @@
   flex: 0.5;
   padding-left: var(--spacing-xx-large);
   box-sizing: border-box;
+
+  @include screen-mobile-and-smaller {
+    flex: 1;
+    align-items: center;
+    justify-content: center;
+    padding-left: 0;
+    margin-top: var(--spacing-xx-large);
+  }
 }
 
 .sidebar-sticky {
   position: sticky;
   top: 20svh;
+
+  @include screen-mobile-and-smaller {
+    position: unset;
+    top: unset;
+  }
 }
 
 .song-sidebar-player {
