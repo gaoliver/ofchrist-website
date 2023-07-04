@@ -6,7 +6,7 @@ $transition-time: 200ms;
 :host {
   position: relative;
   display: flex;
-  height: 100%;
+  flex: 1;
   width: 100%;
   gap: var(--spacing-small);
   transition: ease-in-out $transition-time;
