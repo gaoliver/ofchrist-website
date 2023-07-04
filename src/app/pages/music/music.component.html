@@ -1,6 +1,8 @@
 <h1 app-page-title>Músicas</h1>
 
 <div app-page-content>
+  <a [routerLink]="'letras'" class="mobile-pesquisar-link">Pesquisar por nome da música</a>
+
   <app-featured-video
     [videoUrl]="featuredVideo.url"
     [title]="featuredVideo.title"

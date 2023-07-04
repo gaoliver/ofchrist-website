@@ -32,3 +32,15 @@
     }
   }
 }
+
+.mobile-pesquisar-link {
+  width: 100%;
+  text-align: center;
+  font-size: 1.4rem;
+  font-weight: bold;
+  margin-bottom: var(--spacing-large);
+
+  &::after {
+    content: ' »';
+  }
+}
