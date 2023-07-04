@@ -119,6 +119,10 @@ h6 {
 
 h1 {
   font-size: 3rem;
+
+  @include screen-mobile-and-smaller {
+    font-size: 2rem;
+  }
 }
 
 a {
