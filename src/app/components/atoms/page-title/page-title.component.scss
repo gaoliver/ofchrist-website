@@ -6,6 +6,7 @@
   margin: 0;
   margin-top: var(--spacing-xx-large);
   line-height: 1;
+  text-align: center;
 
   @include screen-mobile-and-smaller {
     font-size: 3.5rem;

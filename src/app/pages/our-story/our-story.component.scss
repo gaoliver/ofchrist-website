@@ -1,6 +1,12 @@
+@import "../../../mixins.scss";
+
 .story-text {
   height: auto;
   width: 100%;
   position: relative;
   columns: 2;
+
+  @include screen-mobile-and-smaller {
+    columns: 1;
+  }
 }
