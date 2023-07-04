@@ -1,8 +1,13 @@
 import { Component, OnInit } from '@angular/core';
+import { Store, select } from '@ngrx/store';
 import { mockFeaturedNews, mockNews } from '@src/app/@dummyData';
 import { FeaturedBanner, News } from '@src/app/components/@types/types';
 import { fullDateFormat } from '@src/app/utils/dateFormat';
 import { env } from '@src/environments/environment';
+import { AppState } from '@src/store/app.state';
+import { getNews } from '@src/store/news/news.actions';
+import { getNewsList, getNewsState } from '@src/store/news/news.selectors';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'main[app-news].page-container',
@@ -19,12 +24,20 @@ export class NewsComponent implements OnInit {
 
   newsList: Array<Omit<News, 'content'>> = Array(13).fill(this.mockHeadline);
 
+  newsList2$: Observable<News[]>;
+
+  constructor(private store: Store<AppState>) {
+    this.store.dispatch(getNews());
+    this.newsList2$ = this.store.pipe(select(getNewsList));
+  }
+
   //
   //
   // FIXED CODE: Not to be changed
   showLoadMoreBtn = false;
 
   ngOnInit() {
+    console.log(this.newsList2$)
     const newsFeaturedList: Array<typeof this.mockHeadline> =
       this.featuredList.map((news) => ({
         date: news.date!,
