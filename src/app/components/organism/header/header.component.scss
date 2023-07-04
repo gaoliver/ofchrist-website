@@ -41,7 +41,7 @@
   text-transform: uppercase;
 
   @include screen-mobile-and-smaller {
-    margin-top: var(--spacing-small);
+    margin-top: var(--spacing-medium);
     justify-content: space-between;
   }
 }
@@ -59,6 +59,10 @@
     cursor: pointer;
     filter: sepia(1.2);
     transition: cubic-bezier(0.785, 0.135, 0.15, 0.86) 300ms;
+  }
+
+  @include screen-mobile-and-smaller {
+    width: 150px;
   }
 }
 
