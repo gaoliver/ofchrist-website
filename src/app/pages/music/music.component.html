@@ -18,7 +18,7 @@
     <ul
       app-featured-tiles
       [talesList]="albums"
-      [nOfTales]="5"
+      [nOfTales]="isMobile ? 1 : isTablet ? 2 : 3"
       class="albums-list"
     ></ul>
   </section>

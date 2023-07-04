@@ -1,10 +1,11 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { mockAlbums } from '@src/app/@dummyData';
 import { mockVideos } from '@src/app/@dummyData/media';
 import {
   FeaturedBanner,
   FeaturedMusicVideo,
 } from '@src/app/components/@types/types';
+import { checkIsMobile, checkIsTablet } from '@src/app/utils/checkIsMobile';
 import { env } from '@src/environments/environment';
 
 @Component({
@@ -12,8 +13,10 @@ import { env } from '@src/environments/environment';
   templateUrl: './music.component.html',
   styleUrls: ['./music.component.scss'],
 })
-export class MusicComponent {
+export class MusicComponent implements OnInit {
   videos = mockVideos.slice(1, 7);
+  isMobile: boolean | undefined;
+  isTablet: boolean | undefined;
 
   featuredVideo: FeaturedMusicVideo = {
     url: mockVideos[0].videoUrl,
@@ -47,4 +50,17 @@ export class MusicComponent {
     title: album.title,
     imageUrl: album.cover,
   }));
+
+  checkMobile() {
+    this.isMobile = checkIsMobile();
+    this.isTablet = checkIsTablet();
+  }
+
+  ngOnInit() {
+    onresize = () => {
+      this.checkMobile()
+    };
+
+    this.checkMobile()
+  }
 }

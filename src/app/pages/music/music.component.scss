@@ -4,6 +4,10 @@
   flex: 1;
   min-width: 600px;
   margin: 0 auto;
+
+  @include screen-mobile-and-smaller {
+    min-width: 300px;
+  }
 }
 
 .albums-list {

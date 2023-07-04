@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { checkIsMobile } from '@src/app/utils/checkIsMobile';
 import { pageRoutes } from 'src/app/app-routing.module';
 import { env } from 'src/environments/environment';
 
@@ -19,14 +20,9 @@ export class HeaderComponent implements OnInit {
     window.location.href = env.baseUrl;
   }
 
-  checkIfMobile() {
-    const screen = window.screen.width;
-    return screen <= 600;
-  }
-
   openMobileMenu() {
     const menu = document.getElementById('mobile-menu');
-    console.log("test", menu)
+    console.log('test', menu);
     // menu?.classList.remove('close-menu');
     menu?.classList.add('active-menu');
   }
@@ -42,9 +38,9 @@ export class HeaderComponent implements OnInit {
     };
 
     onresize = () => {
-      this.isMobile = this.checkIfMobile();
+      this.isMobile = checkIsMobile();
     };
 
-    this.isMobile = this.checkIfMobile();
+    this.isMobile = checkIsMobile();
   }
 }

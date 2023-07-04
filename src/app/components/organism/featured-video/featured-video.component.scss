@@ -9,17 +9,21 @@
   box-shadow: 0px 0px 10px 5px var(--color-grey-darker);
 
   @include screen-tablet-and-smaller {
+    aspect-ratio: 0;
+  }
+
+  @include screen-mobile-and-smaller {
     flex-wrap: wrap;
-    padding: var(--spacing-medium);
     align-items: center;
     justify-content: center;
     aspect-ratio: 0;
-    gap: var(--spacing-medium);
+    width: 100%;
   }
 }
 
 .music-featured-video {
   min-width: 300px;
+  flex: 1
 }
 
 .featured-video-info {
@@ -38,7 +42,7 @@
   gap: var(--spacing-medium);
 
   @include screen-tablet-and-smaller {
-    padding: 0;
+    padding: var(--spacing-medium);
   }
 
   h2 {
