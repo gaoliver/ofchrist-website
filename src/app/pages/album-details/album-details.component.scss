@@ -1,7 +1,13 @@
+@import "../../../mixins.scss";
+
 .album-section {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
+
+  @include screen-tablet-and-smaller {
+    gap: var(--spacing-large);
+  }
 }
 
 .album-content {
@@ -9,6 +15,10 @@
   display: flex;
   flex-direction: column;
   max-width: 500px;
+
+  @include screen-tablet-and-smaller {
+    width: 49%;
+  }
 }
 
 .content-sticky {
@@ -23,6 +33,10 @@
 .album-cover {
   margin: 0 0 var(--spacing);
   aspect-ratio: 1;
+
+  @include screen-mobile-and-smaller {
+    width: 100%;
+  }
 }
 
 .album-page-sidebar {

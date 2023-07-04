@@ -6,7 +6,8 @@
 
     @include screen-tablet-and-smaller {
       aspect-ratio: 1.8;
-      height: auto
+      min-width: 250px;
+      height: auto;
     }
   }
 
