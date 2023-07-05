@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnChanges } from '@angular/core';
 import { fullDateFormat } from '@src/app/utils/dateFormat';
 import { FeaturedBanner } from '../../@types/types';
 
@@ -7,12 +7,12 @@ import { FeaturedBanner } from '../../@types/types';
   templateUrl: './featured-tiles.component.html',
   styleUrls: ['./featured-tiles.component.scss'],
 })
-export class FeaturedTilesComponent implements OnInit {
+export class FeaturedTilesComponent implements OnChanges {
   @Input() nOfTales: number = 0;
   @Input() talesList: Array<FeaturedBanner> = [];
   @Input() showReadMore?: boolean;
 
-  ngOnInit() {
+  ngOnChanges() {
     if (this.nOfTales === 0) {
       this.nOfTales = this.talesList.length;
     }
