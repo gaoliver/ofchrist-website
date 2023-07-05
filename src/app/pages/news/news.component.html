@@ -3,6 +3,7 @@
 <div app-page-content>
   <section class="news-featured">
     <ul
+      *ngIf="featuredList"
       app-featured-tiles
       [talesList]="featuredList"
       [nOfTales]="4"

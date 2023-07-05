@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { Store, select } from '@ngrx/store';
-import { mockFeaturedNews, mockNews } from '@src/app/@dummyData';
 import { FeaturedBanner, News } from '@src/app/components/@types/types';
 import { fullDateFormat } from '@src/app/utils/dateFormat';
 import { env } from '@src/environments/environment';
@@ -20,13 +19,7 @@ import { Observable, map } from 'rxjs';
   styleUrls: ['./news.component.scss'],
 })
 export class NewsComponent implements OnInit {
-  // TO CHANGE: This list will be replaced by Contentful
-  featuredList: Array<FeaturedBanner> = mockFeaturedNews.map((news) => ({
-    ...news,
-    href: `${env.baseUrl}/news/${news.slug}`,
-  }));
-  mockHeadline: Omit<News, 'content'> = mockNews;
-
+  featuredList: Array<FeaturedBanner> | undefined;
   newsList$: Observable<News[]> | undefined;
   showLoadMoreBtn = false;
 
@@ -50,15 +43,24 @@ export class NewsComponent implements OnInit {
 
     this.newsList$ = this.store.pipe(
       select(getNewsList),
-      map((list) => {
-        console.log(list);
-        return this.formatNewsDate(list);
-      })
+      map((list) => this.formatNewsDate(list))
     );
+  }
+
+  getFeaturedNews() {
+    this.newsList$?.subscribe((list) => {
+      this.featuredList = list
+        .filter((news) => news.isFeatured)
+        .map((news) => ({
+          ...news,
+          href: `${env.baseUrl}/news/${news.slug}`,
+        }));
+    });
   }
 
   ngOnInit() {
     this.getAllNews();
+    this.getFeaturedNews();
 
     this.newsList$?.subscribe((list) => {
       this.showLoadMoreBtn = list.length > 15;
