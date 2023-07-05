@@ -12,7 +12,7 @@
   <section class="news-others-section">
     <div class="news-others">
       <app-news-headline
-        *ngFor="let news of newsList"
+        *ngFor="let news of newsList$ | async"
         [imageUrl]="news.imageUrl"
         [date]="news.date"
         [title]="news.title"

@@ -1,6 +1,7 @@
 import { createReducer, on } from '@ngrx/store';
 import { getNews, getNewsError, getNewsSuccess } from './news.actions';
 import { News } from '@src/app/components/@types/types';
+import { mockNews } from '@src/app/@dummyData';
 
 export interface NewsState {
   list: News[];
@@ -9,7 +10,7 @@ export interface NewsState {
 }
 
 export const initialState: NewsState = {
-  list: [],
+  list: [mockNews],
   isLoading: false,
   status: undefined,
 };

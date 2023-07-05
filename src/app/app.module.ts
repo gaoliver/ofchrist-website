@@ -36,8 +36,8 @@ import { NewsContentComponent } from './pages/news-content/news-content.componen
 import { SidebarAdComponent } from './components/organism/sidebar-ad/sidebar-ad.component';
 import { SidemenuComponent } from './components/organism/sidemenu/sidemenu.component';
 import { StoreModule } from '@ngrx/store';
-import { newsReducer } from '@src/store/news/news.reducer';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { appReducer } from '@src/store/app.state';
 
 @NgModule({
   declarations: [
@@ -78,9 +78,7 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
     MatIconModule,
     HttpClientModule,
     YouTubePlayerModule,
-    StoreModule.forRoot({
-      news: newsReducer,
-    }),
+    StoreModule.forRoot(appReducer),
     StoreDevtoolsModule.instrument({
       maxAge: 10,
     }),
