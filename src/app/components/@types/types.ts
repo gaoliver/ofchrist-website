@@ -1,3 +1,5 @@
+import { Document } from '@contentful/rich-text-types';
+
 export enum Icons {
   'instagram',
   'youtube',
@@ -35,6 +37,7 @@ export interface News {
   date: string;
   content: string;
   videoUrl?: string;
+  isFeatured?: boolean;
 }
 
 export interface Link {

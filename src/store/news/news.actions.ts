@@ -26,6 +26,6 @@ export type NewsActions = GetNews | GetNewsSuccess | GetNewsError;
 export const getNews = createAction(NewsActionTypes.GetNews);
 export const getNewsSuccess = createAction(
   NewsActionTypes.GetNewsSuccess,
-  props<{ news: News[] }>()
+  props<{ list: News[] }>()
 );
 export const getNewsError = createAction(NewsActionTypes.GetNewsError);

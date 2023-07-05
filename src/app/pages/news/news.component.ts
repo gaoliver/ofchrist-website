@@ -1,11 +1,17 @@
 import { Component, OnInit } from '@angular/core';
-import { Store } from '@ngrx/store';
+import { Store, select } from '@ngrx/store';
 import { mockFeaturedNews, mockNews } from '@src/app/@dummyData';
 import { FeaturedBanner, News } from '@src/app/components/@types/types';
 import { fullDateFormat } from '@src/app/utils/dateFormat';
 import { env } from '@src/environments/environment';
 import { AppState } from '@src/store/app.state';
-import { getNews } from '@src/store/news/news.actions';
+import {
+  getNews,
+  getNewsError,
+  getNewsSuccess,
+} from '@src/store/news/news.actions';
+import { getNewsList } from '@src/store/news/news.selectors';
+import { NewsService } from '@src/store/news/news.service';
 import { Observable, map } from 'rxjs';
 
 @Component({
@@ -21,27 +27,40 @@ export class NewsComponent implements OnInit {
   }));
   mockHeadline: Omit<News, 'content'> = mockNews;
 
-  newsList$: Observable<News[]>;
+  newsList$: Observable<News[]> | undefined;
+  showLoadMoreBtn = false;
 
-  constructor(private store: Store<AppState>) {
+  constructor(private store: Store<AppState>, private contentful: NewsService) {
     this.store.dispatch(getNews());
+  }
+
+  formatNewsDate(newsList: News[]) {
+    return newsList.map((news) => ({
+      ...news,
+      date: fullDateFormat(news.date),
+    }));
+  }
+
+  getAllNews() {
+    this.store.dispatch(getNews());
+    this.contentful
+      .getNewsService()
+      .then((data) => this.store.dispatch(getNewsSuccess({ list: data })))
+      .catch(() => this.store.dispatch(getNewsError()));
+
     this.newsList$ = this.store.pipe(
-      map((list) =>
-        list.news.list.map((news) => ({
-          ...news,
-          date: fullDateFormat(news.date),
-        }))
-      )
+      select(getNewsList),
+      map((list) => {
+        console.log(list);
+        return this.formatNewsDate(list);
+      })
     );
   }
 
-  //
-  //
-  // FIXED CODE: Not to be changed
-  showLoadMoreBtn = false;
-
   ngOnInit() {
-    this.newsList$.subscribe((list) => {
+    this.getAllNews();
+
+    this.newsList$?.subscribe((list) => {
       this.showLoadMoreBtn = list.length > 15;
     });
   }
