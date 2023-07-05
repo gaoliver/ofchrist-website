@@ -3,13 +3,14 @@
 </div>
 
 <div app-page-content class="page-content" *ngIf="news">
-  <header class="news-content-header">
+  <div class="news-content-header">
     <span>{{ news.date }}</span>
     <h1>{{ news.title }}</h1>
-  </header>
+    <p>{{ news.description }}</p>
+  </div>
 
-  <div class="news-content-wrapper">
-    <div class="news-content">
+  <section class="news-content-wrapper">
+    <article class="news-content">
       <app-youtube-player
         *ngIf="news?.videoUrl"
         [videoUrl]="news.videoUrl!"
@@ -17,10 +18,10 @@
       ></app-youtube-player>
 
       <div class="news-richtext" [innerHTML]="news.content"></div>
-    </div>
+    </article>
 
     <aside class="news-sidebar">
       <app-sidebar-ad></app-sidebar-ad>
     </aside>
-  </div>
+  </section>
 </div>

@@ -74,6 +74,12 @@
   h1 {
     margin: var(--spacing-medium) 0;
   }
+
+  p {
+    font-weight: lighter;
+    font-size: larger;
+    opacity: 0.7;
+  }
 }
 
 .news-content-wrapper {
