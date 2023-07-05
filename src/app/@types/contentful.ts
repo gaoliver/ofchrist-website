@@ -25,5 +25,17 @@ export interface NewsApi {
   content: Document;
   isFeatured: boolean;
   date: string;
-  videoUrl?: string
+  videoUrl?: string;
+}
+
+export interface ShowApi {
+  location: string;
+  date: string;
+  info: string;
+  cta: {
+    fields: {
+      label: string;
+      href: string;
+    };
+  };
 }

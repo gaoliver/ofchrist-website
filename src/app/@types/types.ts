@@ -5,7 +5,7 @@ export interface Subpage {
   slug: string;
 }
 
-export interface Event {
+export interface Show {
   date: string;
   location: string;
   info: string;

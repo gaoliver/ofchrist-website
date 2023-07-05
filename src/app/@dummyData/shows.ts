@@ -1,6 +1,6 @@
-import { Event } from '@src/app/@types/types';
+import { Show } from '@src/app/@types/types';
 
-export const mockEventList: Array<Event> = [
+export const mockEventList: Array<Show> = [
   {
     date: '2023-11-01',
     location: 'São Paulo, SP',
