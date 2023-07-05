@@ -27,18 +27,4 @@ export class ShowsService {
 
     return showList;
   }
-
-  // async getNewsService(slug: string): Promise<News> {
-  //   const response = await this.client.getEntries({
-  //     content_type: 'news',
-  //     'fields.slug': slug,
-  //   });
-
-  //   const resFields = response.items[0].fields as unknown as NewsApi;
-
-  //   return this.mapNews({
-  //     ...resFields,
-  //     date: response.items[0].sys.createdAt,
-  //   });
-  // }
 }
