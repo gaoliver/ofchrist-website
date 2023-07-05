@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { mockEventList } from '@src/app/@dummyData';
 import { Show } from '@src/app/@types/types';
 import { dateSort } from '@src/app/utils/dateSort';
 import { ShowsService } from '@src/store/shows/shows.service';
