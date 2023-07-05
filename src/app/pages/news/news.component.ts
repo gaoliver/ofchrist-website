@@ -34,10 +34,10 @@ export class NewsComponent implements OnInit {
     }));
   }
 
-  getAllNews() {
+  public getAllNews() {
     this.store.dispatch(getNews());
     this.contentful
-      .getNewsService()
+      .getAllNewsService()
       .then((data) => this.store.dispatch(getNewsSuccess({ list: data })))
       .catch(() => this.store.dispatch(getNewsError()));
 

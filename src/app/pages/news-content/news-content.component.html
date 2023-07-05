@@ -16,9 +16,7 @@
         class="news-video"
       ></app-youtube-player>
 
-      <div class="news-richtext">
-        {{ news.content }}
-      </div>
+      <div class="news-richtext" [innerHTML]="news.content"></div>
     </div>
 
     <aside class="news-sidebar">
