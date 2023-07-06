@@ -199,6 +199,7 @@ export const mockAlbums: Array<Album> = [
         href: '',
       },
     ],
+    songs: []
   },
   {
     title: 'Confiança Pt. 1',
@@ -229,6 +230,7 @@ export const mockAlbums: Array<Album> = [
         href: '',
       },
     ],
+    songs: []
   },
   {
     title: 'Confiança Pt. 2',
@@ -259,5 +261,6 @@ export const mockAlbums: Array<Album> = [
         href: '',
       },
     ],
+    songs: []
   },
 ];

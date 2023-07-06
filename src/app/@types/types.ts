@@ -43,4 +43,5 @@ export interface Album {
   producer: string;
   recorded: string;
   streaming: SocialNetwork[];
+  songs: SongLyrics[];
 }

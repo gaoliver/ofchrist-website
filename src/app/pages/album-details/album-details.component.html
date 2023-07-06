@@ -1,6 +1,6 @@
-<h1 app-page-title>{{ album.title }}</h1>
+<h1 app-page-title>{{ album?.title }}</h1>
 
-<div app-page-content>
+<div app-page-content *ngIf="album">
   <section class="album-section">
     <article class="album-content">
       <div class="content-sticky">

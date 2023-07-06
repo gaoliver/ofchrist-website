@@ -1,48 +1,53 @@
 import { Component, OnInit } from '@angular/core';
-import { Title } from '@angular/platform-browser';
 import { ActivatedRoute } from '@angular/router';
-import { mockAlbums, mockLyrics } from '@src/app/@dummyData';
+import { documentToHtmlString } from '@contentful/rich-text-html-renderer';
+import { AlbumApi } from '@src/app/@types/contentful';
 import { Album, SongLyrics } from '@src/app/@types/types';
 import { fullDateFormat } from '@src/app/utils/dateFormat';
-
+import { SetPageTitle } from '@src/app/utils/setPageTitle';
+import { MusicService } from '@src/store/music/music.service';
 @Component({
   selector: 'main[app-song-details].page-container',
   templateUrl: './song-details.component.html',
   styleUrls: ['./song-details.component.scss'],
 })
 export class SongDetailsComponent implements OnInit {
-  songList = mockLyrics;
-  albumList = mockAlbums;
-
+  songList: SongLyrics | undefined;
+  albumList: Album | undefined;
   album: Album | undefined;
   song: SongLyrics | undefined;
 
   constructor(
     private activeRoute: ActivatedRoute,
-    private titleService: Title
+    private contentful: MusicService,
+    private setTitle: SetPageTitle
   ) {}
 
   findSong() {
     const songId = this.activeRoute.snapshot.paramMap.get('songId');
-    const songFound = this.songList.find((s) => s.id === songId);
 
-    if (songFound) {
-      const currTitle = this.titleService.getTitle();
-      this.titleService.setTitle(`${currTitle} ${songFound.title}`);
+    if (songId) {
+      this.contentful.getSongService(songId).then((res) => {
+        this.song = res.song;
+        this.mapAlbum(res.album);
+        this.setTitle.set(res.song.title);
+      });
     }
-
-    return songFound;
   }
 
-  findAlbum() {
-    const album = this.albumList.find((a) => a.id === this.song?.albumId);
+  mapAlbum(album: AlbumApi) {
+    this.album = {
+      ...album,
+      cover: album.cover.fields.file.url,
+      streaming: album.streaming.map((s) => s.fields),
+      songs: [],
+    };
 
-    return album;
+    console.log('finished');
   }
 
   ngOnInit() {
-    this.song = this.findSong();
-    this.album = this.findAlbum();
+    this.findSong();
 
     if (this.album) {
       this.album = {

@@ -44,7 +44,10 @@
 
       <div class="song-page-lyrics">
         <h5 class="song-page-label">Letra:</h5>
-        {{ song?.lyrics }}
+        <div
+          class="songs-page-lyrics-richtext"
+          [innerHTML]="song?.lyrics"
+        ></div>
       </div>
     </article>
 
