@@ -23,9 +23,8 @@ export class HomeService {
       background: resFields.background.fields.file.url,
       social_networks: resFields.social_networks.map((s) => s.fields),
       streaming: resFields.streaming.map((s) => s.fields),
+      background_video: resFields.background_video.fields.file.url,
     };
-
-    console.log(home);
 
     return home;
   }

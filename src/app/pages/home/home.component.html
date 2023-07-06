@@ -1,10 +1,10 @@
 <video
-  *ngIf="(!promo && !videoRelease) || (promo && videoRelease)"
-  src="{{ showVideo }}"
-  autoplay
+  *ngIf="showVideo && ((!promo && !videoRelease) || (promo && videoRelease))"
+  [src]="showVideo"
   [muted]="'muted'"
-  loop
   class="main-background-image"
+  autoplay
+  loop
 ></video>
 
 <div class="home-promo" *ngIf="promo && !videoRelease">

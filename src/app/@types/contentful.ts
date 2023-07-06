@@ -1,7 +1,7 @@
 import { Document } from '@contentful/rich-text-types';
 import { SocialNetwork } from '../components/@types/types';
 
-interface ImageApi {
+interface FileApi {
   fields: {
     file: {
       url: string;
@@ -33,7 +33,7 @@ export interface NewsApi {
   title: string;
   slug: string;
   description: string;
-  image: ImageApi;
+  image: FileApi;
   content: Document;
   isFeatured: boolean;
   date: string;
@@ -56,8 +56,8 @@ export interface AboutApi {
   short_description: Document;
   our_story: Document;
   contact: Document;
-  our_story_image: ImageApi;
-  members_image: ImageApi;
+  our_story_image: FileApi;
+  members_image: FileApi;
 }
 
 export interface VideoApi {
@@ -84,7 +84,7 @@ export interface AlbumApi {
   id: string;
   title: string;
   releaseDate: string;
-  cover: ImageApi;
+  cover: FileApi;
   producer: string;
   recorded: string;
   streaming: SocialNetworkApi[];
@@ -93,7 +93,8 @@ export interface AlbumApi {
 
 export interface HomeApi {
   description: string;
-  background: ImageApi;
+  background: FileApi;
   social_networks: SocialNetworkApi[];
   streaming: SocialNetworkApi[];
+  background_video: FileApi;
 }

@@ -51,4 +51,5 @@ export interface Home {
   background: string;
   social_networks: SocialNetwork[];
   streaming: SocialNetwork[];
+  background_video?: string;
 }

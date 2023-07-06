@@ -4,6 +4,10 @@ import { DomSanitizer } from '@angular/platform-browser';
 import { env } from '@src/environments/environment';
 import { Icons } from './components/@types/types';
 import { HomeService } from '@src/store/home/home.service';
+import { Home } from './@types/types';
+import { Store } from '@ngrx/store';
+import { AppState } from '@src/store/app.state';
+import { getHome, getHomeSuccess } from '@src/store/home/home.actions';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -15,7 +19,8 @@ export class AppComponent implements OnInit {
   constructor(
     private matIconRegistry: MatIconRegistry,
     private domSanitizer: DomSanitizer,
-    private contentful: HomeService
+    private contentful: HomeService,
+    private store: Store<AppState>
   ) {
     for (const icon of Object.keys(Icons)) {
       this.matIconRegistry.addSvgIcon(
@@ -37,6 +42,14 @@ export class AppComponent implements OnInit {
     body.style.backgroundImage = `url(${backgroundImage})`;
   }
 
+  storeContentful(data: Home) {
+    this.store.dispatch(getHome());
+
+    this.store.dispatch(getHomeSuccess({ home: data }));
+
+    this.setBackgroundImage(data.background);
+  }
+
   ngOnInit() {
     if (!this.apiLoaded) {
       const tag = document.createElement('script');
@@ -46,7 +59,7 @@ export class AppComponent implements OnInit {
     }
 
     this.contentful.getHomeService().then((data) => {
-      this.setBackgroundImage(data.background);
+      this.storeContentful(data);
     });
   }
 }
