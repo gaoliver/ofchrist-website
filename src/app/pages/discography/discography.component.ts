@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { mockAlbums } from '@src/app/@dummyData';
+import { AlbumApi } from '@src/app/@types/contentful';
 import { Album } from '@src/app/@types/types';
 import { FeaturedBanner } from '@src/app/components/@types/types';
+import { MusicService } from '@src/store/music/music.service';
 
 @Component({
   selector: 'main[app-discography].page-container',
@@ -9,18 +10,35 @@ import { FeaturedBanner } from '@src/app/components/@types/types';
   styleUrls: ['./discography.component.scss'],
 })
 export class DiscographyComponent implements OnInit {
-  discList: Array<Album> = mockAlbums;
-
+  discList: Album[] | undefined;
   bannerList: Array<FeaturedBanner> = [];
 
-  ngOnInit() {
-    this.discList = this.discList.sort(
+  constructor(private contentful: MusicService) {
+    this.contentful.getAlbumsService().then((list) => {
+      this.mapAlbumsList(list);
+    });
+  }
+
+  mapAlbumsList(list: AlbumApi[]) {
+    const sortedAlbums = list.sort(
       (discA, discB) =>
         Number(new Date(discB.releaseDate).getFullYear()) -
         Number(new Date(discA.releaseDate).getFullYear())
     );
 
-    this.bannerList = this.discList.map(
+    const mapAlbums = sortedAlbums.map((disc) => ({
+      ...disc,
+      cover: disc.cover.fields.file.url,
+      streaming: disc.streaming.map((s) => s.fields),
+      songs: [],
+    }));
+
+    this.discList = mapAlbums;
+    this.mapBannerList(mapAlbums);
+  }
+
+  mapBannerList(list: Album[]) {
+    this.bannerList = list.map(
       (album) =>
         ({
           title: album.title,
@@ -30,4 +48,6 @@ export class DiscographyComponent implements OnInit {
         } as FeaturedBanner)
     );
   }
+
+  ngOnInit() {}
 }
