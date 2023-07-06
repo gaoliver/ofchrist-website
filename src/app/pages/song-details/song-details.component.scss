@@ -70,6 +70,15 @@
   margin-top: var(--spacing-large);
   font-size: x-large;
   line-height: 1;
+  font-size: 2rem;
+
+  @include screen-mobile-and-smaller {
+    font-size: 1.2rem;
+  }
+}
+
+.song-page-lyrics-richtext {
+  line-height: 1;
 }
 
 .song-page-sidebar {
