@@ -1,16 +1,5 @@
 <h1 app-page-title>Contato</h1>
 
 <div app-page-content>
-  <h3>Mensagens e agendamentos:</h3>
-
-  <span class="contact-row">
-    <a href="mailto:{{ email }}">
-      {{ email }}
-    </a>
-  </span>
-
-  <span class="contact-row">
-    <mat-icon svgIcon="whatsapp" class="svg-whatsapp"></mat-icon>
-    <a [href]="whatsappUrl" target="_blank">{{ whatsappNumber }}</a>
-  </span>
+  <div class="contact-richtext" [innerHTML]="contactText"></div>
 </div>

@@ -6,36 +6,30 @@
   }
 }
 
-h3 {
-  opacity: 0.6;
-}
-
 .contact-content {
   justify-content: center;
 }
 
-.contact-row {
-  margin: var(--spacing-medium) auto;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: var(--spacing-medium);
+.contact-richtext {
+  text-align: center;
 
-  a {
-    font-size: 2rem;
-    line-height: 1;
-    text-decoration: underline 2px;
+  ::ng-deep {
+    h3 {
+      opacity: 0.6;
 
-    @include screen-mobile-and-smaller {
-      font-size: 1.4rem;
+      &:not(:first-of-type) {
+        margin-top: var(--spacing-x-large);
+      }
+    }
+
+    a {
+      font-size: 2rem;
+      line-height: 1;
+      text-decoration: underline 2px;
+
+      @include screen-mobile-and-smaller {
+        font-size: 1.4rem;
+      }
     }
   }
-
-  mat-icon {
-    width: 30px;
-    height: 30px;
-    color: var(--color-whatsapp);
-  }
 }
-
-.svg-whatsapp {}

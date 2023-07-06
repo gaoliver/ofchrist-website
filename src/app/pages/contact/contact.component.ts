@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { documentToHtmlString } from '@contentful/rich-text-html-renderer';
+import { AboutService } from '@src/store/about/about.service';
 
 @Component({
   selector: 'main[app-contact].page-container',
@@ -6,14 +8,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./contact.component.scss'],
 })
 export class ContactComponent implements OnInit {
-  email = 'contato@sitedabanda.com.br';
-  whatsappNumber = '21991015627';
-  whatsappUrl = `https://api.whatsapp.com/send/?phone=%2B55${this.whatsappNumber}`;
+  contactText: string | undefined;
+
+  constructor(private contectful: AboutService) {
+    this.contectful.getAboutService().then((data) => {
+      this.contactText = documentToHtmlString(data.contact);
+    });
+  }
 
   ngOnInit() {
-    this.whatsappNumber = `(${this.whatsappNumber.slice(
-      0,
-      2
-    )}) ${this.whatsappNumber.slice(2, 7)}-${this.whatsappNumber.slice(7, 11)}`;
   }
 }

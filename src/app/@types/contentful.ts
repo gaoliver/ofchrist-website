@@ -55,6 +55,7 @@ export interface ShowApi {
 export interface AboutApi {
   short_description: Document;
   our_story: Document;
+  contact: Document;
   our_story_image: ImageApi;
   members_image: ImageApi;
 }
