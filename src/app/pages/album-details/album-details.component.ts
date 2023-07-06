@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 import { ActivatedRoute } from '@angular/router';
-import { mockAlbums, mockLyrics } from '@src/app/@dummyData';
+import { AlbumApi } from '@src/app/@types/contentful';
 import { Album, SongLyrics } from '@src/app/@types/types';
 import { fullDateFormat } from '@src/app/utils/dateFormat';
+import { MusicService } from '@src/store/music/music.service';
 
 @Component({
   selector: 'main[app-album-details].page-container',
@@ -11,9 +12,6 @@ import { fullDateFormat } from '@src/app/utils/dateFormat';
   styleUrls: ['./album-details.component.scss'],
 })
 export class AlbumDetailsComponent {
-  songList = mockLyrics;
-  albumList = mockAlbums;
-
   album: Album = {
     id: '',
     title: '',
@@ -23,44 +21,48 @@ export class AlbumDetailsComponent {
     recorded: '',
     streaming: [],
   };
-  songs: SongLyrics[] = [];
+  songs: SongLyrics[] | undefined;
 
   constructor(
     private activeRoute: ActivatedRoute,
-    private titleService: Title
+    private titleService: Title,
+    private contentful: MusicService
   ) {}
 
   findAlbum() {
     const albumId = this.activeRoute.snapshot.paramMap.get('albumId');
-    const albumFound = this.albumList.find((a) => a.id === albumId);
 
-    if (albumFound) {
-      const currTitle = this.titleService.getTitle();
-      this.titleService.setTitle(`${currTitle} ${albumFound.title}`);
-    }
-
-    if (albumFound) {
-      this.album = albumFound;
-    }
+    this.contentful.getAlbumService(albumId!).then((album) => {
+      if (album) {
+        this.mapAlbum(album);
+        this.setPageTitle(album.title);
+        this.findSongList(album);
+      }
+    });
   }
 
-  filterSongs() {
-    const songs = this.songList.filter((s) => s.albumId === this.album?.id);
+  mapAlbum(album: AlbumApi) {
+    this.album = {
+      ...album,
+      cover: album.cover.fields.file.url,
+      streaming: album.streaming.map((s) => s.fields),
+      releaseDate: fullDateFormat(album.releaseDate),
+    };
+  }
 
-    if (songs) {
-      this.songs = songs;
-    }
+  findSongList(album: AlbumApi) {
+    this.songs = album.songs.map((song) => ({
+      ...song.fields,
+      albumId: album.id,
+    }));
+  }
+
+  setPageTitle(title: string) {
+    const currTitle = this.titleService.getTitle();
+    this.titleService.setTitle(`${currTitle} ${title}`);
   }
 
   ngOnInit() {
     this.findAlbum();
-    this.filterSongs();
-
-    if (this.album) {
-      this.album = {
-        ...this.album,
-        releaseDate: fullDateFormat(this.album.releaseDate),
-      };
-    }
   }
 }

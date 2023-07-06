@@ -21,4 +21,17 @@ export class MusicService {
 
     return albumsList;
   }
+
+  async getAlbumService(albumId: string): Promise<AlbumApi> {
+    let album: AlbumApi;
+
+    const response = await this.client.getEntries({
+      content_type: 'album',
+      'fields.id': albumId,
+    });
+
+    const resFields = response.items[0].fields as unknown as AlbumApi;
+
+    return resFields;
+  }
 }

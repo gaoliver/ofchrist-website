@@ -24,7 +24,6 @@ export class MusicComponent implements OnInit {
 
   videos: VideoApi[] | undefined;
   featuredVideo: FeaturedVideo | undefined;
-
   albums: FeaturedBanner[] | undefined;
 
   constructor(
