@@ -1,17 +1,13 @@
 <h1 app-page-title>A Banda</h1>
 
 <div app-page-content>
-  <p class="about-summary">
-    Informação curta sobre a banda, exemplo: "somos uma banda de metalcore
-    formada em Santa Cruz, no Rio de Janeiro. Levando a palavra de Deus através
-    da música, exaltando o Pai e salvando vidas."
-  </p>
+  <p class="about-summary" [innerHTML]="shortIntro"></p>
 
   <section id="about-subpages" class="about-subpages">
     <ul app-featured-tiles [talesList]="subpages" [nOfTales]="2"></ul>
   </section>
 
-  <section app-page-section id="about-news" class="about-news">
+  <section app-page-section id="about-news" class="about-news" *ngIf="featuredNews">
     <header>
       <h2>Destaques:</h2>
       <a href="{{ baseUrl }}/news">todas as notícias</a>
@@ -19,7 +15,7 @@
     <ul app-featured-tiles [talesList]="featuredNews" [nOfTales]="4"></ul>
   </section>
 
-  <section app-page-section id="about-videos" class="about-videos">
+  <section app-page-section id="about-videos" class="about-videos" *ngIf="videoList">
     <header>
       <h2>Vídeos:</h2>
       <a href="{{ baseUrl }}/musicas/videos">todos os vídeos</a>
@@ -28,7 +24,7 @@
       <app-youtube-player
         *ngFor="let video of videoList"
         id="youtube-player"
-        [videoUrl]="video.videoUrl"
+        [videoUrl]="video.url"
 
         frameborder="0"
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"

@@ -3,6 +3,11 @@ import { contentfulConfig } from '../app.service';
 import { News } from '@src/app/components/@types/types';
 import { NewsApi } from '@src/app/@types/contentful';
 import { documentToHtmlString } from '@contentful/rich-text-html-renderer';
+
+type GetAllService = {
+  limit?: number;
+  skip?: number;
+};
 @Injectable({
   providedIn: 'root',
 })
@@ -22,11 +27,13 @@ export class NewsService {
     };
   }
 
-  async getAllNewsService(): Promise<News[]> {
+  async getAllNewsService(props?: GetAllService): Promise<News[]> {
     let newsList: News[];
 
     const response = await this.client.getEntries({
       content_type: 'news',
+      limit: props?.limit || 15,
+      skip: props?.skip,
     });
 
     const resFields = response.items.map((item) => ({

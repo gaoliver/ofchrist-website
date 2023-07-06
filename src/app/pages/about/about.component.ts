@@ -1,8 +1,12 @@
 import { Component, OnInit } from '@angular/core';
+import { documentToHtmlString } from '@contentful/rich-text-html-renderer';
 import { mockFeaturedNews } from '@src/app/@dummyData';
 import { mockVideos } from '@src/app/@dummyData/media';
+import { VideoApi } from '@src/app/@types/contentful';
 import { FeaturedBanner } from '@src/app/components/@types/types';
 import { env } from '@src/environments/environment';
+import { AboutService } from '@src/store/about/about.service';
+import { NewsService } from '@src/store/news/news.service';
 
 @Component({
   selector: 'main[app-about].page-container',
@@ -32,26 +36,31 @@ export class AboutComponent implements OnInit {
     },
   ];
 
-  featuredNews: Array<FeaturedBanner> = mockFeaturedNews.map((news) => ({
-    ...news,
-    href: `${this.baseUrl}/news/${news.slug}`,
-  }));
+  videoList: VideoApi[] | undefined;
+  featuredNews: Array<FeaturedBanner> | undefined;
+  shortIntro: string | undefined;
 
-  videoList = mockVideos;
+  constructor(
+    private contentful: AboutService,
+    private contentfulNews: NewsService
+  ) {
+    this.contentful.getAboutService().then((data) => {
+      this.shortIntro = documentToHtmlString(data.short_description);
+    });
 
-  videoWidth = 360;
-  videoHeight = 203;
+    this.contentfulNews.getAllNewsService({ limit: 10 }).then((newsList) => {
+      this.featuredNews = newsList
+        .filter((news) => news.isFeatured)
+        .map((news) => ({
+          ...news,
+          href: `${this.baseUrl}/news/${news.slug}`,
+        }));
+    });
 
-  getPlayerSize() {
-    const player = document.getElementById('youtube-player');
-
-    if (player) {
-      this.videoWidth = player.offsetHeight;
-      this.videoHeight = player.offsetWidth;
-    }
+    this.contentful.getVideosService().then((list) => {
+      this.videoList = list;
+    });
   }
 
-  ngOnInit() {
-    this.getPlayerSize();
-  }
+  ngOnInit() {}
 }

@@ -41,6 +41,12 @@ export interface ShowApi {
 }
 
 export interface AboutApi {
-  short_description: Document
-  our_story: Document
+  short_description: Document;
+  our_story: Document;
+}
+
+export interface VideoApi {
+  description: string;
+  url: string;
+  type: string;
 }
