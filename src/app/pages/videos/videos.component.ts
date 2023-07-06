@@ -14,7 +14,7 @@ export class VideosComponent {
 
   constructor(private contentful: AboutService) {
     this.contentful.getVideosService().then((list) => {
-      this.videoList = list;
+      this.videoList = list.filter((v) => v.type === 'Clipe');
 
       const featuredVideo = list.find((v) => v.featured && v.type === 'Clipe');
 
