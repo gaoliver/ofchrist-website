@@ -1,5 +1,4 @@
 import { Component, Input } from '@angular/core';
-import { mockVideos } from '@src/app/@dummyData/media';
 import { FeaturedVideo } from '../../@types/types';
 
 @Component({

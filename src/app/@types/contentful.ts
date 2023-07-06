@@ -97,4 +97,5 @@ export interface HomeApi {
   social_networks: SocialNetworkApi[];
   streaming: SocialNetworkApi[];
   background_video: FileApi;
+  video_release: { fields: VideoApi };
 }

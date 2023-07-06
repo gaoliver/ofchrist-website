@@ -1,4 +1,5 @@
 import { SocialNetwork } from '../components/@types/types';
+import { VideoApi } from './contentful';
 
 export interface Subpage {
   id: string;
@@ -52,4 +53,5 @@ export interface Home {
   social_networks: SocialNetwork[];
   streaming: SocialNetwork[];
   background_video?: string;
+  video_release?: VideoApi;
 }

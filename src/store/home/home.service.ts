@@ -14,6 +14,7 @@ export class HomeService {
 
     const response = await this.client.getEntries({
       content_type: 'home',
+      include: 2
     });
 
     const resFields = response.items[0].fields as unknown as HomeApi;
@@ -24,7 +25,10 @@ export class HomeService {
       social_networks: resFields.social_networks.map((s) => s.fields),
       streaming: resFields.streaming.map((s) => s.fields),
       background_video: resFields.background_video.fields.file.url,
+      video_release: resFields.video_release.fields
     };
+
+    console.log(home)
 
     return home;
   }

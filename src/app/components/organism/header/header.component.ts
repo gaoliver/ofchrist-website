@@ -22,7 +22,6 @@ export class HeaderComponent implements OnInit {
 
   openMobileMenu() {
     const menu = document.getElementById('mobile-menu');
-    console.log('test', menu);
     // menu?.classList.remove('close-menu');
     menu?.classList.add('active-menu');
   }

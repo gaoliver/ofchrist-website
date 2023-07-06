@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { Store, select } from '@ngrx/store';
-import { mockVideos } from '@src/app/@dummyData';
 import { Home, HomePromo } from '@src/app/@types/types';
 import { FeaturedVideo } from '@src/app/components/@types/types';
 import { AppState } from '@src/store/app.state';
@@ -25,8 +24,24 @@ export class HomeComponent implements OnInit {
     this.home$ = this.store.pipe(select(getHomeSelector));
   }
 
+  mapVideoRelease(video: Home['video_release']) {
+    if (video) {
+      this.videoRelease = {
+        title: video.description,
+        url: video.url,
+        content: video.content,
+        streaming: video.streaming?.map((s) => s.fields),
+        cta: video.cta?.fields,
+      };
+    }
+
+    console.log(this.videoRelease);
+  }
+
   getShowVideo(home: Home) {
     this.showVideo = home.background_video;
+
+    if (home.video_release) this.mapVideoRelease(home.video_release);
   }
 
   ngOnInit() {
