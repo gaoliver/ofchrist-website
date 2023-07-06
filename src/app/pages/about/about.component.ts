@@ -1,7 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { documentToHtmlString } from '@contentful/rich-text-html-renderer';
-import { mockFeaturedNews } from '@src/app/@dummyData';
-import { mockVideos } from '@src/app/@dummyData/media';
 import { VideoApi } from '@src/app/@types/contentful';
 import { pageRoutes } from '@src/app/app-routing.module';
 import { FeaturedBanner } from '@src/app/components/@types/types';
