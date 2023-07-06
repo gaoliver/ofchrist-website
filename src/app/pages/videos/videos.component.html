@@ -2,6 +2,7 @@
 
 <div app-page-content>
   <app-featured-video
+    *ngIf="featuredVideo"
     [videoUrl]="featuredVideo.url"
     [title]="featuredVideo.title"
     [streaming]="featuredVideo.streaming"
@@ -10,11 +11,11 @@
   >
   </app-featured-video>
 
-  <ul class="videos-gallery">
+  <ul class="videos-gallery" *ngIf="videoList">
     <app-youtube-player
       *ngFor="let video of videoList"
       id="youtube-player"
-      [videoUrl]="video.videoUrl"
+      [videoUrl]="video.url"
       frameborder="0"
       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
       allowfullscreen

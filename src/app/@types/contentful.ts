@@ -1,4 +1,5 @@
 import { Document } from '@contentful/rich-text-types';
+import { SocialNetwork } from '../components/@types/types';
 
 interface ImageApi {
   fields: {
@@ -15,6 +16,17 @@ interface ImageApi {
       contentType: string;
     };
   };
+}
+
+interface CtaApi {
+  fields: {
+    label: string;
+    href: string;
+  };
+}
+
+export interface SocialNetworkApi {
+  fields: SocialNetwork;
 }
 
 export interface NewsApi {
@@ -50,5 +62,9 @@ export interface AboutApi {
 export interface VideoApi {
   description: string;
   url: string;
-  type: string;
+  type: 'Outros' | 'Clipe';
+  content?: Document;
+  cta?: CtaApi;
+  streaming?: SocialNetworkApi[];
+  featured: boolean;
 }
