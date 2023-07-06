@@ -54,7 +54,7 @@ export class AboutComponent implements OnInit {
     if (submenu) {
       const mappedSubPages: FeaturedBanner[] = submenu.subpages.map((page) => ({
         title: page.label,
-        href: 'a-banda/' + page.slug,
+        href: page.slug,
         imageUrl: page.id.match('our_story') ? our_story : members,
       }));
 
