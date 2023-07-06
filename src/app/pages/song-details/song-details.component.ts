@@ -40,6 +40,7 @@ export class SongDetailsComponent implements OnInit {
       ...album,
       cover: album.cover.fields.file.url,
       streaming: album.streaming.map((s) => s.fields),
+      releaseDate: fullDateFormat(album.releaseDate),
       songs: [],
     };
 
