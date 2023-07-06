@@ -43,8 +43,6 @@ export class SongDetailsComponent implements OnInit {
       releaseDate: fullDateFormat(album.releaseDate),
       songs: [],
     };
-
-    console.log('finished');
   }
 
   ngOnInit() {

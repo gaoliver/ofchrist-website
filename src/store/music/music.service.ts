@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core';
 import { contentfulConfig } from '../app.service';
 import { AlbumApi, SongLyricsApi } from '@src/app/@types/contentful';
 import { SongLyrics } from '@src/app/@types/types';
-import { documentToHtmlString } from '@contentful/rich-text-html-renderer';
 @Injectable({
   providedIn: 'root',
 })
@@ -32,6 +31,16 @@ export class MusicService {
     const resFields = response.items[0].fields as unknown as AlbumApi;
 
     return resFields;
+  }
+
+  async getAllSongs(): Promise<SongLyricsApi[]> {
+    const response = await this.client.getEntries({
+      content_type: 'song',
+    });
+
+    const resFields = response.items as unknown as SongLyricsApi[];
+
+    return resFields
   }
 
   async getSongService(

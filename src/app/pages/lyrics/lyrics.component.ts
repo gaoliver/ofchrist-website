@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { mockLyrics } from '@src/app/@dummyData';
+import { SongLyricsApi } from '@src/app/@types/contentful';
 import { SongLyrics } from '@src/app/@types/types';
+import { MusicService } from '@src/store/music/music.service';
 
 @Component({
   selector: 'main[app-lyrics].page-container',
@@ -8,16 +9,26 @@ import { SongLyrics } from '@src/app/@types/types';
   styleUrls: ['./lyrics.component.scss'],
 })
 export class LyricsComponent implements OnInit {
-  songList = mockLyrics;
-  groupedSongsList: { key: string; songs: SongLyrics[] }[] = [];
+  songList: SongLyrics[] | undefined;
+  groupedSongsList: { key: string; songs: SongLyrics[] }[] | undefined;
   lettersList: string[] = [];
 
-  onSearchSong(query: string) {
-    const filteredList = this.songList.filter((song) =>
-      song.title.toLowerCase().match(query.toLowerCase())
-    );
+  constructor(private contentful: MusicService) {}
 
-    this.groupedSongsList = this.sortAndGroupByLetter(filteredList);
+  mapSongList(list: SongLyricsApi[]) {
+    let mappedSongs = list.map((song) => ({ ...song.fields, albumId: '' }));
+
+    this.songList = mappedSongs;
+    this.sortAndGroupByLetter(mappedSongs);
+  }
+
+  onSearchSong(query: string) {
+    if (this.songList) {
+      const filteredList = this.songList.filter((song) =>
+        song.title.toLowerCase().match(query.toLowerCase())
+      );
+      this.sortAndGroupByLetter(filteredList);
+    }
   }
 
   sortAndGroupByLetter(list: SongLyrics[]) {
@@ -26,7 +37,6 @@ export class LyricsComponent implements OnInit {
 
     sortedList.forEach((song) => {
       const letter = song.title.charAt(0).toLowerCase();
-
       const songsGroup = groupedByLetter.find((group) => group.key === letter);
 
       if (!songsGroup) {
@@ -39,17 +49,19 @@ export class LyricsComponent implements OnInit {
       }
     });
 
-    return groupedByLetter;
+    this.groupedSongsList = groupedByLetter;
+    this.getLettersList();
   }
 
   getLettersList() {
-    this.groupedSongsList.forEach((group) => {
+    this.groupedSongsList?.forEach((group) => {
       this.lettersList.push(group.key);
     });
   }
 
   ngOnInit() {
-    this.groupedSongsList = this.sortAndGroupByLetter(this.songList);
-    this.getLettersList();
+    this.contentful.getAllSongs().then((list) => {
+      this.mapSongList(list);
+    });
   }
 }
