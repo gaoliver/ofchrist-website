@@ -2,13 +2,13 @@
 
 :host {
   flex: 1;
+  min-width: 180px;
 }
 
 .featured-banner-clickable-container {
   display: flex;
   height: 100%;
-  max-width: 100%;
-  min-width: 180px;
+  width: 100%;
   position: relative;
   flex-direction: column;
   overflow: hidden;

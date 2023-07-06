@@ -12,10 +12,9 @@
 
 .albums-list {
   ::ng-deep {
-    .featured-banner-clickable-container {
+    app-featured-banner {
       aspect-ratio: 1;
-      height: auto;
-      margin: auto;
+      max-width: calc(100% / 3);
     }
   }
 }

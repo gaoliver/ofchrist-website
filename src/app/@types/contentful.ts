@@ -68,3 +68,24 @@ export interface VideoApi {
   streaming?: SocialNetworkApi[];
   featured: boolean;
 }
+
+export interface SongLyricsApi {
+  fields: {
+    id: string;
+    title: string;
+    composers: string;
+    lyrics: string;
+    youtubeVideo: string;
+  };
+}
+
+export interface AlbumApi {
+  id: string;
+  title: string;
+  releaseDate: string;
+  cover: ImageApi;
+  producer: string;
+  recorded: string;
+  streaming: SocialNetworkApi[];
+  songs: SongLyricsApi[];
+}

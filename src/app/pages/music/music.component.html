@@ -14,7 +14,7 @@
     class="music-featured-video"
   >
   </app-featured-video>
-  <section app-page-section>
+  <section app-page-section *ngIf="albums">
     <header>
       <h2>Álbums:</h2>
       <a [routerLink]="['./discografia']">ver todos</a>

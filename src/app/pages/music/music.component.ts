@@ -1,15 +1,17 @@
 import { Component, OnInit } from '@angular/core';
 import { mockAlbums } from '@src/app/@dummyData';
 import { mockVideos } from '@src/app/@dummyData/media';
-import { VideoApi } from '@src/app/@types/contentful';
+import { AlbumApi, VideoApi } from '@src/app/@types/contentful';
 import {
   FeaturedBanner,
   FeaturedVideo,
 } from '@src/app/components/@types/types';
 import { checkIsMobile, checkIsTablet } from '@src/app/utils/checkIsMobile';
+import { dateSort } from '@src/app/utils/dateSort';
 import { mapFeatureVideo } from '@src/app/utils/mapFeaturedVideo';
 import { env } from '@src/environments/environment';
 import { AboutService } from '@src/store/about/about.service';
+import { MusicService } from '@src/store/music/music.service';
 
 @Component({
   selector: 'main[app-music].page-container',
@@ -21,16 +23,14 @@ export class MusicComponent implements OnInit {
   isTablet: boolean | undefined;
 
   videos: VideoApi[] | undefined;
-
   featuredVideo: FeaturedVideo | undefined;
 
-  albums: FeaturedBanner[] = mockAlbums.map((album) => ({
-    href: env.baseUrl + '/musicas/album/' + album.id,
-    title: album.title,
-    imageUrl: album.cover,
-  }));
+  albums: FeaturedBanner[] | undefined;
 
-  constructor(private contentfulAbout: AboutService) {
+  constructor(
+    private contentful: MusicService,
+    private contentfulAbout: AboutService
+  ) {
     this.contentfulAbout.getVideosService().then((list) => {
       this.videos = list.filter((v) => v.type === 'Clipe');
 
@@ -40,6 +40,22 @@ export class MusicComponent implements OnInit {
         this.featuredVideo = mapFeatureVideo(featuredVideo);
       }
     });
+
+    this.contentful.getAlbumsService().then((list) => {
+      this.albums = this.mapAlbumsList(
+        list.sort((albumA, albumB) =>
+          dateSort(albumA.recorded, albumB.recorded)
+        )
+      );
+    });
+  }
+
+  mapAlbumsList(list: AlbumApi[]): FeaturedBanner[] {
+    return list.map((album) => ({
+      href: env.baseUrl + '/musicas/album/' + album.id,
+      title: album.title,
+      imageUrl: album.cover.fields.file.url,
+    }));
   }
 
   checkMobile() {

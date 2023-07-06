@@ -45,22 +45,21 @@ export class NewsComponent implements OnInit {
       select(getNewsList),
       map((list) => this.formatNewsDate(list))
     );
+
+    this.store.subscribe((list) => this.getFeaturedNews(list.news.list));
   }
 
-  getFeaturedNews() {
-    this.newsList$?.subscribe((list) => {
-      this.featuredList = list
-        .filter((news) => news.isFeatured)
-        .map((news) => ({
-          ...news,
-          href: `${env.baseUrl}/news/${news.slug}`,
-        }));
-    });
+  getFeaturedNews(list: News[]) {
+    this.featuredList = list
+      .filter((news) => news.isFeatured)
+      .map((news) => ({
+        ...news,
+        href: `${env.baseUrl}/news/${news.slug}`,
+      }));
   }
 
   ngOnInit() {
     this.getAllNews();
-    this.getFeaturedNews();
 
     this.newsList$?.subscribe((list) => {
       this.showLoadMoreBtn = list.length > 15;
