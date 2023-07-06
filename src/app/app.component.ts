@@ -3,6 +3,7 @@ import { MatIconRegistry } from '@angular/material/icon';
 import { DomSanitizer } from '@angular/platform-browser';
 import { env } from '@src/environments/environment';
 import { Icons } from './components/@types/types';
+import { HomeService } from '@src/store/home/home.service';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -13,7 +14,8 @@ export class AppComponent implements OnInit {
 
   constructor(
     private matIconRegistry: MatIconRegistry,
-    private domSanitizer: DomSanitizer
+    private domSanitizer: DomSanitizer,
+    private contentful: HomeService
   ) {
     for (const icon of Object.keys(Icons)) {
       this.matIconRegistry.addSvgIcon(
@@ -27,6 +29,14 @@ export class AppComponent implements OnInit {
 
   apiLoaded = false;
 
+  setBackgroundImage(backgroundImage: string) {
+    if (!backgroundImage) return;
+
+    const body = document.body;
+
+    body.style.backgroundImage = `url(${backgroundImage})`;
+  }
+
   ngOnInit() {
     if (!this.apiLoaded) {
       const tag = document.createElement('script');
@@ -34,5 +44,9 @@ export class AppComponent implements OnInit {
       document.body.appendChild(tag);
       this.apiLoaded = true;
     }
+
+    this.contentful.getHomeService().then((data) => {
+      this.setBackgroundImage(data.background);
+    });
   }
 }

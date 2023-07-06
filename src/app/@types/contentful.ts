@@ -90,3 +90,10 @@ export interface AlbumApi {
   streaming: SocialNetworkApi[];
   songs: SongLyricsApi[];
 }
+
+export interface HomeApi {
+  description: string;
+  background: ImageApi;
+  social_networks: SocialNetworkApi[];
+  streaming: SocialNetworkApi[];
+}

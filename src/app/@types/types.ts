@@ -45,3 +45,10 @@ export interface Album {
   streaming: SocialNetwork[];
   songs: SongLyrics[];
 }
+
+export interface Home {
+  description: string;
+  background: string;
+  social_networks: SocialNetwork[];
+  streaming: SocialNetwork[];
+}
