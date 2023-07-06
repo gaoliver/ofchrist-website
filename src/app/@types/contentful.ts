@@ -25,6 +25,14 @@ export interface CtaApi {
   };
 }
 
+export interface PromoApi {
+  fields: {
+    title: string;
+    image: FileApi;
+    cta?: CtaApi;
+  };
+}
+
 export interface SocialNetworkApi {
   fields: SocialNetwork;
 }
@@ -97,5 +105,6 @@ export interface HomeApi {
   social_networks: SocialNetworkApi[];
   streaming: SocialNetworkApi[];
   background_video: FileApi;
-  video_release: { fields: VideoApi };
+  video_release?: { fields: VideoApi };
+  promo?: PromoApi;
 }

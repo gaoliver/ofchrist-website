@@ -47,42 +47,7 @@ export class HomeComponent implements OnInit {
 
     this.home$?.subscribe((data) => {
       this.getShowVideo(data);
+      this.promo = data.promo;
     });
-
-    // this.promo = {
-    //   name: 'lançamento do álbum "Confiança PT.2"',
-    //   image: 'https://i.scdn.co/image/ab67616d0000b2735229e5fdd5c833e8b8620e70',
-    //   videoUrl: '',
-    //   cta: {
-    //     label: 'Ouça agora!',
-    //     href: '#',
-    //   },
-    // };
-    // this.videoRelease = {
-    //   title: 'Novo Lançamento Musical',
-    //   url: mockVideos[0].videoUrl,
-    //   streaming: [
-    //     {
-    //       icon: 'spotify',
-    //       href: '#',
-    //       label: 'Spotify',
-    //     },
-    //     {
-    //       icon: 'deezer',
-    //       href: '#',
-    //       label: 'Deezer',
-    //     },
-    //     {
-    //       icon: 'apple-music',
-    //       href: '#',
-    //       label: 'Apple Music',
-    //     },
-    //     {
-    //       icon: 'youtube-music',
-    //       href: '#',
-    //       label: 'YouTube Music',
-    //     },
-    //   ],
-    // };
   }
 }

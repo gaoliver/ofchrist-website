@@ -1,5 +1,5 @@
 import { SocialNetwork } from '../components/@types/types';
-import { VideoApi } from './contentful';
+import { CtaApi, PromoApi, VideoApi } from './contentful';
 
 export interface Subpage {
   id: string;
@@ -20,7 +20,6 @@ export interface Show {
 export interface HomePromo {
   image: string;
   name: string;
-  videoUrl?: string;
   cta?: {
     label: string;
     href: string;
@@ -54,4 +53,5 @@ export interface Home {
   streaming: SocialNetwork[];
   background_video?: string;
   video_release?: VideoApi;
+  promo?: HomePromo;
 }
