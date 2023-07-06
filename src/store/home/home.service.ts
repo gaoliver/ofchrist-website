@@ -28,8 +28,6 @@ export class HomeService {
       video_release: resFields.video_release.fields
     };
 
-    console.log(home)
-
     return home;
   }
 }

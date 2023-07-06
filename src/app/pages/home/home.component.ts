@@ -34,8 +34,6 @@ export class HomeComponent implements OnInit {
         cta: video.cta?.fields,
       };
     }
-
-    console.log(this.videoRelease);
   }
 
   getShowVideo(home: Home) {
