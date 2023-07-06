@@ -39,3 +39,8 @@ export interface ShowApi {
     };
   };
 }
+
+export interface AboutApi {
+  short_description: Document
+  our_story: Document
+}

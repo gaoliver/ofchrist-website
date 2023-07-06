@@ -8,9 +8,11 @@
   .about-subpages,
   .about-news {
     app-featured-banner {
+      height: 250px;
+
       @include screen-tablet-and-smaller {
-        min-width: 250px;
         height: 180px;
+        min-width: 250px;
       }
     }
   }
