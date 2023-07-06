@@ -18,7 +18,7 @@ interface ImageApi {
   };
 }
 
-interface CtaApi {
+export interface CtaApi {
   fields: {
     label: string;
     href: string;

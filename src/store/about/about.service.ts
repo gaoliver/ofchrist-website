@@ -20,11 +20,12 @@ export class AboutService {
     return aboutPage;
   }
 
-  async getVideosService(): Promise<VideoApi[]> {
+  async getVideosService(props?: { limit: number }): Promise<VideoApi[]> {
     let videosList: VideoApi[];
 
     const response = await this.client.getEntries({
       content_type: 'video',
+      limit: props?.limit,
     });
 
     videosList = response.items.map(

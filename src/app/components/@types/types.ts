@@ -1,4 +1,5 @@
 import { Document } from '@contentful/rich-text-types';
+import { CtaApi } from '@src/app/@types/contentful';
 
 export enum Icons {
   'instagram',
@@ -46,10 +47,12 @@ export interface Link {
   target?: '_blank' | '_self';
 }
 
-export interface FeaturedMusicVideo {
+export interface FeaturedVideo {
   title: string;
   url: string;
-  streaming: Array<SocialNetwork>;
+  streaming?: Array<SocialNetwork>;
+  cta?: CtaApi['fields'];
+  content?: Document;
 }
 
 export interface SidebarAd {

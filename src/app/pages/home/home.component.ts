@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { mockVideos } from '@src/app/@dummyData';
 import { HomePromo } from '@src/app/@types/types';
-import { FeaturedMusicVideo } from '@src/app/components/@types/types';
+import { FeaturedVideo } from '@src/app/components/@types/types';
 import { env } from 'src/environments/environment';
 
 @Component({
@@ -12,7 +12,7 @@ import { env } from 'src/environments/environment';
 export class HomeComponent implements OnInit {
   showVideo = `${env.baseUrl}/assets/videos/show-caverna-cut.mp4`;
   promo: HomePromo | undefined;
-  videoRelease: FeaturedMusicVideo | undefined;
+  videoRelease: FeaturedVideo | undefined;
 
   ngOnInit() {
     // this.promo = {

@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { VideoApi } from '@src/app/@types/contentful';
-import { FeaturedMusicVideo } from '@src/app/components/@types/types';
+import { FeaturedVideo } from '@src/app/components/@types/types';
+import { mapFeatureVideo } from '@src/app/utils/mapFeaturedVideo';
 import { AboutService } from '@src/store/about/about.service';
 
 @Component({
@@ -9,7 +10,7 @@ import { AboutService } from '@src/store/about/about.service';
   styleUrls: ['./videos.component.scss'],
 })
 export class VideosComponent {
-  featuredVideo: FeaturedMusicVideo | undefined;
+  featuredVideo: FeaturedVideo | undefined;
   videoList: VideoApi[] | undefined;
 
   constructor(private contentful: AboutService) {
@@ -19,16 +20,8 @@ export class VideosComponent {
       const featuredVideo = list.find((v) => v.featured && v.type === 'Clipe');
 
       if (featuredVideo) {
-        this.mapFeatureVideo(featuredVideo);
+        this.featuredVideo = mapFeatureVideo(featuredVideo);
       }
     });
-  }
-
-  mapFeatureVideo(video: VideoApi) {
-    this.featuredVideo = {
-      title: video.description,
-      url: video.url,
-      streaming: video.streaming!.map((s) => s.fields),
-    };
   }
 }
