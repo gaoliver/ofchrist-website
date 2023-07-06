@@ -1,6 +1,7 @@
 import { SocialNetwork } from '../components/@types/types';
 
 export interface Subpage {
+  id: string;
   label: string;
   slug: string;
 }

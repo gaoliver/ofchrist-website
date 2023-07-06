@@ -53,10 +53,12 @@ export const pageRoutes: Array<RoutesWithSubmenu> = [
           'https://i.scdn.co/image/160cc9b5106d51d061663f314846428e3d9e16f5',
         subpages: [
           {
+            id: 'our_story',
             label: 'Nossa história',
             slug: 'a-banda/nossa-historia',
           },
           {
+            id: 'members',
             label: 'Integrantes',
             slug: '#',
           },
@@ -75,14 +77,17 @@ export const pageRoutes: Array<RoutesWithSubmenu> = [
           'https://media.istockphoto.com/id/502088147/photo/nothing-beats-live-music.jpg?s=612x612&w=0&k=20&c=N0RrfR0z1P1Q0DUCJIcEBFV8yxT6xF-wQilMv00O7kA=',
         subpages: [
           {
+            id: 'lyrics',
             label: 'Letras',
             slug: 'musicas/letras',
           },
           {
+            id: 'videos',
             label: 'Videos',
             slug: 'musicas/videos',
           },
           {
+            id: 'discography',
             label: 'Discografia',
             slug: 'musicas/discografia',
           },

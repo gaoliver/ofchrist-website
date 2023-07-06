@@ -3,7 +3,7 @@
 <div app-page-content>
   <p class="about-summary" [innerHTML]="shortIntro"></p>
 
-  <section id="about-subpages" class="about-subpages">
+  <section id="about-subpages" class="about-subpages" *ngIf="subpages">
     <ul app-featured-tiles [talesList]="subpages" [nOfTales]="2"></ul>
   </section>
 
