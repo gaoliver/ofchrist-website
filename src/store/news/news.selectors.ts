@@ -4,7 +4,7 @@ import { NewsState } from './news.reducer';
 
 export const getNewsState = (store: AppState) => store.news;
 
-export const getNewsList = createSelector(
+export const getNewsSelector = createSelector(
   getNewsState,
   (state: NewsState) => state.list
 );

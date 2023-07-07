@@ -12,7 +12,7 @@ import {
   getNewsError,
   getNewsSuccess,
 } from '@src/store/news/news.actions';
-import { getNewsList } from '@src/store/news/news.selectors';
+import { getNewsSelector } from '@src/store/news/news.selectors';
 import { NewsService } from '@src/store/news/news.service';
 import { Observable, map } from 'rxjs';
 
@@ -48,7 +48,7 @@ export class NewsComponent implements OnInit {
 
   getNewsFromStore() {
     this.newsList$ = this.store.pipe(
-      select(getNewsList),
+      select(getNewsSelector),
       map((list) => this.formatNewsDate(list))
     );
   }

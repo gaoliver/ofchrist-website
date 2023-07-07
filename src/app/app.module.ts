@@ -39,6 +39,8 @@ import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { appReducer } from '@src/store/app.state';
 import { TimelineComponent } from './pages/timeline/timeline.component';
+import { LoadingScreenComponent } from './components/organism/loading-screen/loading-screen.component';
+import { LoaderComponent } from './components/atoms/loader/loader.component';
 
 @NgModule({
   declarations: [
@@ -72,6 +74,8 @@ import { TimelineComponent } from './pages/timeline/timeline.component';
     SidebarAdComponent,
     SidemenuComponent,
     TimelineComponent,
+    LoadingScreenComponent,
+    LoaderComponent,
   ],
   imports: [
     BrowserModule,

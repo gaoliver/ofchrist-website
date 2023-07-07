@@ -2,10 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { MatIconRegistry } from '@angular/material/icon';
 import { DomSanitizer } from '@angular/platform-browser';
 import { env } from '@src/environments/environment';
-import { Icons } from './components/@types/types';
+import { Icons, News } from './components/@types/types';
 import { HomeService } from '@src/store/home/home.service';
 import { Home } from './@types/types';
-import { Store } from '@ngrx/store';
+import { Store, select } from '@ngrx/store';
 import { AppState } from '@src/store/app.state';
 import {
   getHome,
@@ -13,6 +13,10 @@ import {
   getHomeSuccess,
 } from '@src/store/home/home.actions';
 import { SEOApi } from './@types/contentful';
+import { Observable } from 'rxjs';
+import { getHomeSelector } from '@src/store/home/home.selectors';
+import { getNewsSelector } from '@src/store/news/news.selectors';
+import { getAppLoader } from '@src/store/app.selectors';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -20,6 +24,10 @@ import { SEOApi } from './@types/contentful';
 })
 export class AppComponent implements OnInit {
   title = 'Of Christ';
+  apiLoaded = false;
+  isLoading: string | undefined;
+
+  app$: Observable<any> | undefined;
 
   constructor(
     private matIconRegistry: MatIconRegistry,
@@ -27,6 +35,8 @@ export class AppComponent implements OnInit {
     private contentful: HomeService,
     private store: Store<AppState>
   ) {
+    this.app$ = this.store.pipe(select(getAppLoader));
+
     for (const icon of Object.keys(Icons)) {
       this.matIconRegistry.addSvgIcon(
         icon,
@@ -36,8 +46,6 @@ export class AppComponent implements OnInit {
       );
     }
   }
-
-  apiLoaded = false;
 
   setBackgroundImage(backgroundImage: string) {
     if (!backgroundImage) return;
@@ -73,6 +81,12 @@ export class AppComponent implements OnInit {
     this.contentful.getHomeService().then((data) => {
       this.storeContentful(data);
       this.getFavicon(data.seo);
+    });
+
+    // Loading event
+    this.app$?.subscribe((state) => {
+      this.isLoading = state
+      console.log(state)
     });
   }
 }
