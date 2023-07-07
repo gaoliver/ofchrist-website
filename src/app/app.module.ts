@@ -38,6 +38,7 @@ import { SidemenuComponent } from './components/organism/sidemenu/sidemenu.compo
 import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { appReducer } from '@src/store/app.state';
+import { TimelineComponent } from './pages/timeline/timeline.component';
 
 @NgModule({
   declarations: [
@@ -70,6 +71,7 @@ import { appReducer } from '@src/store/app.state';
     NewsContentComponent,
     SidebarAdComponent,
     SidemenuComponent,
+    TimelineComponent,
   ],
   imports: [
     BrowserModule,

@@ -50,3 +50,8 @@ export interface Home {
   video_release?: VideoApi;
   promo?: HomePromo;
 }
+
+export interface TimelineItem {
+  description: string;
+  date: string;
+}

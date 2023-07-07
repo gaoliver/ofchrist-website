@@ -1,6 +1,12 @@
 import { Injectable } from '@angular/core';
 import { contentfulConfig } from '../app.service';
-import { AboutApi, ShowApi, VideoApi } from '@src/app/@types/contentful';
+import {
+  AboutApi,
+  ShowApi,
+  TimelineItemApi,
+  VideoApi,
+} from '@src/app/@types/contentful';
+import { TimelineItem } from '@src/app/@types/types';
 
 @Injectable({
   providedIn: 'root',
@@ -33,5 +39,19 @@ export class AboutService {
     ) as unknown as VideoApi[];
 
     return videosList;
+  }
+
+  async getTimeline(): Promise<TimelineItem[]> {
+    let timeline: TimelineItem[];
+
+    const response = await this.client.getEntries({
+      content_type: 'timeline',
+    });
+
+    const resFields = response.items as unknown as TimelineItemApi[];
+
+    timeline = resFields.map((item) => item.fields);
+
+    return timeline;
   }
 }

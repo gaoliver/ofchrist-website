@@ -124,3 +124,10 @@ export interface SidebarApiAd {
   href: string;
   target: 'interno' | 'externo';
 }
+
+export interface TimelineItemApi {
+  fields: {
+    description: string;
+    date: string;
+  };
+}

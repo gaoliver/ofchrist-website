@@ -1,0 +1,17 @@
+<h1 app-page-title>Linha do tempo</h1>
+
+<article app-page-content>
+  <ul class="timeline">
+    <li class="timeline-group" *ngFor="let group of groupedYearList">
+      <h1 class="timeline-group-title">{{ group.year }}</h1>
+
+      <ul>
+        <li class="timeline-item" *ngFor="let item of group.items">
+          <h2>{{ item.date }}</h2>
+          <div class="separator"></div>
+          <span>{{ item.description }}</span>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</article>

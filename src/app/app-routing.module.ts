@@ -13,6 +13,7 @@ import { ShowsComponent } from './pages/shows/shows.component';
 import { SongDetailsComponent } from './pages/song-details/song-details.component';
 import { VideosComponent } from './pages/videos/videos.component';
 import { NewsContentComponent } from './pages/news-content/news-content.component';
+import { TimelineComponent } from './pages/timeline/timeline.component';
 
 export interface Subpage {
   id: string;
@@ -55,9 +56,9 @@ export const pageRoutes: Array<RoutesWithSubmenu> = [
             slug: 'a-banda/nossa-historia',
           },
           {
-            id: 'members',
-            title: 'Integrantes',
-            slug: '#',
+            id: 'timeline',
+            title: 'Linha do tempo',
+            slug: 'a-banda/linha-do-tempo',
           },
         ],
       },
@@ -122,6 +123,11 @@ const routes: Routes = [
     path: 'musicas/letras',
     title: 'Letras',
     component: LyricsComponent,
+  },
+  {
+    path: 'a-banda/linha-do-tempo',
+    title: 'Linha do tempo',
+    component: TimelineComponent,
   },
   {
     path: 'musicas/letras/:songId',
