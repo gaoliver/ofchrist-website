@@ -27,6 +27,7 @@ export class LyricsComponent implements OnInit {
       const filteredList = this.songList.filter((song) =>
         song.title.toLowerCase().match(query.toLowerCase())
       );
+
       this.sortAndGroupByLetter(filteredList);
     }
   }
@@ -54,6 +55,8 @@ export class LyricsComponent implements OnInit {
   }
 
   getLettersList() {
+    this.lettersList = [];
+
     this.groupedSongsList?.forEach((group) => {
       this.lettersList.push(group.key);
     });
