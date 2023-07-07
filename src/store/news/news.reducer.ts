@@ -1,5 +1,10 @@
 import { createReducer, on } from '@ngrx/store';
-import { getNews, getNewsError, getNewsSuccess } from './news.actions';
+import {
+  getMoreNewsSuccess,
+  getNews,
+  getNewsError,
+  getNewsSuccess,
+} from './news.actions';
 import { News } from '@src/app/components/@types/types';
 
 export interface NewsState {
@@ -24,6 +29,12 @@ export const newsReducer = createReducer(
   on(getNewsSuccess, (state, { list }) => ({
     ...state,
     list,
+    isLoading: false,
+    status: 'success' as const,
+  })),
+  on(getMoreNewsSuccess, (state, { newList }) => ({
+    ...state,
+    list: [...state.list, ...newList],
     isLoading: false,
     status: 'success' as const,
   })),

@@ -5,6 +5,7 @@ import { fullDateFormat } from '@src/app/utils/dateFormat';
 import { env } from '@src/environments/environment';
 import { AppState } from '@src/store/app.state';
 import {
+  getMoreNewsSuccess,
   getNews,
   getNewsError,
   getNewsSuccess,
@@ -34,17 +35,26 @@ export class NewsComponent implements OnInit {
     }));
   }
 
-  public getAllNews() {
+  onLoadNews() {
     this.store.dispatch(getNews());
+  }
+
+  getNewsFromStore() {
+    this.newsList$ = this.store.pipe(
+      select(getNewsList),
+      map((list) => this.formatNewsDate(list))
+    );
+  }
+
+  getAllNews() {
+    this.onLoadNews();
+
     this.contentful
       .getAllNewsService()
       .then((data) => this.store.dispatch(getNewsSuccess({ list: data })))
       .catch(() => this.store.dispatch(getNewsError()));
 
-    this.newsList$ = this.store.pipe(
-      select(getNewsList),
-      map((list) => this.formatNewsDate(list))
-    );
+    this.getNewsFromStore();
 
     this.store.subscribe((list) => this.getFeaturedNews(list.news.list));
   }
@@ -58,11 +68,26 @@ export class NewsComponent implements OnInit {
       }));
   }
 
+  onLoadMore() {
+    let newsLength;
+
+    this.onLoadNews();
+
+    this.newsList$?.subscribe((list) => (newsLength = list.length));
+
+    this.contentful
+      .getAllNewsService({ skip: newsLength })
+      .then((data) =>
+        this.store.dispatch(getMoreNewsSuccess({ newList: data }))
+      )
+      .catch(() => this.store.dispatch(getNewsError()));
+  }
+
   ngOnInit() {
     this.getAllNews();
 
     this.newsList$?.subscribe((list) => {
-      this.showLoadMoreBtn = list.length > 15;
+      this.showLoadMoreBtn = list.length >= 15;
     });
   }
 }

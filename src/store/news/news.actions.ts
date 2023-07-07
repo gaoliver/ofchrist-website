@@ -5,6 +5,7 @@ import { News } from '@src/app/components/@types/types';
 export enum NewsActionTypes {
   GetNews = '[News] Get News',
   GetNewsSuccess = '[News] Get News Success',
+  GetMoreNewsSuccess = '[News] Get More News Success',
   GetNewsError = '[News] Get News Error',
 }
 
@@ -16,16 +17,29 @@ export interface GetNewsSuccess {
   readonly type: NewsActionTypes.GetNewsSuccess;
   payload: News[];
 }
+
+export interface GetMoreNewsSuccess {
+  readonly type: NewsActionTypes.GetMoreNewsSuccess;
+  payload: News[];
+}
 export interface GetNewsError {
   readonly type: NewsActionTypes.GetNewsSuccess;
 }
 
-export type NewsActions = GetNews | GetNewsSuccess | GetNewsError;
+export type NewsActions =
+  | GetNews
+  | GetNewsSuccess
+  | GetMoreNewsSuccess
+  | GetNewsError;
 
 // Actions functions
 export const getNews = createAction(NewsActionTypes.GetNews);
 export const getNewsSuccess = createAction(
   NewsActionTypes.GetNewsSuccess,
   props<{ list: News[] }>()
+);
+export const getMoreNewsSuccess = createAction(
+  NewsActionTypes.GetMoreNewsSuccess,
+  props<{ newList: News[] }>()
 );
 export const getNewsError = createAction(NewsActionTypes.GetNewsError);

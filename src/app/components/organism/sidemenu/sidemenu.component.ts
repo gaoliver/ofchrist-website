@@ -33,7 +33,6 @@ export class SidemenuComponent implements OnInit {
 
     this.home$?.subscribe((home) => {
       this.socialNetworks = home.social_networks;
-      console.log(home.social_networks);
     });
   }
 }
