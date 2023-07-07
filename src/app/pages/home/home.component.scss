@@ -114,9 +114,25 @@
   top: 0;
   overflow: hidden;
   background-color: var(--color-background);
+  padding: var(--spacing-large);
+  box-sizing: border-box;
+
+  @include screen-mobile-and-smaller {
+    padding-bottom: var(--spacing-xx-large);
+  }
 
   .home-featured-video {
     flex: 1;
     max-width: 1080px;
+
+    @include screen-mobile-and-smaller {
+      transform: scale(0.9);
+    }
+
+    ::ng-deep {
+      app-youtube-player {
+        min-width: 200px;
+      }
+    }
   }
 }
