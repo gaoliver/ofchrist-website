@@ -1,5 +1,4 @@
-import { CSP_NONCE, Component, OnInit } from '@angular/core';
-import { Title } from '@angular/platform-browser';
+import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Store, select } from '@ngrx/store';
 import { News } from '@src/app/components/@types/types';

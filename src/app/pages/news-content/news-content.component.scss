@@ -117,7 +117,7 @@
 
   app-sidebar-ad {
     position: sticky;
-    top: 20svh;
+    top: 12svh;
 
     @include screen-mobile-and-smaller {
       position: unset;

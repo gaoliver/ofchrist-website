@@ -116,3 +116,10 @@ export interface SEOApi {
   tags: string[];
   share_image: FileApi;
 }
+
+export interface SidebarApiAd {
+  image: FileApi;
+  title: string;
+  href: string;
+  target: 'interno' | 'externo';
+}

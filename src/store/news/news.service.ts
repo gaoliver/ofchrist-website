@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { contentfulConfig } from '../app.service';
-import { News } from '@src/app/components/@types/types';
-import { NewsApi } from '@src/app/@types/contentful';
+import { News, SidebarAd } from '@src/app/components/@types/types';
+import { NewsApi, SidebarApiAd } from '@src/app/@types/contentful';
 import { documentToHtmlString } from '@contentful/rich-text-html-renderer';
 
 type GetAllService = {
@@ -44,6 +44,29 @@ export class NewsService {
     newsList = resFields.map((news) => this.mapNews(news));
 
     return newsList;
+  }
+
+  async getAds(): Promise<SidebarAd[]> {
+    let sidebarAds: SidebarAd[];
+
+    const response = await this.client.getEntries({
+      content_type: 'sidebar-ads',
+    });
+
+    const resFields = (
+      response.items[0].fields as unknown as {
+        ads: { fields: SidebarApiAd }[];
+      }
+    ).ads.map((item) => item.fields);
+
+    console.log(resFields);
+
+    sidebarAds = resFields.map((ad) => ({
+      ...ad,
+      imageUrl: ad.image.fields.file.url,
+    }));
+
+    return sidebarAds;
   }
 
   async getNewsService(slug: string): Promise<News> {
