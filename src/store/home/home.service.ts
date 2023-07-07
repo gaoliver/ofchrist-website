@@ -33,8 +33,6 @@ export class HomeService {
       },
     };
 
-    console.log(home);
-
     return home;
   }
 }

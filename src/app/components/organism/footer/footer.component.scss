@@ -92,9 +92,18 @@
 .footer-social-networks, .footer-streaming-platforms {
   gap: var(--spacing-medium);
 
+  @include screen-mobile-and-smaller {
+    gap: var(--spacing-large);
+    margin-bottom: var(--spacing-small);
+  }
+
   a {
     height: 24px;
     aspect-ratio: 1;
+
+    @include screen-mobile-and-smaller {
+      transform: scale(1.2)
+    }
   }
 }
 
