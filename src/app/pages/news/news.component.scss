@@ -6,8 +6,15 @@
 
     @include screen-tablet-and-smaller {
       aspect-ratio: 1.8;
-      min-width: 250px;
-      height: auto;
+      min-width: 300px;
+      max-width: 400px;
+      height: 300px;
+    }
+
+    @include screen-mobile-and-smaller {
+      aspect-ratio: 0;
+      min-width: 250px !important;
+      height: 200px;
     }
   }
 
