@@ -54,6 +54,7 @@
     <aside class="song-page-sidebar">
       <div class="sidebar-sticky">
         <app-youtube-player
+          *ngIf="song?.youtubeVideo"
           [videoUrl]="song?.youtubeVideo!"
           class="song-sidebar-player"
         ></app-youtube-player>
