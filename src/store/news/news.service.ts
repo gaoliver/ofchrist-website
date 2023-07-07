@@ -59,8 +59,6 @@ export class NewsService {
       }
     ).ads.map((item) => item.fields);
 
-    console.log(resFields);
-
     sidebarAds = resFields.map((ad) => ({
       ...ad,
       imageUrl: ad.image.fields.file.url,

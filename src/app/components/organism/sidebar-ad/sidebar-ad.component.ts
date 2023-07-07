@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { SidebarAd } from '../../@types/types';
-import { mockAds } from '@src/app/@dummyData/ads';
 import { NewsService } from '@src/store/news/news.service';
 
 @Component({

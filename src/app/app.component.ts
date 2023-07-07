@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MatIconRegistry } from '@angular/material/icon';
-import { DomSanitizer, Title } from '@angular/platform-browser';
+import { DomSanitizer } from '@angular/platform-browser';
 import { env } from '@src/environments/environment';
 import { Icons } from './components/@types/types';
 import { HomeService } from '@src/store/home/home.service';
