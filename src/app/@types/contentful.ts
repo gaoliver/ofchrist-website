@@ -100,6 +100,7 @@ export interface AlbumApi {
 }
 
 export interface HomeApi {
+  logo: FileApi;
   description: string;
   background: FileApi;
   social_networks: SocialNetworkApi[];

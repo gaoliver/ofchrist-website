@@ -24,6 +24,7 @@ export class HomeService {
 
     home_home = {
       ...resHomeFields,
+      logoUrl: resHomeFields.logo.fields.file.url,
       background: resHomeFields.background.fields.file.url,
       social_networks: resHomeFields.social_networks.map((s) => s.fields),
       streaming: resHomeFields.streaming.map((s) => s.fields),

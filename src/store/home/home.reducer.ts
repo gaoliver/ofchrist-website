@@ -17,6 +17,7 @@ export interface HomeState {
 
 export const initialState: HomeState = {
   home: {
+    logoUrl: '',
     description: '',
     background: '',
     social_networks: [],

@@ -41,6 +41,7 @@ export interface Album {
 }
 
 export interface Home {
+  logoUrl: string;
   description: string;
   background: string;
   social_networks: SocialNetwork[];
