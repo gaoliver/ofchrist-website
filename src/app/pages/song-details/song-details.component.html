@@ -13,37 +13,37 @@
     <article class="song-page-article">
       <header class="song-page-info">
         <div class="song-info-block">
-          <h5 class="song-page-label">Lançamento:</h5>
-          <h3>{{ album?.releaseDate }}</h3>
+          <h2 class="song-page-label">Lançamento:</h2>
+          <span class="song-page-value">{{ album?.releaseDate }}</span>
         </div>
 
         <div class="song-info-block">
-          <h5 class="song-page-label">Compositores:</h5>
-          <h3>{{ song?.composers }}</h3>
+          <h2 class="song-page-label">Compositores:</h2>
+          <span class="song-page-value">{{ song?.composers }}</span>
         </div>
 
         <div class="song-info-block">
-          <h5 class="song-page-label">Álbum:</h5>
-          <h3>
+          <h2 class="song-page-label">Álbum:</h2>
+          <span class="song-page-value">
             <a [routerLink]="['../../album/', album?.id]">
               {{ album?.title }}</a
             >
-          </h3>
+          </span>
         </div>
 
         <div class="song-info-block">
-          <h5 class="song-page-label">Estúdio:</h5>
-          <h3>{{ album?.recorded }}</h3>
+          <h2 class="song-page-label">Estúdio:</h2>
+          <span class="song-page-value">{{ album?.recorded }}</span>
         </div>
 
         <div class="song-info-block">
-          <h5 class="song-page-label">Produção:</h5>
-          <h3>{{ album?.producer }}</h3>
+          <h2 class="song-page-label">Produção:</h2>
+          <span class="song-page-value">{{ album?.producer }}</span>
         </div>
       </header>
 
       <div class="song-page-lyrics">
-        <h5 class="song-page-label">Letra:</h5>
+        <h2 class="song-page-label lyrics-label">Letra:</h2>
         <div
           class="songs-page-lyrics-richtext"
           [innerHTML]="song?.lyrics"

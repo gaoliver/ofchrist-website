@@ -3,7 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { AlbumApi } from '@src/app/@types/contentful';
 import { Album, SongLyrics } from '@src/app/@types/types';
 import { fullDateFormat } from '@src/app/utils/dateFormat';
-import { SetPageTitle } from '@src/app/utils/setPageTitle';
+import { SetMetaTag } from '@src/app/utils/setMetaTag';
 import { MusicService } from '@src/store/music/music.service';
 
 @Component({
@@ -18,7 +18,7 @@ export class AlbumDetailsComponent {
   constructor(
     private activeRoute: ActivatedRoute,
     private contentful: MusicService,
-    private setTitle: SetPageTitle
+    private setTitle: SetMetaTag
   ) {}
 
   findAlbum() {
@@ -29,7 +29,7 @@ export class AlbumDetailsComponent {
         if (album) {
           this.mapAlbum(album);
           this.findSongList(album);
-          this.setTitle.set(album.title);
+          this.setTitle.updateTitle(album.title);
         }
       });
     }

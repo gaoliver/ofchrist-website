@@ -2,7 +2,7 @@
   <div class="footer-centered-list">
     <ul class="footer-social-networks">
       <li *ngFor="let social of socialNetworks">
-        <a href="{{ social.href }}" target="_blank">
+        <a href="{{ social.href }}" target="_blank" [ariaLabel]="social.label">
           <mat-icon svgIcon="{{ social.icon }}"></mat-icon>
         </a>
       </li>
@@ -10,7 +10,11 @@
     <span class="footer-separator">•</span>
     <ul class="footer-streaming-platforms">
       <li *ngFor="let platform of streamingPlatforms">
-        <a href="{{ platform.href }}" target="_blank">
+        <a
+          href="{{ platform.href }}"
+          target="_blank"
+          [ariaLabel]="platform.label"
+        >
           <mat-icon svgIcon="{{ platform.icon }}"></mat-icon>
         </a>
       </li>
@@ -19,9 +23,12 @@
   <div class="footer-centered-list">
     <ul class="footer-list-row">
       <li *ngIf="footerLink">
-        <a [href]="footerLink.href" [target]="footerLink.target || '_self'">{{
-          footerLink.label
-        }}</a>
+        <a
+          [href]="footerLink.href"
+          [target]="footerLink.target || '_self'"
+          aria-label="Ir ao site do desenvolvedor"
+          >{{ footerLink.label }}</a
+        >
       </li>
       <li>Todos os direitos reservados</li>
       <li>&copy; {{ currYear }} Of Christ</li>

@@ -12,7 +12,10 @@
     <p *ngIf="description">
       {{ description }}
     </p>
-    <span class="featured_banner-read_more" *ngIf="showReadMore"
+    <span
+      class="featured_banner-read_more"
+      *ngIf="showReadMore"
+      aria-label="Ler mais sobre a notícia"
       >ler mais</span
     >
   </div>

@@ -58,12 +58,22 @@
   display: grid;
   grid-template-columns: auto auto auto;
   gap: var(--spacing);
-  padding-bottom: var(--spacing);
+  padding-bottom: var(--spacing-large);
   border-bottom: 1px solid var(--color-text);
 }
 
 .song-page-label {
   color: var(--color-grey);
+  font-size: small;
+
+  &.lyrics-label {
+    font-size: inherit;
+  }
+}
+
+.song-page-value {
+  font-size: 1.3rem;
+  font-weight: bold;
 }
 
 .song-page-lyrics {

@@ -1,4 +1,4 @@
-<button class="close-button-wrapper" role="button" (click)="closeMenu()">
+<button class="close-button-wrapper" role="button" aria-label="Close drawer-menu" (click)="closeMenu()">
   <div id="close-menu"></div>
 </button>
 
@@ -11,7 +11,7 @@
 <footer class="mobile-menu-socials">
   <ul>
     <li *ngFor="let social of socialNetworks">
-      <a href="{{ social.href }}" target="_blank">
+      <a href="{{ social.href }}" target="_blank" [ariaLabel]="social.label">
         <mat-icon svgIcon="{{ social.icon }}"></mat-icon>
       </a>
     </li>

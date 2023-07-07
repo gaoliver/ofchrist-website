@@ -4,7 +4,8 @@
       src="{{ logoImage }}"
       alt="Of Christ logo"
       srcset="Of Christ logo"
-      width="190px"
+      width="190"
+      height="48.06"
       (click)="navigateHome()"
     />
   </div>
@@ -30,7 +31,7 @@
     </ul>
   </nav>
 
-  <button class="main-navigation-mobile" role="button" *ngIf="isMobile" (click)="openMobileMenu()">
+  <button class="main-navigation-mobile" role="button" aria-label="drawer-menu" *ngIf="isMobile" (click)="openMobileMenu()">
     <div class="mobile-drawer"></div>
   </button>
 

@@ -3,7 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { AlbumApi } from '@src/app/@types/contentful';
 import { Album, SongLyrics } from '@src/app/@types/types';
 import { fullDateFormat } from '@src/app/utils/dateFormat';
-import { SetPageTitle } from '@src/app/utils/setPageTitle';
+import { SetMetaTag } from '@src/app/utils/setMetaTag';
 import { MusicService } from '@src/store/music/music.service';
 @Component({
   selector: 'main[app-song-details].page-container',
@@ -19,7 +19,7 @@ export class SongDetailsComponent implements OnInit {
   constructor(
     private activeRoute: ActivatedRoute,
     private contentful: MusicService,
-    private setTitle: SetPageTitle
+    private setTitle: SetMetaTag
   ) {}
 
   findSong() {
@@ -29,7 +29,7 @@ export class SongDetailsComponent implements OnInit {
       this.contentful.getSongService(songId).then((res) => {
         this.song = res.song;
         this.mapAlbum(res.album);
-        this.setTitle.set(res.song.title);
+        this.setTitle.updateTitle(res.song.title);
       });
     }
   }
