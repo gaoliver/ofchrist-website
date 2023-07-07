@@ -1,20 +1,20 @@
 import { NgModule } from '@angular/core';
 import { Route, RouterModule, Routes } from '@angular/router';
-import { AboutComponent } from './pages/about/about.component';
-import { AlbumDetailsComponent } from './pages/album-details/album-details.component';
-import { ContactComponent } from './pages/contact/contact.component';
-import { DiscographyComponent } from './pages/discography/discography.component';
-import { HomeComponent } from './pages/home/home.component';
-import { LyricsComponent } from './pages/lyrics/lyrics.component';
-import { MusicComponent } from './pages/music/music.component';
-import { NewsComponent } from './pages/news/news.component';
-import { OurStoryComponent } from './pages/our-story/our-story.component';
-import { ShowsComponent } from './pages/shows/shows.component';
-import { SongDetailsComponent } from './pages/song-details/song-details.component';
-import { VideosComponent } from './pages/videos/videos.component';
-import { NewsContentComponent } from './pages/news-content/news-content.component';
-import { TimelineComponent } from './pages/timeline/timeline.component';
-import { NotFoundComponent } from './pages/not-found/not-found.component';
+import { AboutComponent } from './components/pages/about/about.component';
+import { AlbumDetailsComponent } from './components/pages/album-details/album-details.component';
+import { ContactComponent } from './components/pages/contact/contact.component';
+import { DiscographyComponent } from './components/pages/discography/discography.component';
+import { HomeComponent } from './components/pages/home/home.component';
+import { LyricsComponent } from './components/pages/lyrics/lyrics.component';
+import { MusicComponent } from './components/pages/music/music.component';
+import { NewsComponent } from './components/pages/news/news.component';
+import { OurStoryComponent } from './components/pages/our-story/our-story.component';
+import { ShowsComponent } from './components/pages/shows/shows.component';
+import { SongDetailsComponent } from './components/pages/song-details/song-details.component';
+import { VideosComponent } from './components/pages/videos/videos.component';
+import { NewsContentComponent } from './components/pages/news-content/news-content.component';
+import { TimelineComponent } from './components/pages/timeline/timeline.component';
+import { NotFoundComponent } from './components/pages/not-found/not-found.component';
 
 export interface Subpage {
   id: string;

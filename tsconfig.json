@@ -25,7 +25,7 @@
       "@assets/*": ["./src/assets/*"],
       "@environments/*": ["./src/environments/*"],
       "@components/*": ["./src/app/components/*"],
-      "@pages/*": ["./src/app/pages/*"],
+      "@pages/*": ["src/app/components/pages/*"],
       "@types/*": ["./src/app/@types/*"]
     }
   },

@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core';
 import { contentfulConfig } from '../app.service';
 import {
   AboutApi,
-  ShowApi,
   TimelineItemApi,
   VideoApi,
 } from '@src/app/@types/contentful';

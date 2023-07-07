@@ -1,12 +1,15 @@
 import { Component, OnInit } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 import { documentToHtmlString } from '@contentful/rich-text-html-renderer';
+import { Store } from '@ngrx/store';
 import { VideoApi } from '@src/app/@types/contentful';
 import { pageRoutes } from '@src/app/app-routing.module';
 import { FeaturedBanner } from '@src/app/components/@types/types';
 import { SetMetaTag } from '@src/app/utils/setMetaTag';
 import { env } from '@src/environments/environment';
 import { AboutService } from '@src/store/about/about.service';
+import { AppState } from '@src/store/app.state';
+import { getNews, getNewsSuccess } from '@src/store/news/news.actions';
 import { NewsService } from '@src/store/news/news.service';
 
 @Component({
@@ -26,8 +29,11 @@ export class AboutComponent implements OnInit {
     private contentful: AboutService,
     private contentfulNews: NewsService,
     private pageTitle: Title,
-    private setMeta: SetMetaTag
+    private setMeta: SetMetaTag,
+    private store: Store<AppState>
   ) {
+    this.store.dispatch(getNews());
+
     this.contentful.getAboutService().then((data) => {
       this.shortIntro = documentToHtmlString(data.short_description);
       this.mapSubpages({
@@ -43,6 +49,8 @@ export class AboutComponent implements OnInit {
           ...news,
           href: `${this.baseUrl}/news/${news.slug}`,
         }));
+
+      this.store.dispatch(getNewsSuccess({ list: [] }));
     });
 
     this.contentful.getVideosService().then((list) => {
