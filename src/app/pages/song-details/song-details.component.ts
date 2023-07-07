@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { documentToHtmlString } from '@contentful/rich-text-html-renderer';
 import { AlbumApi } from '@src/app/@types/contentful';
 import { Album, SongLyrics } from '@src/app/@types/types';
 import { fullDateFormat } from '@src/app/utils/dateFormat';

@@ -1,6 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { mockAlbums } from '@src/app/@dummyData';
-import { mockVideos } from '@src/app/@dummyData/media';
 import { AlbumApi, VideoApi } from '@src/app/@types/contentful';
 import {
   FeaturedBanner,

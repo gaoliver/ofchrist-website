@@ -5,7 +5,6 @@ import { FeaturedVideo } from '@src/app/components/@types/types';
 import { AppState } from '@src/store/app.state';
 import { getHomeSelector } from '@src/store/home/home.selectors';
 import { Observable } from 'rxjs';
-import { env } from 'src/environments/environment';
 
 @Component({
   selector: 'main[app-home]',
