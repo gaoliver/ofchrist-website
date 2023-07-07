@@ -9,8 +9,8 @@
     />
   </div>
 
-  <section class="song-page-section">
-    <article class="song-page-article">
+  <article class="song-page-wrapper">
+    <section class="song-page-content">
       <header class="song-page-info">
         <div class="song-info-block">
           <h2 class="song-page-label">Lançamento:</h2>
@@ -49,7 +49,7 @@
           [innerHTML]="song?.lyrics"
         ></div>
       </div>
-    </article>
+    </section>
 
     <aside class="song-page-sidebar">
       <div class="sidebar-sticky">
@@ -66,5 +66,5 @@
         ></app-streaming-button-list>
       </div>
     </aside>
-  </section>
+  </article>
 </div>

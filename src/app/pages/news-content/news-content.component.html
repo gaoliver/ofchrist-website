@@ -2,12 +2,12 @@
   <img [src]="news?.imageUrl" [alt]="news?.title" [srcset]="news?.imageUrl" />
 </div>
 
-<div app-page-content class="page-content" *ngIf="news">
-  <div class="news-content-header">
+<article app-page-content class="page-content" *ngIf="news">
+  <header class="news-content-header">
     <span>{{ news.date }}</span>
     <h1>{{ news.title }}</h1>
     <p>{{ news.description }}</p>
-  </div>
+  </header>
 
   <section class="news-content-wrapper">
     <article class="news-content">
@@ -24,4 +24,4 @@
       <app-sidebar-ad></app-sidebar-ad>
     </aside>
   </section>
-</div>
+</article>

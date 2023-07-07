@@ -1,7 +1,7 @@
 <h1 app-page-title>A Banda</h1>
 
 <div app-page-content>
-  <p class="about-summary" [innerHTML]="shortIntro"></p>
+  <q class="about-summary" [innerHTML]="shortIntro"></q>
 
   <section id="about-subpages" class="about-subpages" *ngIf="subpages">
     <ul app-featured-tiles [talesList]="subpages" [nOfTales]="2"></ul>
