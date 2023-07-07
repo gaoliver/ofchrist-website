@@ -28,7 +28,7 @@ type RoutesWithSubmenu = Route & {
 export const pageRoutes: Array<RoutesWithSubmenu> = [
   {
     path: 'shows',
-    title: 'Of Christ | Shows',
+    title: 'Shows',
     component: ShowsComponent,
     data: {
       label: 'Shows',
@@ -36,7 +36,7 @@ export const pageRoutes: Array<RoutesWithSubmenu> = [
   },
   {
     path: 'news',
-    title: 'Of Christ | News',
+    title: 'News',
     component: NewsComponent,
     data: {
       label: 'News',
@@ -44,7 +44,7 @@ export const pageRoutes: Array<RoutesWithSubmenu> = [
   },
   {
     path: 'a-banda',
-    title: 'Of Christ | A banda',
+    title: 'A banda',
     component: AboutComponent,
     data: {
       label: 'A banda',
@@ -68,7 +68,7 @@ export const pageRoutes: Array<RoutesWithSubmenu> = [
   },
   {
     path: 'musicas',
-    title: 'Of Christ | Músicas',
+    title: 'Músicas',
     component: MusicComponent,
     data: {
       label: 'Músicas',
@@ -97,7 +97,7 @@ export const pageRoutes: Array<RoutesWithSubmenu> = [
   },
   {
     path: 'contato',
-    title: 'Of Christ | Sobre nós',
+    title: 'Sobre nós',
     component: ContactComponent,
     data: {
       label: 'Contato',
@@ -112,22 +112,22 @@ const routes: Routes = [
   },
   {
     path: 'a-banda/nossa-historia',
-    title: 'Of Christ | Nossa história',
+    title: 'Nossa história',
     component: OurStoryComponent,
   },
   {
     path: 'musicas/discografia',
-    title: 'Of Christ | Discografia',
+    title: 'Discografia',
     component: DiscographyComponent,
   },
   {
     path: 'musicas/videos',
-    title: 'Of Christ | Videos',
+    title: 'Videos',
     component: VideosComponent,
   },
   {
     path: 'musicas/letras',
-    title: 'Of Christ | Letras',
+    title: 'Letras',
     component: LyricsComponent,
   },
   {
@@ -142,7 +142,7 @@ const routes: Routes = [
   },
   {
     path: 'news/:slug',
-    title: 'Of Christ |',
+    title: '',
     component: NewsContentComponent,
   },
   ...pageRoutes,

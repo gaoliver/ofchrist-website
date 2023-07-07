@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Store, select } from '@ngrx/store';
 import { Home, HomePromo } from '@src/app/@types/types';
 import { FeaturedVideo } from '@src/app/components/@types/types';
+import { SetMetaTag } from '@src/app/utils/setMetaTag';
 import { AppState } from '@src/store/app.state';
 import { getHomeSelector } from '@src/store/home/home.selectors';
 import { Observable } from 'rxjs';
@@ -17,7 +18,8 @@ export class HomeComponent implements OnInit {
   videoRelease: FeaturedVideo | undefined;
   home$: Observable<Home> | undefined;
 
-  constructor(private store: Store<AppState>) {}
+
+  constructor(private store: Store<AppState>, private setMeta: SetMetaTag) {}
 
   getFromStore() {
     this.home$ = this.store.pipe(select(getHomeSelector));

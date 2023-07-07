@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { Title } from '@angular/platform-browser';
 import { Store, select } from '@ngrx/store';
 import { FeaturedBanner, News } from '@src/app/components/@types/types';
 import { fullDateFormat } from '@src/app/utils/dateFormat';
+import { SetMetaTag } from '@src/app/utils/setMetaTag';
 import { env } from '@src/environments/environment';
 import { AppState } from '@src/store/app.state';
 import {
@@ -24,7 +26,12 @@ export class NewsComponent implements OnInit {
   newsList$: Observable<News[]> | undefined;
   showLoadMoreBtn = false;
 
-  constructor(private store: Store<AppState>, private contentful: NewsService) {
+  constructor(
+    private store: Store<AppState>,
+    private contentful: NewsService,
+    private pageTitle: Title,
+    private setMeta: SetMetaTag
+  ) {
     this.store.dispatch(getNews());
   }
 
@@ -83,8 +90,14 @@ export class NewsComponent implements OnInit {
       .catch(() => this.store.dispatch(getNewsError()));
   }
 
+  setPageTitle() {
+    const title = this.pageTitle.getTitle();
+    this.setMeta.updateTitle(title);
+  }
+
   ngOnInit() {
     this.getAllNews();
+    this.setPageTitle();
 
     this.newsList$?.subscribe((list) => {
       this.showLoadMoreBtn = list.length >= 15;

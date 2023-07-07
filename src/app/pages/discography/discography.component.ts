@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { Title } from '@angular/platform-browser';
 import { AlbumApi } from '@src/app/@types/contentful';
 import { Album } from '@src/app/@types/types';
 import { FeaturedBanner } from '@src/app/components/@types/types';
+import { SetMetaTag } from '@src/app/utils/setMetaTag';
 import { MusicService } from '@src/store/music/music.service';
 
 @Component({
@@ -13,7 +15,11 @@ export class DiscographyComponent implements OnInit {
   discList: Album[] | undefined;
   bannerList: Array<FeaturedBanner> = [];
 
-  constructor(private contentful: MusicService) {
+  constructor(
+    private contentful: MusicService,
+    private pageTitle: Title,
+    private setMeta: SetMetaTag
+  ) {
     this.contentful.getAlbumsService().then((list) => {
       this.mapAlbumsList(list);
     });
@@ -49,5 +55,12 @@ export class DiscographyComponent implements OnInit {
     );
   }
 
-  ngOnInit() {}
+  updatePageTitle() {
+    const title = this.pageTitle.getTitle();
+    this.setMeta.updateTitle(title);
+  }
+
+  ngOnInit() {
+    this.updatePageTitle();
+  }
 }

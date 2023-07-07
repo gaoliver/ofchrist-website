@@ -108,3 +108,11 @@ export interface HomeApi {
   video_release?: { fields: VideoApi };
   promo?: PromoApi;
 }
+
+export interface SEOApi {
+  title: string;
+  favicon: FileApi;
+  description: string;
+  tags: string[];
+  share_image: FileApi;
+}

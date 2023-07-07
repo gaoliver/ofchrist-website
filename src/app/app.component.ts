@@ -1,13 +1,18 @@
 import { Component, OnInit } from '@angular/core';
 import { MatIconRegistry } from '@angular/material/icon';
-import { DomSanitizer } from '@angular/platform-browser';
+import { DomSanitizer, Title } from '@angular/platform-browser';
 import { env } from '@src/environments/environment';
 import { Icons } from './components/@types/types';
 import { HomeService } from '@src/store/home/home.service';
 import { Home } from './@types/types';
 import { Store } from '@ngrx/store';
 import { AppState } from '@src/store/app.state';
-import { getHome, getHomeSuccess } from '@src/store/home/home.actions';
+import {
+  getHome,
+  getHomeSEOSuccess,
+  getHomeSuccess,
+} from '@src/store/home/home.actions';
+import { SEOApi } from './@types/contentful';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -42,12 +47,19 @@ export class AppComponent implements OnInit {
     body.style.backgroundImage = `url(${backgroundImage})`;
   }
 
-  storeContentful(data: Home) {
+  storeContentful(data: { home: Home; seo: SEOApi }) {
     this.store.dispatch(getHome());
 
-    this.store.dispatch(getHomeSuccess({ home: data }));
+    this.store.dispatch(getHomeSuccess({ home: data.home }));
+    this.store.dispatch(getHomeSEOSuccess({ seo: data.seo }));
 
-    this.setBackgroundImage(data.background);
+    this.setBackgroundImage(data.home.background);
+  }
+
+  getFavicon(seo: SEOApi) {
+    document
+      .getElementById('app-favicon')
+      ?.setAttribute('href', seo.favicon.fields.file.url);
   }
 
   ngOnInit() {
@@ -60,6 +72,7 @@ export class AppComponent implements OnInit {
 
     this.contentful.getHomeService().then((data) => {
       this.storeContentful(data);
+      this.getFavicon(data.seo);
     });
   }
 }

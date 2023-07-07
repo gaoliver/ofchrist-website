@@ -8,3 +8,8 @@ export const getHomeSelector = createSelector(
   getHomeState,
   (state: HomeState) => state.home
 );
+
+export const getSEOSelector = createSelector(
+  getHomeState,
+  (state: HomeState) => state.seo
+);

@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { Title } from '@angular/platform-browser';
 import { SongLyricsApi } from '@src/app/@types/contentful';
 import { SongLyrics } from '@src/app/@types/types';
+import { SetMetaTag } from '@src/app/utils/setMetaTag';
 import { MusicService } from '@src/store/music/music.service';
 
 @Component({
@@ -13,7 +15,11 @@ export class LyricsComponent implements OnInit {
   groupedSongsList: { key: string; songs: SongLyrics[] }[] | undefined;
   lettersList: string[] = [];
 
-  constructor(private contentful: MusicService) {}
+  constructor(
+    private contentful: MusicService,
+    private pageTitle: Title,
+    private setMeta: SetMetaTag
+  ) {}
 
   mapSongList(list: SongLyricsApi[]) {
     let mappedSongs = list.map((song) => ({ ...song.fields, albumId: '' }));
@@ -62,9 +68,16 @@ export class LyricsComponent implements OnInit {
     });
   }
 
+  updatePageTitle() {
+    const title = this.pageTitle.getTitle();
+    this.setMeta.updateTitle(title);
+  }
+
   ngOnInit() {
     this.contentful.getAllSongs().then((list) => {
       this.mapSongList(list);
     });
+
+    this.updatePageTitle()
   }
 }

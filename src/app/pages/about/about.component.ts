@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
+import { Title } from '@angular/platform-browser';
 import { documentToHtmlString } from '@contentful/rich-text-html-renderer';
 import { VideoApi } from '@src/app/@types/contentful';
 import { pageRoutes } from '@src/app/app-routing.module';
 import { FeaturedBanner } from '@src/app/components/@types/types';
+import { SetMetaTag } from '@src/app/utils/setMetaTag';
 import { env } from '@src/environments/environment';
 import { AboutService } from '@src/store/about/about.service';
 import { NewsService } from '@src/store/news/news.service';
@@ -22,7 +24,9 @@ export class AboutComponent implements OnInit {
 
   constructor(
     private contentful: AboutService,
-    private contentfulNews: NewsService
+    private contentfulNews: NewsService,
+    private pageTitle: Title,
+    private setMeta: SetMetaTag
   ) {
     this.contentful.getAboutService().then((data) => {
       this.shortIntro = documentToHtmlString(data.short_description);
@@ -62,5 +66,12 @@ export class AboutComponent implements OnInit {
     }
   }
 
-  ngOnInit() {}
+  updatePageTitle() {
+    const title = this.pageTitle.getTitle();
+    this.setMeta.updateTitle(title);
+  }
+
+  ngOnInit() {
+    this.updatePageTitle()
+  }
 }

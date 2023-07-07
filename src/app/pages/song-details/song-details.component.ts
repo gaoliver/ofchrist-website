@@ -19,7 +19,7 @@ export class SongDetailsComponent implements OnInit {
   constructor(
     private activeRoute: ActivatedRoute,
     private contentful: MusicService,
-    private setTitle: SetMetaTag
+    private setMeta: SetMetaTag
   ) {}
 
   findSong() {
@@ -29,7 +29,7 @@ export class SongDetailsComponent implements OnInit {
       this.contentful.getSongService(songId).then((res) => {
         this.song = res.song;
         this.mapAlbum(res.album);
-        this.setTitle.updateTitle(res.song.title);
+        this.setMeta.updateTitle(res.song.title);
       });
     }
   }

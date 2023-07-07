@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { contentfulConfig } from '../app.service';
 import { Home } from '@src/app/@types/types';
-import { HomeApi } from '@src/app/@types/contentful';
+import { HomeApi, SEOApi } from '@src/app/@types/contentful';
 
 @Injectable({
   providedIn: 'root',
@@ -9,28 +9,36 @@ import { HomeApi } from '@src/app/@types/contentful';
 export class HomeService {
   private client = contentfulConfig;
 
-  async getHomeService(): Promise<Home> {
-    let home: Home;
+  async getHomeService(): Promise<{ home: Home; seo: SEOApi }> {
+    let home: { home: Home; seo: SEOApi };
+    let home_home: Home;
 
-    const response = await this.client.getEntries({
+    const homeResponse = await this.client.getEntries({
       content_type: 'home',
       include: 2,
     });
+    const seoResponse = await this.client.getEntries({ content_type: 'seo' });
 
-    const resFields = response.items[0].fields as unknown as HomeApi;
+    const resHomeFields = homeResponse.items[0].fields as unknown as HomeApi;
+    const resSEOFields = seoResponse.items[0].fields as unknown as SEOApi;
+
+    home_home = {
+      ...resHomeFields,
+      background: resHomeFields.background.fields.file.url,
+      social_networks: resHomeFields.social_networks.map((s) => s.fields),
+      streaming: resHomeFields.streaming.map((s) => s.fields),
+      background_video: resHomeFields.background_video.fields.file.url,
+      video_release: resHomeFields.video_release?.fields,
+      promo: resHomeFields.promo && {
+        cta: resHomeFields.promo?.fields.cta?.fields,
+        name: resHomeFields.promo?.fields.title!,
+        image: resHomeFields.promo?.fields.image.fields.file.url!,
+      },
+    };
 
     home = {
-      ...resFields,
-      background: resFields.background.fields.file.url,
-      social_networks: resFields.social_networks.map((s) => s.fields),
-      streaming: resFields.streaming.map((s) => s.fields),
-      background_video: resFields.background_video.fields.file.url,
-      video_release: resFields.video_release?.fields,
-      promo: resFields.promo && {
-        cta: resFields.promo?.fields.cta?.fields,
-        name: resFields.promo?.fields.title!,
-        image: resFields.promo?.fields.image.fields.file.url!,
-      },
+      home: home_home,
+      seo: resSEOFields,
     };
 
     return home;

@@ -18,7 +18,7 @@ export class AlbumDetailsComponent {
   constructor(
     private activeRoute: ActivatedRoute,
     private contentful: MusicService,
-    private setTitle: SetMetaTag
+    private setMeta: SetMetaTag
   ) {}
 
   findAlbum() {
@@ -29,7 +29,7 @@ export class AlbumDetailsComponent {
         if (album) {
           this.mapAlbum(album);
           this.findSongList(album);
-          this.setTitle.updateTitle(album.title);
+          this.setMeta.updateTitle(album.title);
         }
       });
     }

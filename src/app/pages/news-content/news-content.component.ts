@@ -1,9 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { CSP_NONCE, Component, OnInit } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 import { ActivatedRoute } from '@angular/router';
 import { Store, select } from '@ngrx/store';
 import { News } from '@src/app/components/@types/types';
 import { fullDateFormat } from '@src/app/utils/dateFormat';
+import { SetMetaTag } from '@src/app/utils/setMetaTag';
 import { AppState } from '@src/store/app.state';
 import { NewsService } from '@src/store/news/news.service';
 import { Observable } from 'rxjs';
@@ -19,7 +20,7 @@ export class NewsContentComponent implements OnInit {
 
   constructor(
     private activeRoute: ActivatedRoute,
-    private titleService: Title,
+    private setMeta: SetMetaTag,
     private store: Store<AppState>,
     private contentful: NewsService
   ) {
@@ -35,22 +36,17 @@ export class NewsContentComponent implements OnInit {
         list.find((news) => {
           if (news.slug === newsSlug) {
             newsFound = { ...news, date: fullDateFormat(news.date) };
+            this.setMeta.updateTitle(news.title);
           }
         })
       );
 
       if (!newsFound) {
-        this.contentful
-          .getNewsService(newsSlug)
-          .then(
-            (data) => (this.news = { ...data, date: fullDateFormat(data.date) })
-          );
+        this.contentful.getNewsService(newsSlug).then((data) => {
+          this.news = { ...data, date: fullDateFormat(data.date) };
+          this.setMeta.updateTitle(data.title);
+        });
       }
-    }
-
-    if (newsFound) {
-      const currTitle = this.titleService.getTitle();
-      this.titleService.setTitle(`${currTitle} ${newsFound.title}`);
     }
 
     return newsFound;
@@ -58,10 +54,5 @@ export class NewsContentComponent implements OnInit {
 
   ngOnInit() {
     this.news = this.findNews();
-
-    if (this.news) {
-      const title = this.titleService.getTitle();
-      this.titleService.setTitle(title + this.news.title);
-    }
   }
 }
