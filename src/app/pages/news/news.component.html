@@ -27,6 +27,7 @@
       id="news-others-load-btn"
       role="button"
       aria-label="Load more news"
+      [isLoading]="isLoading === 'loading'"
       (click)="onLoadMore()"
       *ngIf="showLoadMoreBtn"
     >

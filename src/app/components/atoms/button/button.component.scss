@@ -1,4 +1,5 @@
 :host {
+  position: relative;
   width: 100%;
   padding: var(--spacing);
   border: solid 2px var(--color-white);
@@ -15,5 +16,21 @@
     cursor: pointer;
     border-color: var(--color-primary-lighter);
     color: var(--color-primary-lighter);
+  }
+}
+
+.button-loader-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: var(--color-background);
+
+  display: flex;
+  justify-content: center;
+
+  .loader-component {
+    transform: scale(0.6);
   }
 }

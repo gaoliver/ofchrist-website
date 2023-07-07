@@ -5,8 +5,11 @@ import { FeaturedBanner, News } from '@src/app/components/@types/types';
 import { fullDateFormat } from '@src/app/utils/dateFormat';
 import { SetMetaTag } from '@src/app/utils/setMetaTag';
 import { env } from '@src/environments/environment';
+import { getAppSelector } from '@src/store/app.selectors';
 import { AppState } from '@src/store/app.state';
+import { HomeState } from '@src/store/home/home.reducer';
 import {
+  getMoreNews,
   getMoreNewsSuccess,
   getNews,
   getNewsError,
@@ -24,7 +27,9 @@ import { Observable, map } from 'rxjs';
 export class NewsComponent implements OnInit {
   featuredList: Array<FeaturedBanner> | undefined;
   newsList$: Observable<News[]> | undefined;
+  app$: Observable<AppState> | undefined;
   showLoadMoreBtn = false;
+  isLoading: HomeState['status'] | undefined;
 
   constructor(
     private store: Store<AppState>,
@@ -33,6 +38,8 @@ export class NewsComponent implements OnInit {
     private setMeta: SetMetaTag
   ) {
     this.store.dispatch(getNews());
+
+    this.app$ = this.store.pipe(select(getAppSelector));
   }
 
   formatNewsDate(newsList: News[]) {
@@ -78,15 +85,15 @@ export class NewsComponent implements OnInit {
   onLoadMore() {
     let newsLength;
 
-    this.onLoadNews();
+    this.store.dispatch(getMoreNews());
 
     this.newsList$?.subscribe((list) => (newsLength = list.length));
 
     this.contentful
       .getAllNewsService({ skip: newsLength })
-      .then((data) =>
-        this.store.dispatch(getMoreNewsSuccess({ newList: data }))
-      )
+      .then((data) => {
+        this.store.dispatch(getMoreNewsSuccess({ newList: data }));
+      })
       .catch(() => this.store.dispatch(getNewsError()));
   }
 
@@ -101,6 +108,10 @@ export class NewsComponent implements OnInit {
 
     this.newsList$?.subscribe((list) => {
       this.showLoadMoreBtn = list.length >= 15;
+    });
+
+    this.app$?.subscribe((status) => {
+      this.isLoading = status.news.loadMoreStatus;
     });
   }
 }

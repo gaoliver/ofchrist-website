@@ -14,7 +14,7 @@ import {
 } from '@src/store/home/home.actions';
 import { SEOApi } from './@types/contentful';
 import { Observable } from 'rxjs';
-import { getAppLoader } from '@src/store/app.selectors';
+import { getAppSelector } from '@src/store/app.selectors';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -23,9 +23,9 @@ import { getAppLoader } from '@src/store/app.selectors';
 export class AppComponent implements OnInit {
   title = 'Of Christ';
   apiLoaded = false;
-  isLoading: string | undefined;
+  isLoading: boolean | undefined;
 
-  app$: Observable<any> | undefined;
+  app$: Observable<AppState> | undefined;
 
   constructor(
     private matIconRegistry: MatIconRegistry,
@@ -33,7 +33,7 @@ export class AppComponent implements OnInit {
     private contentful: HomeService,
     private store: Store<AppState>
   ) {
-    this.app$ = this.store.pipe(select(getAppLoader));
+    this.app$ = this.store.pipe(select(getAppSelector));
 
     for (const icon of Object.keys(Icons)) {
       this.matIconRegistry.addSvgIcon(
@@ -83,8 +83,15 @@ export class AppComponent implements OnInit {
 
     // Loading event
     this.app$?.subscribe((state) => {
-      this.isLoading = state
-      console.log(state)
+      if (
+        state.home.status === 'loading' ||
+        state.music.status === 'loading' ||
+        state.news.status === 'loading'
+      ) {
+        this.isLoading = true;
+      } else {
+        this.isLoading = false;
+      }
     });
   }
 }

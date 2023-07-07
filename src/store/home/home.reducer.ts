@@ -11,7 +11,6 @@ import { SEOApi } from '@src/app/@types/contentful';
 export interface HomeState {
   home: Home;
   seo: SEOApi;
-  isLoading: boolean;
   status: 'loading' | 'error' | 'success' | undefined;
 }
 
@@ -33,13 +32,13 @@ export const initialState: HomeState = {
             size: 0,
             image: {
               width: 0,
-              height: 0
-            }
+              height: 0,
+            },
           },
           fileName: '',
-          contentType: ''
-        }
-      }
+          contentType: '',
+        },
+      },
     },
     description: '',
     tags: [],
@@ -51,41 +50,36 @@ export const initialState: HomeState = {
             size: 0,
             image: {
               width: 0,
-              height: 0
-            }
+              height: 0,
+            },
           },
           fileName: '',
-          contentType: ''
-        }
-      }
-    }
+          contentType: '',
+        },
+      },
+    },
   },
-  isLoading: false,
-  status: undefined,
+  status: 'loading',
 };
 
 export const homeReducer = createReducer(
   initialState,
   on(getHome, (state) => ({
     ...state,
-    isLoading: true,
     status: 'loading' as const,
   })),
   on(getHomeSuccess, (state, { home }) => ({
     ...state,
     home,
-    isLoading: false,
     status: 'success' as const,
   })),
   on(getHomeSEOSuccess, (state, { seo }) => ({
     ...state,
     seo,
-    isLoading: false,
     status: 'success' as const,
   })),
   on(getHomeError, (state) => ({
     ...state,
-    isLoading: false,
     status: 'error' as const,
   }))
 );

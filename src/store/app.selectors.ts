@@ -1,12 +1,9 @@
 import { createSelector } from '@ngrx/store';
-import { HomeState } from './home/home.reducer';
-import { getHomeState } from './home/home.selectors';
-import { getNewsState } from './news/news.selectors';
-import { getMusicState } from './music/music.selectors';
+import { AppState } from './app.state';
 
-export const getAppLoader = createSelector(
-  getHomeState,
-  getNewsState,
-  getMusicState,
-  (state: HomeState) => state.status
+export const getAppState = (state: AppState) => state;
+
+export const getAppSelector = createSelector(
+  getAppState,
+  (state: AppState) => state
 );
