@@ -1,11 +1,5 @@
 import { SocialNetwork } from '../components/@types/types';
-import { CtaApi, PromoApi, VideoApi } from './contentful';
-
-export interface Subpage {
-  id: string;
-  label: string;
-  slug: string;
-}
+import { VideoApi } from './contentful';
 
 export interface Show {
   date: string;

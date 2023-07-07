@@ -30,11 +30,10 @@ export class SetMetaTag {
   }
 
   public updateTags(description: string, keywords: Array<string> = []) {
-    this.metaService.removeTag('description');
-    this.metaService.removeTag('keywords');
-    this.metaService.addTags([
-      { name: 'description', content: description },
-      { name: 'keywords', content: keywords.join(', ') },
-    ]);
+    this.metaService.updateTag({ name: 'description', content: description });
+    this.metaService.updateTag({
+      name: 'keywords',
+      content: keywords.join(', '),
+    });
   }
 }

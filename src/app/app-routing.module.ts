@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { Route, RouterModule, Routes } from '@angular/router';
-import { Subpage } from './@types/types';
 import { AboutComponent } from './pages/about/about.component';
 import { AlbumDetailsComponent } from './pages/album-details/album-details.component';
 import { ContactComponent } from './pages/contact/contact.component';
@@ -15,9 +14,14 @@ import { SongDetailsComponent } from './pages/song-details/song-details.componen
 import { VideosComponent } from './pages/videos/videos.component';
 import { NewsContentComponent } from './pages/news-content/news-content.component';
 
+export interface Subpage {
+  id: string;
+  title: string;
+  slug: string;
+}
+
 type RoutesWithSubmenu = Route & {
-  data: {
-    label?: string;
+  data?: {
     submenu?: {
       backgroundImage: string;
       subpages: Array<Subpage>;
@@ -30,36 +34,29 @@ export const pageRoutes: Array<RoutesWithSubmenu> = [
     path: 'shows',
     title: 'Shows',
     component: ShowsComponent,
-    data: {
-      label: 'Shows',
-    },
   },
   {
     path: 'news',
     title: 'News',
     component: NewsComponent,
-    data: {
-      label: 'News',
-    },
   },
   {
     path: 'a-banda',
     title: 'A banda',
     component: AboutComponent,
     data: {
-      label: 'A banda',
       submenu: {
         backgroundImage:
           'https://i.scdn.co/image/160cc9b5106d51d061663f314846428e3d9e16f5',
         subpages: [
           {
             id: 'our_story',
-            label: 'Nossa história',
+            title: 'Nossa história',
             slug: 'a-banda/nossa-historia',
           },
           {
             id: 'members',
-            label: 'Integrantes',
+            title: 'Integrantes',
             slug: '#',
           },
         ],
@@ -71,24 +68,23 @@ export const pageRoutes: Array<RoutesWithSubmenu> = [
     title: 'Músicas',
     component: MusicComponent,
     data: {
-      label: 'Músicas',
       submenu: {
         backgroundImage:
           'https://media.istockphoto.com/id/502088147/photo/nothing-beats-live-music.jpg?s=612x612&w=0&k=20&c=N0RrfR0z1P1Q0DUCJIcEBFV8yxT6xF-wQilMv00O7kA=',
         subpages: [
           {
             id: 'lyrics',
-            label: 'Letras',
+            title: 'Letras',
             slug: 'musicas/letras',
           },
           {
             id: 'videos',
-            label: 'Videos',
+            title: 'Videos',
             slug: 'musicas/videos',
           },
           {
             id: 'discography',
-            label: 'Discografia',
+            title: 'Discografia',
             slug: 'musicas/discografia',
           },
         ],
@@ -97,11 +93,8 @@ export const pageRoutes: Array<RoutesWithSubmenu> = [
   },
   {
     path: 'contato',
-    title: 'Sobre nós',
+    title: 'Contato',
     component: ContactComponent,
-    data: {
-      label: 'Contato',
-    },
   },
 ];
 
@@ -132,17 +125,14 @@ const routes: Routes = [
   },
   {
     path: 'musicas/letras/:songId',
-    title: 'Of Christ |',
     component: SongDetailsComponent,
   },
   {
     path: 'musicas/album/:albumId',
-    title: 'Of Christ |',
     component: AlbumDetailsComponent,
   },
   {
     path: 'news/:slug',
-    title: '',
     component: NewsContentComponent,
   },
   ...pageRoutes,

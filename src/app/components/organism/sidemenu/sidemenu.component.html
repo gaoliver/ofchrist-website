@@ -1,10 +1,15 @@
-<button class="close-button-wrapper" role="button" aria-label="Close drawer-menu" (click)="closeMenu()">
+<button
+  class="close-button-wrapper"
+  role="button"
+  aria-label="Close drawer-menu"
+  (click)="closeMenu()"
+>
   <div id="close-menu"></div>
 </button>
 
 <ul class="mobile-menu-pages">
   <li *ngFor="let page of pageList">
-    <a [href]="page.path">{{ page.data.label }}</a>
+    <a [href]="page.path">{{ page.title }}</a>
   </li>
 </ul>
 

@@ -1,7 +1,7 @@
 <div class="header-content">
   <div class="header-logo">
     <img
-      src="{{ logoImage }}"
+      [src]="logoImage"
       alt="Of Christ logo"
       srcset="Of Christ logo"
       width="190"
@@ -13,25 +13,31 @@
   <nav class="main-navigation" role="navigation" *ngIf="!isMobile">
     <ul class="navigation">
       <li class="navigation-item" *ngFor="let page of pageList">
-        <a class="navigation-item-label" href="{{ page.path }}">{{
-          page.data.label
+        <a class="navigation-item-label" [href]="page.path">{{
+          page.title
         }}</a>
-        <ul class="subnav" *ngIf="page.data?.['submenu']">
+        <ul class="subnav" *ngIf="page.data?.submenu">
           <img
-            src="{{ page.data.submenu?.backgroundImage }}"
+            [src]="page.data?.submenu?.backgroundImage"
             alt="background submenu"
             class="submenu-background-img"
           />
-          <li *ngFor="let subpage of page.data.submenu?.subpages">
+          <li *ngFor="let subpage of page.data?.submenu?.subpages">
             <!-- TO CHANGE: check the href -->
-            <a href="{{ baseUrl }}/{{ subpage.slug }}">{{ subpage.label }}</a>
+            <a href="{{ baseUrl }}/{{ subpage.slug }}">{{ subpage.title }}</a>
           </li>
         </ul>
       </li>
     </ul>
   </nav>
 
-  <button class="main-navigation-mobile" role="button" aria-label="drawer-menu" *ngIf="isMobile" (click)="openMobileMenu()">
+  <button
+    class="main-navigation-mobile"
+    role="button"
+    aria-label="drawer-menu"
+    *ngIf="isMobile"
+    (click)="openMobileMenu()"
+  >
     <div class="mobile-drawer"></div>
   </button>
 

@@ -1,10 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { Store, select } from '@ngrx/store';
+import { SEOApi } from '@src/app/@types/contentful';
 import { Home, HomePromo } from '@src/app/@types/types';
 import { FeaturedVideo } from '@src/app/components/@types/types';
 import { SetMetaTag } from '@src/app/utils/setMetaTag';
 import { AppState } from '@src/store/app.state';
-import { getHomeSelector } from '@src/store/home/home.selectors';
+import {
+  getHomeSelector,
+  getSEOSelector,
+} from '@src/store/home/home.selectors';
 import { Observable } from 'rxjs';
 
 @Component({
@@ -17,12 +21,13 @@ export class HomeComponent implements OnInit {
   promo: HomePromo | undefined;
   videoRelease: FeaturedVideo | undefined;
   home$: Observable<Home> | undefined;
-
+  seo$: Observable<SEOApi> | undefined;
 
   constructor(private store: Store<AppState>, private setMeta: SetMetaTag) {}
 
   getFromStore() {
     this.home$ = this.store.pipe(select(getHomeSelector));
+    this.seo$ = this.store.pipe(select(getSEOSelector));
   }
 
   mapVideoRelease(video: Home['video_release']) {
@@ -49,6 +54,10 @@ export class HomeComponent implements OnInit {
     this.home$?.subscribe((data) => {
       this.getShowVideo(data);
       this.promo = data.promo;
+    });
+
+    this.seo$?.subscribe((data) => {
+      this.setMeta.updateTags(data.description, data.tags);
     });
   }
 }

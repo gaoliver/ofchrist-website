@@ -52,12 +52,12 @@ export class AboutComponent implements OnInit {
 
   mapSubpages({ members, our_story }: { our_story: string; members: string }) {
     const submenu = pageRoutes.find(
-      (p) => p.data.label?.toLocaleLowerCase() === 'a banda'
-    )?.data.submenu;
+      (p) => (p.title! as string).toLowerCase() === 'a banda'
+    )?.data?.submenu;
 
     if (submenu) {
       const mappedSubPages: FeaturedBanner[] = submenu.subpages.map((page) => ({
-        title: page.label,
+        title: page.title,
         href: page.slug,
         imageUrl: page.id.match('our_story') ? our_story : members,
       }));
@@ -72,6 +72,6 @@ export class AboutComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.updatePageTitle()
+    this.updatePageTitle();
   }
 }
