@@ -1,10 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { TimelineItem } from '@src/app/@types/types';
-import {
-  dateFormat,
-  fullDateFormat,
-  fullDateNumbersFormat,
-} from '@src/app/utils/dateFormat';
+import { dateFormat } from '@src/app/utils/dateFormat';
 import { dateSort } from '@src/app/utils/dateSort';
 import { AboutService } from '@src/store/about/about.service';
 
@@ -27,7 +23,7 @@ export class TimelineComponent implements OnInit {
       const year = new Date(item.date).getFullYear().toString();
       const timelineGroup = groupedByYear.find((group) => group.year === year);
 
-      const formattedItem = {...item, date: dateFormat(item.date)}
+      const formattedItem = { ...item, date: dateFormat(item.date) };
 
       if (!timelineGroup) {
         groupedByYear.push({
