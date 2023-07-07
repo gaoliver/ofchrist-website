@@ -14,6 +14,7 @@ import { SongDetailsComponent } from './pages/song-details/song-details.componen
 import { VideosComponent } from './pages/videos/videos.component';
 import { NewsContentComponent } from './pages/news-content/news-content.component';
 import { TimelineComponent } from './pages/timeline/timeline.component';
+import { NotFoundComponent } from './pages/not-found/not-found.component';
 
 export interface Subpage {
   id: string;
@@ -100,6 +101,7 @@ export const pageRoutes: Array<RoutesWithSubmenu> = [
 ];
 
 const routes: Routes = [
+  ...pageRoutes,
   {
     path: '',
     component: HomeComponent,
@@ -141,7 +143,10 @@ const routes: Routes = [
     path: 'news/:slug',
     component: NewsContentComponent,
   },
-  ...pageRoutes,
+  {
+    path: '**',
+    component: NotFoundComponent,
+  },
 ];
 
 @NgModule({

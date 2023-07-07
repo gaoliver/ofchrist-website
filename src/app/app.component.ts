@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { MatIconRegistry } from '@angular/material/icon';
 import { DomSanitizer } from '@angular/platform-browser';
 import { env } from '@src/environments/environment';
-import { Icons, News } from './components/@types/types';
+import { Icons } from './components/@types/types';
 import { HomeService } from '@src/store/home/home.service';
 import { Home } from './@types/types';
 import { Store, select } from '@ngrx/store';
@@ -14,8 +14,6 @@ import {
 } from '@src/store/home/home.actions';
 import { SEOApi } from './@types/contentful';
 import { Observable } from 'rxjs';
-import { getHomeSelector } from '@src/store/home/home.selectors';
-import { getNewsSelector } from '@src/store/news/news.selectors';
 import { getAppLoader } from '@src/store/app.selectors';
 @Component({
   selector: 'app-root',

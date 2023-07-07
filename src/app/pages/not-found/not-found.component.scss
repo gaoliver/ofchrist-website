@@ -1,0 +1,14 @@
+.not-found-content {
+  margin-top: 100px;
+
+  ::ng-deep {
+    .inner-content {
+      align-items: center;
+    }
+  }
+}
+
+.not-found-button {
+  margin: 0 auto;
+  width: fit-content;
+}

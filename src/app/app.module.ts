@@ -41,6 +41,7 @@ import { appReducer } from '@src/store/app.state';
 import { TimelineComponent } from './pages/timeline/timeline.component';
 import { LoadingScreenComponent } from './components/organism/loading-screen/loading-screen.component';
 import { LoaderComponent } from './components/atoms/loader/loader.component';
+import { NotFoundComponent } from './pages/not-found/not-found.component';
 
 @NgModule({
   declarations: [
@@ -76,6 +77,7 @@ import { LoaderComponent } from './components/atoms/loader/loader.component';
     TimelineComponent,
     LoadingScreenComponent,
     LoaderComponent,
+    NotFoundComponent,
   ],
   imports: [
     BrowserModule,
