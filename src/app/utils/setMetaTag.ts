@@ -36,4 +36,11 @@ export class SetMetaTag {
       content: keywords.join(', '),
     });
   }
+
+  public updateOgImage(image: string) {
+    this.metaService.updateTag({
+      property: 'og:image',
+      content: 'https:' + image,
+    });
+  }
 }

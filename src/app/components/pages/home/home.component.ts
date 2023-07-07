@@ -58,6 +58,8 @@ export class HomeComponent implements OnInit {
 
     this.seo$?.subscribe((data) => {
       this.setMeta.updateTags(data.description, data.tags);
+
+      this.setMeta.updateOgImage(data.share_image.fields.file.url);
     });
   }
 }

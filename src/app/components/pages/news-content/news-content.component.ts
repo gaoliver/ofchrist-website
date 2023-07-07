@@ -36,6 +36,7 @@ export class NewsContentComponent implements OnInit {
           if (news.slug === newsSlug) {
             newsFound = { ...news, date: fullDateFormat(news.date) };
             this.setMeta.updateTitle(news.title);
+            this.setMeta.updateOgImage(news.imageUrl)
           }
         })
       );
@@ -44,6 +45,7 @@ export class NewsContentComponent implements OnInit {
         this.contentful.getNewsService(newsSlug).then((data) => {
           this.news = { ...data, date: fullDateFormat(data.date) };
           this.setMeta.updateTitle(data.title);
+          this.setMeta.updateOgImage(data.imageUrl)
         });
       }
     }
