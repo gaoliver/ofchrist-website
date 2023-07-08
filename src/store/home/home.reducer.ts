@@ -21,6 +21,8 @@ export const initialState: HomeState = {
     background: '',
     social_networks: [],
     streaming: [],
+    submenu_about_image: '',
+    submenu_music_image: ''
   },
   seo: {
     title: '',

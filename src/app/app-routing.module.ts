@@ -25,7 +25,7 @@ export interface Subpage {
 type RoutesWithSubmenu = Route & {
   data?: {
     submenu?: {
-      backgroundImage: string;
+      id: string;
       subpages: Array<Subpage>;
     };
   };
@@ -48,8 +48,7 @@ export const pageRoutes: Array<RoutesWithSubmenu> = [
     component: AboutComponent,
     data: {
       submenu: {
-        backgroundImage:
-          'https://i.scdn.co/image/160cc9b5106d51d061663f314846428e3d9e16f5',
+        id: 'about',
         subpages: [
           {
             id: 'our_story',
@@ -71,8 +70,7 @@ export const pageRoutes: Array<RoutesWithSubmenu> = [
     component: MusicComponent,
     data: {
       submenu: {
-        backgroundImage:
-          'https://media.istockphoto.com/id/502088147/photo/nothing-beats-live-music.jpg?s=612x612&w=0&k=20&c=N0RrfR0z1P1Q0DUCJIcEBFV8yxT6xF-wQilMv00O7kA=',
+        id: 'music',
         subpages: [
           {
             id: 'lyrics',

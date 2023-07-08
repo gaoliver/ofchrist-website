@@ -65,7 +65,7 @@ export interface AboutApi {
   our_story: Document;
   contact: Document;
   our_story_image: FileApi;
-  members_image: FileApi;
+  timeline_image: FileApi;
 }
 
 export interface VideoApi {
@@ -108,6 +108,8 @@ export interface HomeApi {
   background_video: FileApi;
   video_release?: { fields: VideoApi };
   promo?: PromoApi;
+  submenu_about_image: FileApi;
+  submenu_music_image: FileApi;
 }
 
 export interface SEOApi {

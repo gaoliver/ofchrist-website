@@ -22,6 +22,8 @@ export class HomeService {
     const resHomeFields = homeResponse.items[0].fields as unknown as HomeApi;
     const resSEOFields = seoResponse.items[0].fields as unknown as SEOApi;
 
+    console.log(resHomeFields)
+
     home_home = {
       ...resHomeFields,
       logoUrl: resHomeFields.logo.fields.file.url,
@@ -30,6 +32,8 @@ export class HomeService {
       streaming: resHomeFields.streaming.map((s) => s.fields),
       background_video: resHomeFields.background_video.fields.file.url,
       video_release: resHomeFields.video_release?.fields,
+      submenu_about_image: resHomeFields.submenu_about_image.fields.file.url,
+      submenu_music_image: resHomeFields.submenu_music_image.fields.file.url,
       promo: resHomeFields.promo && {
         cta: resHomeFields.promo?.fields.cta?.fields,
         name: resHomeFields.promo?.fields.title!,

@@ -14,11 +14,15 @@ import { env } from 'src/environments/environment';
   styleUrls: ['./header.component.scss'],
 })
 export class HeaderComponent implements OnInit {
-  // logoImage = `${env.baseUrl}/assets/images/ofchrist-logo.png`;
   home$: Observable<Home> | undefined;
   logoImage: string | undefined;
   pageList = pageRoutes;
   isMobile: boolean | undefined;
+
+  submenuImages: { [key: string]: string } = {
+    about: '',
+    music: '',
+  };
 
   // Temporary variable - must delete later
   baseUrl = env.baseUrl;
@@ -36,10 +40,20 @@ export class HeaderComponent implements OnInit {
     menu?.classList.add('active-menu');
   }
 
+  getSubmenuImages(home: Home) {
+    this.submenuImages = {
+      about: home.submenu_about_image,
+      music: home.submenu_music_image,
+    };
+  }
+
   ngOnInit() {
     const header = document.getElementById('app-header');
 
-    this.home$?.subscribe((home) => (this.logoImage = home.logoUrl));
+    this.home$?.subscribe((home) => {
+      this.logoImage = home.logoUrl;
+      this.getSubmenuImages(home);
+    });
 
     document.onscroll = function () {
       if (header) {

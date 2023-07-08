@@ -38,7 +38,7 @@ export class AboutComponent implements OnInit {
       this.shortIntro = documentToHtmlString(data.short_description);
       this.mapSubpages({
         our_story: data.our_story_image.fields.file.url,
-        members: data.members_image.fields.file.url,
+        members: data.timeline_image.fields.file.url,
       });
     });
 

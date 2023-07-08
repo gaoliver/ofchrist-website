@@ -49,6 +49,8 @@ export interface Home {
   background_video?: string;
   video_release?: VideoApi;
   promo?: HomePromo;
+  submenu_about_image: string;
+  submenu_music_image: string;
 }
 
 export interface TimelineItem {

@@ -16,7 +16,7 @@
         <a class="navigation-item-label" [href]="page.path">{{ page.title }}</a>
         <ul class="subnav" *ngIf="page.data?.submenu">
           <img
-            [src]="page.data?.submenu?.backgroundImage"
+            [src]="submenuImages[page.data?.submenu?.id!] || ''"
             alt="background submenu"
             class="submenu-background-img"
           />
