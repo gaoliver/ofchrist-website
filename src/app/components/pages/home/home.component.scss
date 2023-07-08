@@ -1,27 +1,5 @@
 @import "../../../../mixins.scss";
 
-@keyframes backgroundAnimation {
-  from {
-    opacity: 0;
-  }
-
-  to {
-    opacity: 0.8;
-  }
-}
-
-@keyframes videoMovementAnimation {
-  from {
-    object-position: 0 0;
-  }
-  50% {
-    object-position: 100% 0;
-  }
-  to {
-    object-position: 0 0;
-  }
-}
-
 :host {
   display: flex;
   flex: 1;
@@ -38,9 +16,10 @@
   filter: contrast(1.2) grayscale(0.8);
   opacity: 0;
   animation: backgroundAnimation 5s forwards;
+  -webkit-animation: backgroundAnimation 5s forwards;
 
   @include screen-mobile-and-smaller {
-    animation: backgroundAnimation 5s forwards, videoMovementAnimation 5s alternate infinite;
+    object-position: unset;
   }
 }
 
@@ -134,5 +113,26 @@
         min-width: 200px;
       }
     }
+  }
+}
+
+// Background animation
+@keyframes backgroundAnimation {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 0.8;
+  }
+}
+
+@-webkit-keyframes backgroundAnimation {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 0.8;
   }
 }

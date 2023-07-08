@@ -22,8 +22,6 @@ export class HomeService {
     const resHomeFields = homeResponse.items[0].fields as unknown as HomeApi;
     const resSEOFields = seoResponse.items[0].fields as unknown as SEOApi;
 
-    console.log(resHomeFields)
-
     home_home = {
       ...resHomeFields,
       logoUrl: resHomeFields.logo.fields.file.url,
