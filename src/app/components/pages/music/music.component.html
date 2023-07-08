@@ -23,7 +23,7 @@
     <ul
       app-featured-tiles
       [talesList]="albums"
-      [nOfTales]="isMobile ? 1 : isTablet ? 2 : 3"
+      [nOfTales]="isMobile || isTablet ? 2 : 3"
       class="albums-list"
     ></ul>
   </section>
