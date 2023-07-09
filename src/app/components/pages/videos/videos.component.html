@@ -6,9 +6,20 @@
     [videoUrl]="featuredVideo.url"
     [title]="featuredVideo.title"
     [streaming]="featuredVideo.streaming"
-    [isMusicVideo]="true"
+    [isMusicVideo]="!!featuredVideo.streaming?.length"
     class="featured-video"
   >
+    <div class="featured-video-content-wrapper">
+      <div
+        class="featured-video-content"
+        [innerHTML]="featuredVideo.content"
+      ></div>
+      <div class="featured-video-content-cta">
+        <a href="{{ featuredVideo.cta?.href }}" app-button>{{
+          featuredVideo.cta?.label
+        }}</a>
+      </div>
+    </div>
   </app-featured-video>
 
   <ul class="videos-gallery" *ngIf="videoList">

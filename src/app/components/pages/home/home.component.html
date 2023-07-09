@@ -33,7 +33,19 @@
     [videoUrl]="videoRelease.url"
     [title]="videoRelease.title"
     [streaming]="videoRelease.streaming"
-    [isMusicVideo]="true"
+    [isMusicVideo]="!!videoRelease.streaming?.length"
     class="home-featured-video"
-  ></app-featured-video>
+  >
+    <div class="featured-video-content-wrapper">
+      <div
+        class="featured-video-content"
+        [innerHTML]="videoRelease.content"
+      ></div>
+      <div class="featured-video-content-cta">
+        <a href="{{ videoRelease.cta?.href }}" app-button>{{
+          videoRelease.cta?.label
+        }}</a>
+      </div>
+    </div></app-featured-video
+  >
 </div>

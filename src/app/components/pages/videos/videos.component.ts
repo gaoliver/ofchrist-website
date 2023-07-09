@@ -21,9 +21,9 @@ export class VideosComponent implements OnInit {
     private setMeta: SetMetaTag
   ) {
     this.contentful.getVideosService().then((list) => {
-      this.videoList = list.filter((v) => v.type === 'Clipe');
+      this.videoList = list;
 
-      const featuredVideo = list.find((v) => v.featured && v.type === 'Clipe');
+      const featuredVideo = list.find((v) => v.featured);
 
       if (featuredVideo) {
         this.featuredVideo = mapFeatureVideo(featuredVideo);

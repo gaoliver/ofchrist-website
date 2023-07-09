@@ -52,7 +52,7 @@ export interface FeaturedVideo {
   url: string;
   streaming?: Array<SocialNetwork>;
   cta?: CtaApi['fields'];
-  content?: Document;
+  content?: string;
 }
 
 export interface SidebarAd {

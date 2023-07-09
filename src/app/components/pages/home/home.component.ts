@@ -1,9 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { Title } from '@angular/platform-browser';
+import { documentToHtmlString } from '@contentful/rich-text-html-renderer';
 import { Store, select } from '@ngrx/store';
 import { SEOApi } from '@src/app/@types/contentful';
 import { Home, HomePromo } from '@src/app/@types/types';
 import { FeaturedVideo } from '@src/app/components/@types/types';
+import { mapFeatureVideo } from '@src/app/utils/mapFeaturedVideo';
 import { SetMetaTag } from '@src/app/utils/setMetaTag';
 import { AppState } from '@src/store/app.state';
 import {
@@ -36,15 +38,7 @@ export class HomeComponent implements OnInit {
   }
 
   mapVideoRelease(video: Home['video_release']) {
-    if (video) {
-      this.videoRelease = {
-        title: video.description,
-        url: video.url,
-        content: video.content,
-        streaming: video.streaming?.map((s) => s.fields),
-        cta: video.cta?.fields,
-      };
-    }
+    if (video) this.videoRelease = mapFeatureVideo(video);
   }
 
   getShowVideo(home: Home) {
