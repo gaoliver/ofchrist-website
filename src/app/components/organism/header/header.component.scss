@@ -92,6 +92,10 @@
   @include screen-tablet-and-smaller {
     font-size: smaller;
   }
+
+  @include screen-mobile-and-smaller {
+    display: none;
+  }
 }
 
 .navigation-item-label:hover {
@@ -154,6 +158,7 @@
 }
 
 .main-navigation-mobile {
+  display: none;
   width: 30px;
   height: 30px;
   margin-right: var(--spacing-medium);
@@ -162,7 +167,7 @@
   border: none;
 
   @include screen-mobile-and-smaller {
-    display: block;
+    display: unset;
   }
 }
 

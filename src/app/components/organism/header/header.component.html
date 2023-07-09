@@ -10,7 +10,7 @@
     />
   </div>
 
-  <nav class="main-navigation" role="navigation" *ngIf="!isMobile">
+  <nav class="main-navigation" role="navigation">
     <ul class="navigation">
       <li class="navigation-item" *ngFor="let page of pageList">
         <a class="navigation-item-label" [href]="page.path">{{ page.title }}</a>
@@ -33,7 +33,6 @@
     class="main-navigation-mobile"
     role="button"
     aria-label="drawer-menu"
-    *ngIf="isMobile"
     (click)="openMobileMenu()"
   >
     <div class="mobile-drawer"></div>

@@ -17,14 +17,13 @@ export class HeaderComponent implements OnInit {
   home$: Observable<Home> | undefined;
   logoImage: string | undefined;
   pageList = pageRoutes;
-  isMobile: boolean | undefined;
 
   submenuImages: { [key: string]: string } = {
     about: '',
     music: '',
   };
 
-  // Temporary variable - must delete later
+  // TO DELETE: Temporary variable - must delete later
   baseUrl = env.baseUrl;
 
   constructor(private store: Store<AppState>) {
@@ -61,11 +60,5 @@ export class HeaderComponent implements OnInit {
           header.offsetTop > 50 ? 'var(--color-black)' : 'transparent';
       }
     };
-
-    onresize = () => {
-      this.isMobile = checkIsMobile();
-    };
-
-    this.isMobile = checkIsMobile();
   }
 }
