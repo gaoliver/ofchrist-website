@@ -19,10 +19,11 @@ export const initialState: HomeState = {
     logoUrl: '',
     description: '',
     background: '',
+    background_mobile: '',
     social_networks: [],
     streaming: [],
     submenu_about_image: '',
-    submenu_music_image: ''
+    submenu_music_image: '',
   },
   seo: {
     title: '',

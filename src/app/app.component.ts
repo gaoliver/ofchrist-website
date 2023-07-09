@@ -15,6 +15,7 @@ import {
 import { SEOApi } from './@types/contentful';
 import { Observable } from 'rxjs';
 import { getAppSelector } from '@src/store/app.selectors';
+import { checkIsMobile } from './utils/checkIsMobile';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -24,6 +25,7 @@ export class AppComponent implements OnInit {
   title = 'Of Christ';
   apiLoaded = false;
   isLoading: boolean | undefined;
+  isMobile: boolean | undefined;
 
   app$: Observable<AppState> | undefined;
 
@@ -56,10 +58,12 @@ export class AppComponent implements OnInit {
   storeContentful(data: { home: Home; seo: SEOApi }) {
     this.store.dispatch(getHome());
 
+    this.setBackgroundImage(
+      this.isMobile ? data.home.background_mobile : data.home.background
+    );
+
     this.store.dispatch(getHomeSuccess({ home: data.home }));
     this.store.dispatch(getHomeSEOSuccess({ seo: data.seo }));
-
-    this.setBackgroundImage(data.home.background);
   }
 
   getFavicon(seo: SEOApi) {
@@ -69,6 +73,8 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.isMobile = checkIsMobile();
+
     if (!this.apiLoaded) {
       const tag = document.createElement('script');
       tag.src = 'https://www.youtube.com/iframe_api';
@@ -92,6 +98,19 @@ export class AppComponent implements OnInit {
       } else {
         this.isLoading = false;
       }
+    });
+
+    this.app$?.subscribe((app) => {
+      onresize = () => {
+        this.isMobile = checkIsMobile();
+
+        const home = app.home.home;
+        const bgImage = this.isMobile
+          ? home.background_mobile
+          : home.background;
+
+        this.setBackgroundImage(bgImage);
+      };
     });
   }
 }

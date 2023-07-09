@@ -26,6 +26,7 @@ export class HomeService {
       ...resHomeFields,
       logoUrl: resHomeFields.logo.fields.file.url,
       background: resHomeFields.background.fields.file.url,
+      background_mobile: resHomeFields.background_mobile.fields.file.url,
       social_networks: resHomeFields.social_networks.map((s) => s.fields),
       streaming: resHomeFields.streaming.map((s) => s.fields),
       background_video: resHomeFields.background_video.fields.file.url,

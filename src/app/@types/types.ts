@@ -44,6 +44,7 @@ export interface Home {
   logoUrl: string;
   description: string;
   background: string;
+  background_mobile: string;
   social_networks: SocialNetwork[];
   streaming: SocialNetwork[];
   background_video?: string;

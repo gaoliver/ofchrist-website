@@ -103,6 +103,7 @@ export interface HomeApi {
   logo: FileApi;
   description: string;
   background: FileApi;
+  background_mobile: FileApi;
   social_networks: SocialNetworkApi[];
   streaming: SocialNetworkApi[];
   background_video: FileApi;
