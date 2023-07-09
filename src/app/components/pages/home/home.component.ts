@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Title } from '@angular/platform-browser';
 import { Store, select } from '@ngrx/store';
 import { SEOApi } from '@src/app/@types/contentful';
 import { Home, HomePromo } from '@src/app/@types/types';
@@ -23,7 +24,11 @@ export class HomeComponent implements OnInit {
   home$: Observable<Home> | undefined;
   seo$: Observable<SEOApi> | undefined;
 
-  constructor(private store: Store<AppState>, private setMeta: SetMetaTag) {}
+  constructor(
+    private store: Store<AppState>,
+    private setMeta: SetMetaTag,
+    private titleService: Title
+  ) {}
 
   getFromStore() {
     this.home$ = this.store.pipe(select(getHomeSelector));
@@ -58,8 +63,9 @@ export class HomeComponent implements OnInit {
 
     this.seo$?.subscribe((data) => {
       this.setMeta.updateTags(data.description, data.tags);
-
       this.setMeta.updateOgImage(data.share_image.fields.file.url);
+
+      this.titleService.setTitle(data.title);
     });
   }
 }

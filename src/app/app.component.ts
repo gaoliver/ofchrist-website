@@ -22,7 +22,6 @@ import { checkIsMobile } from './utils/checkIsMobile';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent implements OnInit {
-  title = 'Of Christ';
   apiLoaded = false;
   isLoading: boolean | undefined;
   isMobile: boolean | undefined;
@@ -88,19 +87,17 @@ export class AppComponent implements OnInit {
     });
 
     // Loading event
-    this.app$?.subscribe((state) => {
+    this.app$?.subscribe((app) => {
       if (
-        state.home.status === 'loading' ||
-        state.music.status === 'loading' ||
-        state.news.status === 'loading'
+        app.home.status === 'loading' ||
+        app.music.status === 'loading' ||
+        app.news.status === 'loading'
       ) {
         this.isLoading = true;
       } else {
         this.isLoading = false;
       }
-    });
 
-    this.app$?.subscribe((app) => {
       onresize = () => {
         this.isMobile = checkIsMobile();
 
