@@ -19,7 +19,7 @@ export class FooterComponent implements OnInit {
 
   footerLink: Link | undefined = {
     label: 'Desenvolvido por Gabriel Ramos',
-    href: 'https://gaoliver.github.io/',
+    href: 'https://gabrielramos.app/',
     target: '_blank',
   };
 
